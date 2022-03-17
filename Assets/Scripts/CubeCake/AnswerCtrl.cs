@@ -15,7 +15,7 @@ public class AnswerCtrl : MonoBehaviour
     //버튼 리스트(오앞위왼)
     public List<Button> ButtonList = new List<Button>();
     //틀렸을 때 가려지는 회색 이미지 리스트(오앞위왼)
-    public List<Image> NoneList = new List<Image>();
+    public GameObject[] NoneList;
 
     //카메라 위치 리스트(카메라 위치 랜덤 설정 할 때 사용)
     public List<Rect> RectList = new List<Rect>() {
@@ -83,6 +83,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no.SetActive(true);
                     black_screen.SetActive(true);
+                    NoneList[0].SetActive(true);
+                    ButtonList[0].interactable = false;
                 }
             }
         }
@@ -102,6 +104,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no.SetActive(true);
                     black_screen.SetActive(true);
+                    NoneList[1].SetActive(true);
+                    ButtonList[1].interactable = false;
                 }
             }
         }
@@ -121,6 +125,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no.SetActive(true);
                     black_screen.SetActive(true);
+                    NoneList[2].SetActive(true);
+                    ButtonList[2].interactable = false;
                 }
             }
         }
@@ -140,6 +146,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no.SetActive(true);
                     black_screen.SetActive(true);
+                    NoneList[3].SetActive(true);
+                    ButtonList[3].interactable = false;
                 }
             }
         }
