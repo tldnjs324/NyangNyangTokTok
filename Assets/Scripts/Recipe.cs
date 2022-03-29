@@ -16,7 +16,6 @@ public class Recipe : MonoBehaviour
     public string[] iceVanillaLatte = { "얼음", "우유", "커피머신", "샷", "바닐라시럽" };
     public string[] hotCafeMocha = { "우유", "초코시럽", "커피머신", "샷", "휘핑", "초코시럽" };
     public string[] iceCafeMocha = { "얼음", "우유", "초코시럽", "커피머신", "샷", "휘핑", "초코시럽" };
-    //다른메뉴도 추가
 
     public List<string> _list = new List<string>();
     int i = 0;
@@ -35,7 +34,7 @@ public class Recipe : MonoBehaviour
 
     void Start()
     {
-        ClickedRecipe = ""; 
+        ClickedRecipe = "";
     }
 
     public void RecipeClickedBtn()
@@ -274,7 +273,7 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "IceCafeMocha") //아이스카페모카
         {
-            if (_list[i] == iceCafeMocha[i]) 
+            if (_list[i] == iceCafeMocha[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
@@ -312,7 +311,7 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "HotCafeMocha") //따뜻한카페모카
         {
-            if (_list[i] == hotCafeMocha[i]) 
+            if (_list[i] == hotCafeMocha[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
