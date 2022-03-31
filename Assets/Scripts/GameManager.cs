@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private int level3_random;
     private string[] level3_Coffee_menu = { "따뜻한 아메리카노", "아이스 아메리카노", "따뜻한 카페라떼", "아이스 카페라떼", "따뜻한 바닐라라떼", "아이스 바닐라라떼" };
     private string[] level3_Coffee_menu_1 = { "따뜻한 아메리카노", "아이스 아메리카노", "따뜻한 카페라떼", "아이스 카페라떼", "아이스 바닐라라떼" };
-    private string[] level3_Toast_menu = { "기본 토스트", "초코 토스트", "딸기 토스트", "블루베리 토스트", "딸기 블루베리 토스트" };
+    private string[] level3_Toast_menu = { "기본 토스트", "초코 토스트", "딸기 토스트", "블루베리 토스트", "딸기 초코 토스트" };
     private string[] level3_Cube_menu = { "4구 큐브케이크", "5구 큐브케이크", "6구 큐브케이크" };
     int randomCoffee3;
     int randomCoffee3_1;
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     //4단계용 메뉴 목록 
     private int level4_random;
     private string[] level4_Coffee_menu = { "따뜻한 아메리카노", "아이스 아메리카노", "따뜻한 카페라떼", "아이스 카페라떼", "따뜻한 바닐라라떼", "아이스 바닐라라떼", "따뜻한 카페모카" };
-    private string[] level4_Toast_menu = { "딸기 토스트", "블루베리 토스트", "딸기 블루베리 토스트" };
+    private string[] level4_Toast_menu = { "딸기 토스트", "블루베리 토스트", "딸기 초코 토스트" };
     private string[] level4_Cube_menu = { "5구 큐브케이크", "6구 큐브케이크", "7구 큐브케이크" };
     int randomCoffee4;
     int randomCoffee4_1;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     private int level5_random;
     private string[] level5_Coffee_menu = { "따뜻한 아메리카노", "아이스 아메리카노", "따뜻한 카페라떼", "아이스 카페라떼", "따뜻한 바닐라라떼", "아이스 카페모카", "아이스 바닐라라떼", "따뜻한 카페모카" };
     private string[] level5_Coffee_menu_1 = { "따뜻한 아메리카노", "아이스 아메리카노", "따뜻한 카페라떼", "아이스 카페라떼", "따뜻한 바닐라라떼",  "아이스 바닐라라떼", "따뜻한 카페모카", "아이스 카페모카"};
-    private string[] level5_Toast_menu = { "딸기 토스트", "블루베리 토스트", "딸기 블루베리 토스트", "냥냥 토스트" };
+    private string[] level5_Toast_menu = { "딸기 토스트", "블루베리 토스트", "딸기 초코 토스트", "냥냥 토스트" };
     private string[] level5_Cube_menu = { "5구 큐브케이크", "6구 큐브케이크", "7구 큐브케이크", "8구 큐브케이크" };
     int randomCoffee5;
     int randomCoffee5_1;

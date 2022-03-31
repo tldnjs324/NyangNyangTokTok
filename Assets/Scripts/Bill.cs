@@ -149,7 +149,7 @@ public class Bill : MonoBehaviour
             case "블루베리 토스트":
                 menu_price = "2500";
                 break;
-            case "딸기 블루베리 토스트":
+            case "딸기 초코 토스트":
                 menu_price = "2700";
                 break;
             case "냥냥 토스트":
