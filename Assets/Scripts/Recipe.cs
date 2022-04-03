@@ -20,6 +20,7 @@ public class Recipe : MonoBehaviour
     public List<string> _list = new List<string>();
     int i = 0;
     int wrongCnt = 0;
+    int cnt = 0;
     //int time = 5; //원래 20초
 
     public Image img;
@@ -30,7 +31,9 @@ public class Recipe : MonoBehaviour
     public GameObject popupWrong;
     public GameObject popupHelp;
     public GameObject popupBoss;
+
     public GameObject coffeeShot;
+    public GameObject choco_img;
 
     void Start()
     {
@@ -45,16 +48,13 @@ public class Recipe : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "HotAmericano") //따뜻한아메리카노
         {
+            cnt = 3;
             if (_list[i] == hotAmericano[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 3)
-                {
-                    popupCorrect.SetActive(true);
-                }
                 if (i == 2)
                 {
                     coffeeShot.SetActive(true); //샷 생성
@@ -83,16 +83,13 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "IceAmericano") //아이스아메리카노
         {
+            cnt = 4;
             if (_list[i] == iceAmericano[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 4)
-                {
-                    popupCorrect.SetActive(true);
-                }
                 if (i == 3)
                 {
                     coffeeShot.SetActive(true); //샷 생성
@@ -121,16 +118,13 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "HotLatte") //따뜻한라떼
         {
+            cnt = 3;
             if (_list[i] == hotLatte[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 3)
-                {
-                    popupCorrect.SetActive(true);
-                }
                 if (i == 2)
                 {
                     coffeeShot.SetActive(true); //샷 생성
@@ -159,16 +153,13 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "IceLatte") //아이스라떼
         {
+            cnt = 4;
             if (_list[i] == iceLatte[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 4)
-                {
-                    popupCorrect.SetActive(true);
-                }
                 if (i == 3)
                 {
                     coffeeShot.SetActive(true); //샷 생성
@@ -197,16 +188,13 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "HotVanillaLatte") //따뜻한바닐라라떼
         {
+            cnt = 4;
             if (_list[i] == hotVanillaLatte[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 4)
-                {
-                    popupCorrect.SetActive(true);
-                }
                 if (i == 2)
                 {
                     coffeeShot.SetActive(true); //샷 생성
@@ -235,16 +223,13 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "IceVanillaLatte") //아이스바닐라라떼
         {
+            cnt = 5;
             if (_list[i] == iceVanillaLatte[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 5)
-                {
-                    popupCorrect.SetActive(true);
-                }
                 if (i == 3)
                 {
                     coffeeShot.SetActive(true); //샷 생성
@@ -273,19 +258,21 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "IceCafeMocha") //아이스카페모카
         {
+            cnt = 7;
             if (_list[i] == iceCafeMocha[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 7)
+                if (i == 3)
                 {
-                    popupCorrect.SetActive(true);
+                    choco_img.SetActive(true); //초코시럽 생성
                 }
                 if (i == 4)
                 {
                     coffeeShot.SetActive(true); //샷 생성
+                    choco_img.SetActive(false);
                 }
             }
             else
@@ -311,19 +298,21 @@ public class Recipe : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "HotCafeMocha") //따뜻한카페모카
         {
+            cnt = 6;
             if (_list[i] == hotCafeMocha[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 6)
+                if (i == 2)
                 {
-                    popupCorrect.SetActive(true);
+                    choco_img.SetActive(true); //초코시럽 생성
                 }
                 if (i == 3)
                 {
                     coffeeShot.SetActive(true); //샷 생성
+                    choco_img.SetActive(false);
                 }
             }
             else
@@ -355,5 +344,16 @@ public class Recipe : MonoBehaviour
     {
         popupHelp.SetActive(true);
         hintArrows[0].SetActive(false);
+    }
+    public void Confirm_Click()
+    {
+        if (i != 0 && i == cnt)
+        {
+            popupCorrect.SetActive(true);
+        }
+        else
+        {
+            popupWrong.SetActive(true);
+        }
     }
 }
