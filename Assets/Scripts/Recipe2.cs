@@ -12,12 +12,13 @@ public class Recipe2 : MonoBehaviour
     public string[] chocoToast = { "식빵", "토스트기", "초코시럽"};
     public string[] strawberryToast = { "식빵", "토스트기", "딸기잼", "딸기" };
     public string[] blueberryToast = { "식빵", "토스트기", "블루베리잼", "블루베리" };
-    public string[] strawblueToast = { "식빵", "토스트기", "블루베리잼", "딸기" };
+    public string[] strawberryChocoToast = { "식빵", "토스트기", "초코시럽", "딸기" };
     public string[] nyangnyangToast = { "식빵", "토스트기", "딸기잼", "블루베리", "초코시럽" };
 
     public List<string> _list = new List<string>();
     int i = 0;
     int wrongCnt = 0;
+    int cnt = 0;
     //int time = 5; //원래 20초
 
     public Image img;
@@ -44,6 +45,7 @@ public class Recipe2 : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "BasicToast") //기본토스트
         {
+            cnt = 2;
             if (_list[i] == basicToast[i])
             {
                 if (i > 0)
@@ -53,10 +55,7 @@ public class Recipe2 : MonoBehaviour
                 i++;
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
-                if (i == 2)
-                {
-                    popupCorrect.SetActive(true);
-                }
+
                 if (i == 1)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite;
@@ -84,14 +83,221 @@ public class Recipe2 : MonoBehaviour
                 }
             }
         }
+        if (SceneManager.GetActiveScene().name == "ChocoToast") //초코토스트
+        {
+            cnt = 3;
+            if (_list[i] == chocoToast[i])
+            {
+                if (i > 0)
+                {
+                    img.sprite = sprites[i - 1]; //이미지 변경
+                }
+                i++;
+                hintArrows[i].SetActive(false);
+                wrongCnt = 0;
 
+                if (i == 1)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+            }
+            else
+            {
+                _list.RemoveAt(i);
+                wrongCnt++;
+                hintArrows[0].SetActive(false);
+                if (wrongCnt == 1)
+                {
+                    popupWrong.SetActive(true);
+                }
+                else if (wrongCnt == 2)
+                {
+                    popupWrong.SetActive(true);
+                    hintArrows[0].SetActive(true); //도움말힌트강조
+                }
+                else if (wrongCnt == 3)
+                {
+                    popupBoss.SetActive(true);
+                    hintArrows[i + 1].SetActive(true); //재료를 알려줌
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "StrawberryToast") //딸기토스트
+        {
+            cnt = 4;
+            if (_list[i] == strawberryToast[i])
+            {
+                if (i > 0)
+                {
+                    img.sprite = sprites[i - 1]; //이미지 변경
+                }
+                i++;
+                hintArrows[i].SetActive(false);
+                wrongCnt = 0;
 
+                if (i == 1)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+            }
+            else
+            {
+                _list.RemoveAt(i);
+                wrongCnt++;
+                hintArrows[0].SetActive(false);
+                if (wrongCnt == 1)
+                {
+                    popupWrong.SetActive(true);
+                }
+                else if (wrongCnt == 2)
+                {
+                    popupWrong.SetActive(true);
+                    hintArrows[0].SetActive(true); //도움말힌트강조
+                }
+                else if (wrongCnt == 3)
+                {
+                    popupBoss.SetActive(true);
+                    hintArrows[i + 1].SetActive(true); //재료를 알려줌
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "BlueberryToast") //블루베리토스트
+        {
+            cnt = 4;
+            if (_list[i] == blueberryToast[i])
+            {
+                if (i > 0)
+                {
+                    img.sprite = sprites[i - 1]; //이미지 변경
+                }
+                i++;
+                hintArrows[i].SetActive(false);
+                wrongCnt = 0;
 
+                if (i == 1)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+            }
+            else
+            {
+                _list.RemoveAt(i);
+                wrongCnt++;
+                hintArrows[0].SetActive(false);
+                if (wrongCnt == 1)
+                {
+                    popupWrong.SetActive(true);
+                }
+                else if (wrongCnt == 2)
+                {
+                    popupWrong.SetActive(true);
+                    hintArrows[0].SetActive(true); //도움말힌트강조
+                }
+                else if (wrongCnt == 3)
+                {
+                    popupBoss.SetActive(true);
+                    hintArrows[i + 1].SetActive(true); //재료를 알려줌
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "StrawberryChocoToast") //딸기초코토스트
+        {
+            cnt = 4;
+            if (_list[i] == strawberryChocoToast[i])
+            {
+                if (i > 0)
+                {
+                    img.sprite = sprites[i - 1]; //이미지 변경
+                }
+                i++;
+                hintArrows[i].SetActive(false);
+                wrongCnt = 0;
 
+                if (i == 1)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+            }
+            else
+            {
+                _list.RemoveAt(i);
+                wrongCnt++;
+                hintArrows[0].SetActive(false);
+                if (wrongCnt == 1)
+                {
+                    popupWrong.SetActive(true);
+                }
+                else if (wrongCnt == 2)
+                {
+                    popupWrong.SetActive(true);
+                    hintArrows[0].SetActive(true); //도움말힌트강조
+                }
+                else if (wrongCnt == 3)
+                {
+                    popupBoss.SetActive(true);
+                    hintArrows[i + 1].SetActive(true); //재료를 알려줌
+                }
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "NyangNyangToast") //냥냥토스트
+        {
+            cnt = 5;
+            if (_list[i] == nyangnyangToast[i])
+            {
+                if (i > 0)
+                {
+                    img.sprite = sprites[i - 1]; //이미지 변경
+                }
+                i++;
+                hintArrows[i].SetActive(false);
+                wrongCnt = 0;
+
+                if (i == 1)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+            }
+            else
+            {
+                _list.RemoveAt(i);
+                wrongCnt++;
+                hintArrows[0].SetActive(false);
+                if (wrongCnt == 1)
+                {
+                    popupWrong.SetActive(true);
+                }
+                else if (wrongCnt == 2)
+                {
+                    popupWrong.SetActive(true);
+                    hintArrows[0].SetActive(true); //도움말힌트강조
+                }
+                else if (wrongCnt == 3)
+                {
+                    popupBoss.SetActive(true);
+                    hintArrows[i + 1].SetActive(true); //재료를 알려줌
+                }
+            }
+        }
     }
     public void Help_Click()
     {
         popupHelp.SetActive(true);
         hintArrows[0].SetActive(false);
+    }
+    public void Confirm_Click()
+    {
+        if (i != 0 && i == cnt)
+        {
+            popupCorrect.SetActive(true);
+        }
+        else
+        {
+            popupWrong.SetActive(true);
+        }
     }
 }
