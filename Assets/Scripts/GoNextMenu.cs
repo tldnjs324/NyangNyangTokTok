@@ -24,16 +24,15 @@ public class GoNextMenu : MonoBehaviour
                     {
                         int[] randomList = { i, i + 6 };//큐브는 씬이 2개이기 때문에 랜덤으로 돌리기 위한 리스트
                         int rand = Random.Range(0, 2);
-                        now++;//씬을 이동했으면 현재 만들고 있는 메뉴 번호를 +해준다
-                        SceneManager.LoadScene(randomList[rand + 9]);//씬 번호는 고유번호 + 9 로 설정해뒀다.
+                        SceneManager.LoadScene(randomList[rand]+9);//씬 번호는 고유번호 + 9 로 설정해뒀다.
 
                     }
                     else
                     {
-                        now++;
                         SceneManager.LoadScene(i + 9);
 
                     }
+                    now++;//씬을 이동했으면 현재 만들고 있는 메뉴 번호를 +해준다
                 }
             }
         }
