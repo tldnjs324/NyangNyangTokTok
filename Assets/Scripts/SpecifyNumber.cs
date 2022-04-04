@@ -14,16 +14,6 @@ public class SpecifyNumber : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        for(int i = 0; i<4; i++)
-        {
-            MakingMenu[i] = 20;//20은 없는 고유 번호
-        }
-        for(int i = 0; i < 20; i++)
-        {
-            MenuNumber[i] = false;//메뉴 전부 주문되지 않음으로 초기화
-        }*/
-
         //OrderMenu1 저장
         if (GameManager.OrderMenu1 == "따뜻한 아메리카노")
         {
