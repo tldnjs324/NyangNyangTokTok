@@ -7,10 +7,12 @@ public class GoNextMenu : MonoBehaviour
 {
 
     public int now = 0;//현재 만들고 있는 메뉴가 몇번째 메뉴인지
+    private List<int> num = new List<int>() { 0, 1, 2, 3 };
     //각 씬에서 다음 메뉴 씬으로 넘어가는 함수
     public void MoveNextMenuScene()
     {
-        if (SpecifyNumber.MakingMenu[now] > 19)//만들 메뉴가 고유번호를 받지 못했다면
+        Debug.Log(num[0]);
+        if (SpecifyNumber.MakingMenu[num[0]] > 19)//만들 메뉴가 고유번호를 받지 못했다면
         {
             SceneManager.LoadScene("PickUpScene");//전달하기 화면으로 이동
         }
@@ -18,7 +20,7 @@ public class GoNextMenu : MonoBehaviour
         {
             for (int i = 0; i < 20; i++)//i는 메뉴의 고유번호
             {
-                if (SpecifyNumber.MakingMenu[now] == i)//now+1번째 메뉴가 고유번호 i 메뉴를 받았다면
+                if (SpecifyNumber.MakingMenu[num[0]] == i)//now+1번째 메뉴가 고유번호 i 메뉴를 받았다면
                 {
                     if (i > 13)//14부터 큐브 메뉴 고유번호이다.
                     {
@@ -32,9 +34,15 @@ public class GoNextMenu : MonoBehaviour
                         SceneManager.LoadScene(i + 9);
 
                     }
-                    now++;//씬을 이동했으면 현재 만들고 있는 메뉴 번호를 +해준다
+                    
                 }
             }
+            Debug.Log(num[0]);
+            num.RemoveAt(0);
+            Debug.Log(num[0]);
+            //Debug.Log(now);
+            //now++;//씬을 이동했으면 현재 만들고 있는 메뉴 번호를 +해준다
+            //Debug.Log(now);
         }
     }
 
