@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SpecifyNumber : MonoBehaviour
 {
-    public static int[] MakingMenu = { 20, 20, 20, 20 };//OrderMenu1234를 하나씩 MakingMenu 배열에 메뉴 고유 숫자로 저장
+    //OrderMenu1234를 하나씩 MakingMenu 배열에 메뉴 고유 숫자로 저장(초기화 숫자 20은 없는 고유번호)
+    public static int[] MakingMenu = { 20, 20, 20, 20 };
+    //고유 번호의 메뉴가 주문이 됐는지 안됐는지 여부, 고유 번호는 맨 아래 주석(일단은 모두 안됨으로 초기화)
     public static bool[] MenuNumber = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};//고유 번호의 메뉴가 주문이 됐는지 안됐는지 여부, 고유 번호는 맨 아래 주석
 
 
