@@ -592,6 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 481051899}
   - component: {fileID: 481051898}
+  - component: {fileID: 481051900}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -665,6 +666,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481051900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481051897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e284c385c82a8c4a89d2595e82b4393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  now: 0
 --- !u!1 &499456726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,9 +1880,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 481051898}
-        m_TargetAssemblyTypeName: AnswerCtrl, Assembly-CSharp
-        m_MethodName: NextScene
+      - m_Target: {fileID: 481051900}
+        m_TargetAssemblyTypeName: GoNextMenu, Assembly-CSharp
+        m_MethodName: MoveNextMenuScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
