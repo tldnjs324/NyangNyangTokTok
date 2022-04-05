@@ -7,7 +7,7 @@ public class GoNextMenu : MonoBehaviour
 {
 
     public int now = 0;//현재 만들고 있는 메뉴가 몇번째 메뉴인지
-    private List<int> num = new List<int>() { 0, 1, 2, 3 };
+    public static List<int> num = new List<int>() { 0, 1, 2, 3 };
     //각 씬에서 다음 메뉴 씬으로 넘어가는 함수
     public void MoveNextMenuScene()
     {
