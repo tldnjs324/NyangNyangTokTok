@@ -7,6 +7,7 @@ public class AnswerCtrl : MonoBehaviour
 {
     //질문 어디서 본 모양을 고르세요
     public Text question;
+    public GameObject[] QuestionList;
     //질문 지정을 위한 숫자
     private int random;
 
@@ -19,7 +20,7 @@ public class AnswerCtrl : MonoBehaviour
 
     //카메라 위치 리스트(카메라 위치 랜덤 설정 할 때 사용)
     public List<Rect> RectList = new List<Rect>() {
-        new Rect(0.5f, 0.5f, 0.25f, 0.5f), new Rect(0.5f, 0, 0.25f, 0.5f), new Rect(0.75f, 0, 0.25f, 0.5f), new Rect(0.75f, 0.5f, 0.25f, 0.5f)};
+        new Rect(0.475f, 0.405f, 0.23f, 0.34f), new Rect(0.475f, 0.049f, 0.23f, 0.34f), new Rect(0.71f, 0.049f, 0.23f, 0.34f), new Rect(0.71f, 0.405f, 0.23f, 0.34f)};
 
     //맞았을 시 팝업
     public GameObject sign_yes;
@@ -54,6 +55,7 @@ public class AnswerCtrl : MonoBehaviour
         if(random == 0)
         {
             question.text = "오른쪽에서 본 모양을 고르세요.";
+            QuestionList[0].SetActive(true);
         }else if(random == 1)
         {
             question.text = "앞쪽에서 본 모양을 고르세요.";
