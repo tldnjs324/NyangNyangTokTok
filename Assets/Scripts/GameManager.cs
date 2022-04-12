@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        Invoke("bossShowUp", 1f);
+        Invoke("BossShowUp", 1f);
 
     }
     
@@ -267,18 +267,18 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    void bossShowUp()
+    void BossShowUp()
     {
         boss.SetActive(true);
-        Invoke("bossTalkStart", 1f);
+        Invoke("BossTalkStart", 1f);
     }
-    void bossTalkStart()
+    void BossTalkStart()
     {
         //bossText.text = "좋은 아침입니다~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
         m_text = "좋은 아침입니다~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
         StartCoroutine(_typing());
     }
-    public void showCat()
+    public void ShowCat()
     {
         audioSrc.PlayOneShot(click, 0.5f); 
 
@@ -286,10 +286,10 @@ public class GameManager : MonoBehaviour
         bossPanel.SetActive(false);
         talkPanel.SetActive(true);
         cat1.SetActive(true);
-        Invoke("catTalkStart", 1f); //추후 음성에 맞게 초 수정
+        Invoke("CatTalkStart", 1f); //추후 음성에 맞게 초 수정
     }
 
-    void catTalkStart()
+    void CatTalkStart()
     {
         
 

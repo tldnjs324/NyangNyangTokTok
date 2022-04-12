@@ -39,6 +39,14 @@ public class Recipe : MonoBehaviour
     {
         ClickedRecipe = "";
     }
+    private void Update()
+    {
+        if (i != 0 && i == cnt)
+        {
+            Invoke("Correct", 1.5f);
+            
+        }
+    }
 
     public void RecipeClickedBtn()
     {
@@ -345,15 +353,8 @@ public class Recipe : MonoBehaviour
         popupHelp.SetActive(true);
         hintArrows[0].SetActive(false);
     }
-    public void Confirm_Click()
+    public void Correct()
     {
-        if (i != 0 && i == cnt)
-        {
-            popupCorrect.SetActive(true);
-        }
-        else
-        {
-            popupWrong.SetActive(true);
-        }
+        popupCorrect.SetActive(true);
     }
 }
