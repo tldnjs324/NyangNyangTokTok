@@ -13,7 +13,7 @@ public class Recipe2 : MonoBehaviour
     public string[] strawberryToast = { "식빵", "토스트기", "딸기잼", "딸기" };
     public string[] blueberryToast = { "식빵", "토스트기", "블루베리잼", "블루베리" };
     public string[] strawberryChocoToast = { "식빵", "토스트기", "초코시럽", "딸기" };
-    public string[] nyangnyangToast = { "식빵", "토스트기", "딸기잼", "블루베리", "초코시럽" };
+    public string[] nyangnyangToast = { "식빵", "토스트기", "초코시럽", "블루베리", "딸기" };
 
     public List<string> _list = new List<string>();
     int i = 0;
@@ -35,6 +35,13 @@ public class Recipe2 : MonoBehaviour
     void Start()
     {
         ClickedRecipe = "";
+    }
+    private void Update()
+    {
+        if (i != 0 && i == cnt)
+        {
+            Invoke("Correct", 1.5f);
+        }
     }
 
     public void RecipeClickedBtn()
@@ -289,15 +296,8 @@ public class Recipe2 : MonoBehaviour
         popupHelp.SetActive(true);
         hintArrows[0].SetActive(false);
     }
-    public void Confirm_Click()
+    public void Correct()
     {
-        if (i != 0 && i == cnt)
-        {
-            popupCorrect.SetActive(true);
-        }
-        else
-        {
-            popupWrong.SetActive(true);
-        }
+        popupCorrect.SetActive(true);
     }
 }
