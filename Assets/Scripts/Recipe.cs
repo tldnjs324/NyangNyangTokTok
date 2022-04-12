@@ -67,6 +67,10 @@ public class Recipe : MonoBehaviour
                 {
                     coffeeShot.SetActive(true); //鸡 积己
                 }
+                if (i == 3)
+                {
+                    coffeeShot.SetActive(false);
+                }
             }
             else
             {
@@ -101,6 +105,10 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     coffeeShot.SetActive(true); //鸡 积己
+                }
+                if (i == 4)
+                {
+                    coffeeShot.SetActive(false);
                 }
             }
             else
@@ -137,6 +145,10 @@ public class Recipe : MonoBehaviour
                 {
                     coffeeShot.SetActive(true); //鸡 积己
                 }
+                if (i == 3)
+                {
+                    coffeeShot.SetActive(false);
+                }
             }
             else
             {
@@ -171,6 +183,10 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     coffeeShot.SetActive(true); //鸡 积己
+                }
+                if (i == 4)
+                {
+                    coffeeShot.SetActive(false);
                 }
             }
             else
@@ -207,6 +223,10 @@ public class Recipe : MonoBehaviour
                 {
                     coffeeShot.SetActive(true); //鸡 积己
                 }
+                if (i == 3)
+                {
+                    coffeeShot.SetActive(false);
+                }
             }
             else
             {
@@ -241,6 +261,10 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     coffeeShot.SetActive(true); //鸡 积己
+                }
+                if (i == 4)
+                {
+                    coffeeShot.SetActive(false);
                 }
             }
             else
@@ -282,6 +306,10 @@ public class Recipe : MonoBehaviour
                     coffeeShot.SetActive(true); //鸡 积己
                     choco_img.SetActive(false);
                 }
+                if (i == 5)
+                {
+                    coffeeShot.SetActive(false);
+                }
             }
             else
             {
@@ -321,6 +349,10 @@ public class Recipe : MonoBehaviour
                 {
                     coffeeShot.SetActive(true); //鸡 积己
                     choco_img.SetActive(false);
+                }
+                if (i == 4)
+                {
+                    coffeeShot.SetActive(false);
                 }
             }
             else
