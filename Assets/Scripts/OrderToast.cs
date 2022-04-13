@@ -108,6 +108,11 @@ public class OrderToast : MonoBehaviour
     public void ConfirmMenu()
     {
         audioSrc.PlayOneShot(click, 0.5f);
+        if (_list.Count == 0)
+        {
+            popupWrong.SetActive(true);
+            audioSrc.PlayOneShot(wrong, 0.5f);
+        }
 
         /////////음료+토스트=메뉴 3개
         if (sumCount + GameManager.toastCount == 3)
