@@ -93,6 +93,12 @@ public class OrderCoffee : MonoBehaviour
     {
         audioSrc.PlayOneShot(click, 0.5f);
 
+        if(_list.Count == 0)
+        {
+            popupWrong.SetActive(true);
+            audioSrc.PlayOneShot(wrong, 0.5f);
+        }
+
         if (GameManager.coffeeCount == 1)
         {
 

@@ -19,22 +19,27 @@ public class Recipe2 : MonoBehaviour
     int i = 0;
     int wrongCnt = 0;
     int cnt = 0;
-    //int time = 5; //원래 20초
+    public Text timeCounting;
+    public int time = 20;
 
     public Image img;
     public Sprite[] sprites = new Sprite[4];
     public GameObject btnMachine;
     public Sprite sprite;
+    public Sprite sprite2;
 
     public GameObject[] hintArrows = new GameObject[6];
     public GameObject popupCorrect;
     public GameObject popupWrong;
     public GameObject popupHelp;
     public GameObject popupBoss;
+    public GameObject popupRecipe;
+    public GameObject popupName;
 
     void Start()
     {
         ClickedRecipe = "";
+        
     }
     private void Update()
     {
@@ -42,6 +47,21 @@ public class Recipe2 : MonoBehaviour
         {
             Invoke("Correct", 1.5f);
         }
+    }
+    void PanelStart()
+    {
+        InvokeRepeating("TimeCount", 1f, 1f);
+        Invoke("TimeEnd", 20f);
+    }
+    void TimeCount()
+    {
+        --time;
+        timeCounting.text = time.ToString();
+    }
+    void TimeEnd()
+    {
+        CancelInvoke("TimeCount");
+        popupRecipe.SetActive(false);
     }
 
     public void RecipeClickedBtn()
@@ -67,6 +87,10 @@ public class Recipe2 : MonoBehaviour
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite;
                     //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+                if (i == 2)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite2;
                 }
             }
             else
@@ -108,6 +132,10 @@ public class Recipe2 : MonoBehaviour
                     btnMachine.GetComponent<Image>().sprite = sprite;
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
+                if (i == 2)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
             }
             else
             {
@@ -147,6 +175,10 @@ public class Recipe2 : MonoBehaviour
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite;
                     //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+                if (i == 2)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite2;
                 }
             }
             else
@@ -188,6 +220,10 @@ public class Recipe2 : MonoBehaviour
                     btnMachine.GetComponent<Image>().sprite = sprite;
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
+                if (i == 2)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
             }
             else
             {
@@ -227,6 +263,10 @@ public class Recipe2 : MonoBehaviour
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite;
                     //식빵이 기계에 들어감(버튼 사진 변경)
+                }
+                if (i == 2)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite2;
                 }
             }
             else
@@ -268,6 +308,10 @@ public class Recipe2 : MonoBehaviour
                     btnMachine.GetComponent<Image>().sprite = sprite;
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
+                if (i == 2)
+                {
+                    btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
             }
             else
             {
@@ -290,6 +334,12 @@ public class Recipe2 : MonoBehaviour
                 }
             }
         }
+    }
+    public void Show_Recipe()
+    {
+        popupName.SetActive(false);
+        popupRecipe.SetActive(true);
+        Invoke("PanelStart", 1f);
     }
     public void Help_Click()
     {

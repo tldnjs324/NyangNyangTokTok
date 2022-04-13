@@ -119,6 +119,12 @@ public class OrderCube : MonoBehaviour
     public void ConfirmMenu()
     {
         audioSrc.PlayOneShot(click, 0.5f);
+        if (_list.Count == 0)
+        {
+            popupWrong.SetActive(true);
+            audioSrc.PlayOneShot(wrong, 0.5f);
+        }
+
         ///////¸Ş´º 3°³
         if (GameManager.OrderMenu3.Length > 2 && GameManager.OrderMenu4.Length < 2)
         {

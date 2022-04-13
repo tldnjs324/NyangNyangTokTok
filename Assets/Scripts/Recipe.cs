@@ -21,7 +21,8 @@ public class Recipe : MonoBehaviour
     int i = 0;
     int wrongCnt = 0;
     int cnt = 0;
-    //int time = 5; //¿ø·¡ 20ÃÊ
+    public Text timeCounting;
+    public int time = 20;
 
     public Image img;
     public Sprite[] sprites = new Sprite[7];
@@ -31,6 +32,8 @@ public class Recipe : MonoBehaviour
     public GameObject popupWrong;
     public GameObject popupHelp;
     public GameObject popupBoss;
+    public GameObject popupRecipe;
+    public GameObject popupName;
 
     public GameObject coffeeShot;
     public GameObject choco_img;
@@ -38,14 +41,30 @@ public class Recipe : MonoBehaviour
     void Start()
     {
         ClickedRecipe = "";
+        
+        
     }
     private void Update()
     {
         if (i != 0 && i == cnt)
         {
-            Invoke("Correct", 1.5f);
-            
+            Invoke("Correct", 1.5f);         
         }
+    }
+    void PanelStart()
+    {
+        InvokeRepeating("TimeCount", 1f, 1f);
+        Invoke("TimeEnd", 20f);
+    }
+    void TimeCount()
+    {
+        --time;
+        timeCounting.text = time.ToString();
+    }
+    void TimeEnd()
+    {
+        CancelInvoke("TimeCount");
+        popupRecipe.SetActive(false);
     }
 
     public void RecipeClickedBtn()
@@ -379,6 +398,12 @@ public class Recipe : MonoBehaviour
 
 
 
+    }
+    public void Show_Recipe()
+    {
+        popupName.SetActive(false);
+        popupRecipe.SetActive(true);
+        Invoke("PanelStart", 1f);
     }
     public void Help_Click()
     {
