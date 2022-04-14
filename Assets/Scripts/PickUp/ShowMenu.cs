@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShowMenu : MonoBehaviour
 {
     public GameObject[] Menu;
-    public GameObject[] SelectedMenu;
 
     public List<Vector3> points = new List<Vector3>();
 
@@ -24,10 +23,10 @@ public class ShowMenu : MonoBehaviour
         }
         else//메뉴가 4개일 때
         {
-            points.Add(new Vector3(-6, 0, 0));
-            points.Add(new Vector3(-2, 0, 0));
-            points.Add(new Vector3(2, 0, 0));
-            points.Add(new Vector3(6, 0, 0));
+            points.Add(new Vector3(-6, 0.5f, 0));
+            points.Add(new Vector3(-2, 0.5f, 0));
+            points.Add(new Vector3(2, 0.5f, 0));
+            points.Add(new Vector3(6, 0.5f, 0));
         }
 
         
@@ -51,5 +50,13 @@ public class ShowMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EraseMenu()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            Menu[i].SetActive(false);
+        }
     }
 }
