@@ -119,7 +119,14 @@ public class PickUpManager : MonoBehaviour
 
         if (SpecifyNumber.MakingMenu[0] <= 7)//커피 메뉴를 시켰을 때 
         {
-            p_text += watchout_text[p_coffee_text];
+            if (SpecifyNumber.MakingMenu[0] % 2 == 0 || SpecifyNumber.MakingMenu[1] % 2 == 0)//커피가 뜨거울 때
+            {
+                p_text += watchout_text[p_coffee_text];
+            }
+            else//차가운 커피만 있을 때
+            {
+                p_text += "잔이 미끄러우니 젤리로 꼭 붙드세요!";
+            }
         }
         else//토스트랑 큐브만 있을 때
         {
@@ -142,7 +149,7 @@ public class PickUpManager : MonoBehaviour
 
     public void Ending()
     {
-        //틀리거나 맞았거나 맞아서 레벨 높아지는거 나누는 코드
+        //틀리거나, 맞았거나, 맞아서 레벨 높아지는거 나누는 코드
     }
 
 
