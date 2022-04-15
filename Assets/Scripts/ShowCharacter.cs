@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class ShowCharacter : MonoBehaviour
 {
+    public float y1;
+    public float x;
     void Start()
     {
-       
-        
+        x = this.GetComponent<RectTransform>().anchoredPosition.x;
+        y1 = this.GetComponent<RectTransform>().anchoredPosition.y;
     }
     
     void Update()
     {
-        if (transform.position.y < 0.0f)
+        if (this.GetComponent<RectTransform>().anchoredPosition.y < 0)
         {
-            transform.Translate(0, 0.1f, 0);
+            y1 += 5.0f;
+            this.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, y1);
         }
-       
+
+
     }
 }
