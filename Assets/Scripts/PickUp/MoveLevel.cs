@@ -90,8 +90,6 @@ public class MoveLevel : MonoBehaviour
         Debug.Log("쇼보스 함수 실행");
         //audioSrc.PlayOneShot(click, 0.5f);
 
-        //cat1.SetActive(false);
-        //talkPanel.SetActive(false);
         bossPanel.SetActive(true);
         boss.SetActive(true);
         WaitForSeconds();
