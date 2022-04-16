@@ -144,7 +144,7 @@ public class PickUpManager : MonoBehaviour
     }
 
 
-
+    /*
     public void ShowBoss()
     {
         audioSrc.PlayOneShot(click, 0.5f); 
@@ -154,7 +154,7 @@ public class PickUpManager : MonoBehaviour
         bossPanel.SetActive(true);
         boss.SetActive(true);
         Invoke("BossTalkStart", 1f); //추후 음성에 맞게 초 수정
-    }
+    }*/
 
 
 

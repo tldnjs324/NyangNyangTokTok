@@ -50,18 +50,15 @@ public class RealtimeDatabase : MonoBehaviour
         //string key = databaseReference.Child("level").Push().Key;
         //databaseReference.Child("users").Child(userId).Child("level").SetValueAsync(level);
 
-        //DB 가져오는 
-        var DBTask1 = databaseReference.Child("users").Child(Login.user.UserId).OrderByChild("level").GetValueAsync();
-        var DBTask2 = databaseReference.Child("users").Child(Login.user.UserId).OrderByChild("count").GetValueAsync();
+        //DB에서 userid까지 가져오는 코드
+        var DBTask = databaseReference.Child("users").OrderByChild(Login.user.UserId).GetValueAsync();
         databaseReference.GetValueAsync().ContinueWith(task => {
 
             if (task.IsCompleted)
             { // 성공적으로 데이터를 가져왔으면
-                DataSnapshot snapshot1 = DBTask1.Result;
-                DataSnapshot snapshot2 = DBTask2.Result;
-                // 데이터를 출력하고자 할때는 Snapshot 객체 사용함
+                DataSnapshot snapshot = DBTask.Result;// 데이터를 출력하고자 할때는 Snapshot 객체 사용함
 
-                foreach (DataSnapshot childSnapshot in snapshot1.Children)
+                foreach (DataSnapshot childSnapshot in snapshot.Children)
                 {
                     //레벨이랑 카운트 snapshot으로 데베에서 가져옴
                     int level = int.Parse(childSnapshot.Child("level").Value.ToString());
@@ -69,7 +66,7 @@ public class RealtimeDatabase : MonoBehaviour
                     GameManager.currentLevel = level;//가져온 레벨 게임메니저 현재 레벨에 저장
                     Debug.Log("레벨 변경");
                 }
-                foreach (DataSnapshot childSnapshot in snapshot2.Children)
+                foreach (DataSnapshot childSnapshot in snapshot.Children)
                 {
                     //레벨이랑 카운트 snapshot으로 데베에서 가져옴
                     int count = int.Parse(childSnapshot.Child("count").Value.ToString());
