@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public static int currentLevel; //레벨!!
     public static int currentCount; //발자국 수
 
-    public Text levelText;
+    //public Text levelText;
 
     //1단계용 메뉴 목록
     private string[] level1_Coffee_menu = { "따뜻한 아메리카노", "아이스 아메리카노", "따뜻한 카페라떼" };
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         audioSrc = GetComponent<AudioSource>();
         //this.animator = GetComponent<Animation>().speed = 0.0f;
 
-        levelText.text = currentLevel.ToString();
+        //levelText.text = currentLevel.ToString();
 
         if (currentLevel == 1) //1단계
         {

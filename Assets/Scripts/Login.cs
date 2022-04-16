@@ -35,7 +35,7 @@ public class Login : MonoBehaviour
     public static FirebaseAuth auth;//유저정보를 다른 스크립트에서 가져오기 위해 변수를 public static으로 선언
 
     public static FirebaseUser user;
-    //public int level;
+
 
     // Start is called before the first frame update
     void Awake()
