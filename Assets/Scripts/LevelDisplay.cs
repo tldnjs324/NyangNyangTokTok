@@ -11,7 +11,9 @@ public class LevelDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //현재 레벨 가져와서 상단바에 표시
         levelText.text = GameManager.currentLevel.ToString();
+        //현재 발자국 개수 가져와서 상단바에 표시
         for(int i = 0; i<4; i++)
         {
             if(GameManager.currentCount == i)

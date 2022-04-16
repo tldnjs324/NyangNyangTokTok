@@ -111,6 +111,7 @@ public class OrderToast : MonoBehaviour
         if (_list.Count == 0)
         {
             popupWrong.SetActive(true);
+            MoveLevel.wrongCount += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
         }
 
@@ -134,6 +135,7 @@ public class OrderToast : MonoBehaviour
                         {
                             //오답이 있다면
                             popupWrong.SetActive(true);
+                            MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -146,6 +148,7 @@ public class OrderToast : MonoBehaviour
                     for (int i = sumCount; i < _list.Count; i++)
                     {
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -171,6 +174,7 @@ public class OrderToast : MonoBehaviour
                         {
                             //오답이 있다면
                             popupWrong.SetActive(true);
+                            MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -180,6 +184,7 @@ public class OrderToast : MonoBehaviour
                     if (_list.Count == (sumCount + 1))
                     {
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                     }///
                 }
@@ -188,6 +193,7 @@ public class OrderToast : MonoBehaviour
                     for (int i = sumCount; i < _list.Count; i++)
                     {
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -216,6 +222,7 @@ public class OrderToast : MonoBehaviour
                         {
                             //오답이 있다면
                             popupWrong.SetActive(true);
+                            MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -228,6 +235,7 @@ public class OrderToast : MonoBehaviour
                     for (int i = sumCount; i < _list.Count; i++)
                     {
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -254,6 +262,7 @@ public class OrderToast : MonoBehaviour
                         {
                             //오답이 있다면
                             popupWrong.SetActive(true);
+                            MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -263,6 +272,7 @@ public class OrderToast : MonoBehaviour
                     if (_list.Count == 1)
                     {
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                     }
                 }
@@ -271,6 +281,7 @@ public class OrderToast : MonoBehaviour
                     for (int i = 0; i < _list.Count; i++)
                     {
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -299,6 +310,7 @@ public class OrderToast : MonoBehaviour
                         {
                             //오답이 있다면
                             popupWrong.SetActive(true);
+                            MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -311,6 +323,7 @@ public class OrderToast : MonoBehaviour
                     for (int i = 0; i < _list.Count; i++)
                     {
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";

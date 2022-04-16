@@ -50,6 +50,7 @@ public class RealtimeDatabase : MonoBehaviour
         //string key = databaseReference.Child("level").Push().Key;
         //databaseReference.Child("users").Child(userId).Child("level").SetValueAsync(level);
 
+        //DB 가져오는 
         var DBTask = databaseReference.Child("users").OrderByChild("level").GetValueAsync();
         databaseReference.GetValueAsync().ContinueWith(task => {
 
@@ -60,17 +61,45 @@ public class RealtimeDatabase : MonoBehaviour
 
                 foreach (DataSnapshot childSnapshot in snapshot.Children)
                 {
+                    //레벨이랑 카운트 snapshot으로 데베에서 가져옴
                     int level = int.Parse(childSnapshot.Child("level").Value.ToString());
                     int count = int.Parse(childSnapshot.Child("count").Value.ToString());
                     Debug.Log("레벨 가져옴");
-                    GameManager.currentLevel = level;
-                    GameManager.currentCount = count;
+                    GameManager.currentLevel = level;//가져온 레벨 게임메니저 현재 레벨에 저장
+                    GameManager.currentCount = count;//가져온 카운트 게임메니저 현재 카운트에 저장
                     Debug.Log("레벨 변경");
                 }
             }
         });
     }
 
+    //전달하기 끝나고 레벨업하는 부분에서 데베에 카운트 올릴 코드
+    public void CountUp(int count)
+    {
+        var DBTask = databaseReference.Child("users").Child("count").SetValueAsync(count);
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //count is now updated
+        }
+    }
+
+    //전달하기 끝나고 레벨업하는 부분에서 데베에 레벨 올릴 코드
+    public void LevelUp(int level)
+    {
+        var DBTask = databaseReference.Child("users").Child("level").SetValueAsync(level);
+        if (DBTask.Exception != null)
+        {
+            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
+        }
+        else
+        {
+            //level is now updated
+        }
+    }
 
     public class User
     {

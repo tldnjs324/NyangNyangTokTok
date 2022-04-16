@@ -96,6 +96,7 @@ public class OrderCoffee : MonoBehaviour
         if(_list.Count == 0)
         {
             popupWrong.SetActive(true);
+            MoveLevel.wrongCount += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
         }
 
@@ -116,6 +117,7 @@ public class OrderCoffee : MonoBehaviour
                     if (i != idxCoffee)
                     {
                         //오답이 있다면
+                        MoveLevel.wrongCount += 1;
                         popupWrong.SetActive(true);
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -129,6 +131,7 @@ public class OrderCoffee : MonoBehaviour
                 for (int i = 0; i < _list.Count; i++)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -154,6 +157,7 @@ public class OrderCoffee : MonoBehaviour
                     {
                         //오답이 있다면
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -164,6 +168,7 @@ public class OrderCoffee : MonoBehaviour
                 if (_list.Count == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                 }
             }
@@ -172,6 +177,7 @@ public class OrderCoffee : MonoBehaviour
                 for (int i = 0; i < _list.Count; i++)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -198,6 +204,7 @@ public class OrderCoffee : MonoBehaviour
                     {
                         //오답이 있다면
                         popupWrong.SetActive(true);
+                        MoveLevel.wrongCount += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -208,11 +215,13 @@ public class OrderCoffee : MonoBehaviour
                 if (_list.Count == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                 }
                 else if (_list.Count == 2)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                 }
             }
@@ -221,6 +230,7 @@ public class OrderCoffee : MonoBehaviour
                 for (int i = 0; i < _list.Count; i++)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";

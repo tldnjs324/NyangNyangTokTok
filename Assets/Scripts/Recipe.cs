@@ -99,6 +99,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
@@ -138,6 +139,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
@@ -177,6 +179,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
@@ -216,6 +219,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
@@ -255,6 +259,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
@@ -294,6 +299,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
@@ -338,6 +344,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
@@ -382,6 +389,7 @@ public class Recipe : MonoBehaviour
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
+                    MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {

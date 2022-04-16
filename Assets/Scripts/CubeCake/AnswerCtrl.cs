@@ -68,6 +68,7 @@ public class AnswerCtrl : MonoBehaviour
                 else
                 {
                     sign_no[i].SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     black_screen.SetActive(true);
                     ButtonList[0].interactable = false;
                 }
@@ -88,6 +89,7 @@ public class AnswerCtrl : MonoBehaviour
                 else
                 {
                     sign_no[i].SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     black_screen.SetActive(true);
                     ButtonList[1].interactable = false;
                 }
@@ -108,6 +110,7 @@ public class AnswerCtrl : MonoBehaviour
                 else
                 {
                     sign_no[i].SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     black_screen.SetActive(true);
                     ButtonList[2].interactable = false;
                 }
@@ -128,6 +131,7 @@ public class AnswerCtrl : MonoBehaviour
                 else
                 {
                     sign_no[i].SetActive(true);
+                    MoveLevel.wrongCount += 1;
                     black_screen.SetActive(true);
                     ButtonList[3].interactable = false;
                 }

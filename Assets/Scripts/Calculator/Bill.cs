@@ -206,6 +206,7 @@ public class Bill : MonoBehaviour
             if(wrong_count == 1)//한번 틀리면 그냥 다시하라고 함
             {
                 sign_no_[0].SetActive(true);//한번 틀린 팝업
+                MoveLevel.wrongCount += 1;
                 //StartCoroutine(WaitForNo(0));
             }
             else if(wrong_count == 2)//두번 틀리면 1000의 자리수 알려줌
