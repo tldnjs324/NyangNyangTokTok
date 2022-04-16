@@ -27,7 +27,7 @@ public class PickUpManager : MonoBehaviour
 
     public GameObject boss;
     public GameObject cat1;
-    //private string[] cats = { "cat1", "cat2", "cat3" }; //여러 마리의 고양이 캐릭터 예정
+    //private GameObject[] cats; //여러 마리의 고양이 캐릭터 예정
 
     private string[] m_text = { "와 너무 맛있겠다냥!\n", "덕분에 행복해졌다냥!\n좋은 하루 되시라냥~!" };
 
@@ -135,10 +135,6 @@ public class PickUpManager : MonoBehaviour
         StartCoroutine(_typing2());
     }
 
-    void CatTalkStart2()
-    {
-
-    }
 
     public void NextTalk()
     {
@@ -147,10 +143,6 @@ public class PickUpManager : MonoBehaviour
         nextButton2.SetActive(true);
     }
 
-    public void Ending()
-    {
-        //틀리거나, 맞았거나, 맞아서 레벨 높아지는거 나누는 코드
-    }
 
 
     public void ShowBoss()
