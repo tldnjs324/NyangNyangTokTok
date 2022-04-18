@@ -27,6 +27,7 @@ public class RealtimeDatabase : MonoBehaviour
 
     public void InitDatabase()
     {
+        Debug.Log("initdatabse");
         if (Login.user != null)
         {
             WriteNewUser(Login.user.UserId, Login.user.Email);
@@ -35,11 +36,10 @@ public class RealtimeDatabase : MonoBehaviour
     
     private void WriteNewUser(string uid, string email)
     {
+        Debug.Log("writenewuser");
         User user = new User(email);
         string json = JsonUtility.ToJson(user);
         databaseReference.Child("users").Child(uid).SetRawJsonValueAsync(json);
-
-        
     }
 
 
