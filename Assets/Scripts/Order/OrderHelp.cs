@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OrderHelp : MonoBehaviour
 {
@@ -22,8 +23,8 @@ public class OrderHelp : MonoBehaviour
         hint3 = "";
         hint4 = "";
 
-        //문자열 길이로 메뉴개수 판단
-        if (GameManager.OrderMenu3.Length > 2 && GameManager.OrderMenu4.Length < 2) //메뉴 3개
+            //문자열 길이로 메뉴개수 판단
+            if (GameManager.OrderMenu3.Length > 2 && GameManager.OrderMenu4.Length < 2) //메뉴 3개
         {
             FindHint(GameManager.OrderMenu1);
             hint1 = hint;
@@ -100,8 +101,8 @@ public class OrderHelp : MonoBehaviour
             case "블루베리 토스트":
                 hint = "ㅂㄹㅂㄹ ㅌㅅㅌ";
                 break;
-            case "딸기 블루베리 토스트":
-                hint = "ㄸㄱ ㅂㄹㅂㄹ ㅌㅅㅌ";
+            case "딸기 초코 토스트":
+                hint = "ㄸㄱ ㅊㅋ ㅌㅅㅌ";
                 break;
             case "냥냥 토스트":
                 hint = "ㄴㄴ ㅌㅅㅌ";

@@ -41,21 +41,23 @@ public class OrderCoffee1 : MonoBehaviour
         if (i == 0)
         {
             m_text = "이제 방금 외운 메뉴들을 포스기에 찍어 맞는지 확인해 볼 거예요~";
-            StartCoroutine(_typing());
+            StartMethod();
             i++;
         }
         else if (i == 1)
         {
+            StopMethod();
             m_text = "방금 외운 메뉴 중 '커피' 메뉴를 먼저 골라주세요!";
-            StartCoroutine(_typing());
+            StartMethod();
             i++;
         }
         else if (i == 2)
         {
+            StopMethod();
             boss.SetActive(false);
             focus_hint.SetActive(true);
             m_text = "기억이 잘 나지 않는다면 '도움말' 버튼을 눌러 초성 힌트를 확인할 수 있어요";
-            StartCoroutine(_typing());
+            StartMethod();
             i++;
         }
         else if (i == 3)
@@ -73,10 +75,18 @@ public class OrderCoffee1 : MonoBehaviour
             yield return new WaitForSeconds(0.07f);
         }
     }
-
-    void Update()
+    IEnumerator coroutine;
+    void StartMethod()
     {
-
+        coroutine = _typing();
+        StartCoroutine(coroutine);
+    }
+    void StopMethod()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
 
 

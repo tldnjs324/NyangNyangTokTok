@@ -99,9 +99,9 @@ public class Bill : MonoBehaviour
             sum_10000.text = null;
         }
         //가격이 0인 곳은 빈칸 만들기
-        for(int i = 0; i<4; i++)
+        for (int i = 0; i < 4; i++)
         {
-            if(int.Parse(menu_price_[i].text)<1)
+            if (int.Parse(menu_price_[i].text) < 1)
             {
                 menu_price_[i].text = "";
             }
@@ -174,7 +174,7 @@ public class Bill : MonoBehaviour
             case "8구 큐브케이크":
                 menu_price = "11500";
                 break;
-        }        
+        }
     }
 
     //정답 확인 버튼 눌러서 맞았는지 비교
@@ -184,14 +184,14 @@ public class Bill : MonoBehaviour
         {
             //1, 10, 100, 1000, 10000의자리 수 전부 표시
             sum_1.text = (int.Parse(sum_doing) % 10).ToString();//그냥 '0'이라 해도 됨
-            sum_10.text = ((int.Parse(sum_doing) % 100)/10).ToString();
-            sum_100.text = ((int.Parse(sum_doing) % 1000)/100).ToString();
-            sum_1000.text = ((int.Parse(sum_doing) % 10000)/1000).ToString();
+            sum_10.text = ((int.Parse(sum_doing) % 100) / 10).ToString();
+            sum_100.text = ((int.Parse(sum_doing) % 1000) / 100).ToString();
+            sum_1000.text = ((int.Parse(sum_doing) % 10000) / 1000).ToString();
             if (int.Parse(sum_doing) >= 10000)
             {
                 sum_10000.text = (int.Parse(sum_doing) / 10000).ToString();
             }
-            
+
             //sum_Result.text = sum_doing;
             sign_yes.SetActive(true);
             //StartCoroutine(WaitForYes());
@@ -203,25 +203,25 @@ public class Bill : MonoBehaviour
         {
             cal.InputField.text = "0";//텍스트 필드 0으로
             wrong_count++;//틀린 수 세기
-            if(wrong_count == 1)//한번 틀리면 그냥 다시하라고 함
+            if (wrong_count == 1)//한번 틀리면 그냥 다시하라고 함
             {
                 sign_no_[0].SetActive(true);//한번 틀린 팝업
                 MoveLevel.wrongCount += 1;
                 //StartCoroutine(WaitForNo(0));
             }
-            else if(wrong_count == 2)//두번 틀리면 1000의 자리수 알려줌
+            else if (wrong_count == 2)//두번 틀리면 1000의 자리수 알려줌
             {
                 sign_no_[1].SetActive(true);//두번 틀린 팝업
                 //StartCoroutine(WaitForNo(1));
                 sum_1000.text = ((int.Parse(sum_doing) % 10000) / 1000).ToString();
             }
-            else if(wrong_count == 3)//세번 틀리면 100의자리 수 알려줌
+            else if (wrong_count == 3)//세번 틀리면 100의자리 수 알려줌
             {
                 sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
                 //StartCoroutine(WaitForNo(2));
                 sum_100.text = ((int.Parse(sum_doing) % 1000) / 100).ToString();
             }
-            else if(wrong_count == 4)//네번 틀리면 10의자리 수 알려줌
+            else if (wrong_count == 4)//네번 틀리면 10의자리 수 알려줌
             {
                 sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
                 //StartCoroutine(WaitForNo(2));
@@ -236,7 +236,7 @@ public class Bill : MonoBehaviour
                 {
                     sum_10000.text = (int.Parse(sum_doing) / 10000).ToString();
                 }
-                
+
             }
             else//다섯번 넘게 틀리면 답을 빨간색으로 적어줌
             {
@@ -252,7 +252,7 @@ public class Bill : MonoBehaviour
             audioSrc.PlayOneShot(wrong, 0.5f);
             black_screen.SetActive(true);
         }
-        
+
     }
 
     //닫기 버튼 누를 때
@@ -281,7 +281,7 @@ public class Bill : MonoBehaviour
         sign_no_[num].SetActive(false);
     }
     */
-   
+
 
 
     // Update is called once per frame
