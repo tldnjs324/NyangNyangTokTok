@@ -52,20 +52,21 @@ public class GameManager1 : MonoBehaviour
     {
         if (i == 0)
         {
-            m_text = "반가워요~ 오늘부터 당신은 우리 카페의 수습 알바생이에요!";
-            StartCoroutine(_typing());
+            m_text = "반가워요~ 오늘부터 당신은 우리 카페의 '수습 알바생'이에요!";
+            StartMethod();
             i++;
         }
         else if (i == 1)
         {
+            StopMethod();
             m_text = "주문을 받고 메뉴를 만드는 과정까지 내가 도와줄테니 잘 보고 따라해주세요~";
-            StartCoroutine(_typing());
+            StartMethod();
             i++;
         }
         else if (i == 2)
         {
             audioSrc.PlayOneShot(click, 0.5f);
-
+            StopMethod();
             boss.SetActive(false);
             bossPanel.SetActive(false);
             talkPanel.SetActive(true);
@@ -105,6 +106,21 @@ public class GameManager1 : MonoBehaviour
             yield return new WaitForSeconds(0.07f);
         }
     }
+
+    IEnumerator coroutine;
+    void StartMethod()
+    {
+        coroutine = _typing();
+        StartCoroutine(coroutine);
+    }
+    void StopMethod()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+    }
+
     public void SceneMove()
     {
         audioSrc.PlayOneShot(click, 0.5f);

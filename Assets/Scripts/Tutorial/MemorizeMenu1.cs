@@ -42,13 +42,14 @@ public class MemorizeMenu1 : MonoBehaviour
         if (i == 0)
         {
             m_text = "주문이 들어왔네요! 이제 주문 받은 메뉴들을 20초 동안 외워주세요~";
-            StartCoroutine(_typing());
+            StartMethod();
             i++;
         }
         else if (i == 1)
         {
+            StopMethod();
             m_text = "20초가 지나더라도 다시 메뉴를 확인할 수 있으니 부담은 가지지 말아요~";
-            StartCoroutine(_typing());
+            StartMethod();
             i++;
         }
         else if (i == 2)
@@ -66,6 +67,19 @@ public class MemorizeMenu1 : MonoBehaviour
         {
             bossText.text = m_text.Substring(0, i);
             yield return new WaitForSeconds(0.07f);
+        }
+    }
+    IEnumerator coroutine;
+    void StartMethod()
+    {
+        coroutine = _typing();
+        StartCoroutine(coroutine);
+    }
+    void StopMethod()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
         }
     }
 

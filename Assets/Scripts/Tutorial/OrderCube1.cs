@@ -17,13 +17,19 @@ public class OrderCube1 : MonoBehaviour
     public GameObject popupCorrect;
     public GameObject popupWrong;
 
-    public static int sumCount = GameManager.coffeeCount + GameManager.toastCount;
+    public static int sumCount = GameManager1.coffeeCount;
 
     public AudioClip click;
     public AudioClip popup;
     public AudioClip correct;
     public AudioClip wrong;
     AudioSource audioSrc;
+
+    public Text bossText;
+    public GameObject bossPanel;
+    public GameObject boss;
+    private string m_text;
+    int i = 0;
 
     void Start()
     {
@@ -32,29 +38,53 @@ public class OrderCube1 : MonoBehaviour
 
         if (sumCount == 1)
         {
-            _list.Add(GameManager.OrderMenu1);
+            _list.Add(GameManager1.OrderMenu1);
             FreshSlot();
         }
-        else if (sumCount == 2)
+        Invoke("BossTalk", 1f);
+    }
+    public void BossTalk()
+    {
+        if (i == 0)
         {
-            _list.Add(GameManager.OrderMenu1);
-            _list.Add(GameManager.OrderMenu2);
-            FreshSlot();
+            m_text = "ÀÌ¹ø¿¡´Â ¿Ü¿î ¸Þ´º Áß 'Å¥ºê ÄÉÀÌÅ©' ¸Þ´º¸¦ °ñ¶óÁÖ¼¼¿ä~";
+            StartMethod();
+            i++;
         }
-        else if (sumCount == 3)
+        else if (i == 1)
         {
-            _list.Add(GameManager.OrderMenu1);
-            FreshSlot();
-            _list.Add(GameManager.OrderMenu2);
-            FreshSlot();
-            _list.Add(GameManager.OrderMenu3);
-            FreshSlot();
+            StopMethod();
+            m_text = "Çò°¥¸°´Ù¸é ¿ìÃø »ó´ÜÀÇ µµ¿ò¸» ¹öÆ° ÀØÁö¸»¾Æ¿ä!";
+            StartMethod();
+            i++;
+        }
+        else if (i == 2)
+        {
+            bossPanel.SetActive(false);
+            boss.SetActive(false);
         }
     }
-
-    void Update()
+    IEnumerator _typing()
     {
-
+        yield return new WaitForSeconds(0f);
+        for (int i = 0; i <= m_text.Length; i++)
+        {
+            bossText.text = m_text.Substring(0, i);
+            yield return new WaitForSeconds(0.07f);
+        }
+    }
+    IEnumerator coroutine;
+    void StartMethod()
+    {
+        coroutine = _typing();
+        StartCoroutine(coroutine);
+    }
+    void StopMethod()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
     }
 
     public void MenuClickedBtn()
@@ -125,37 +155,22 @@ public class OrderCube1 : MonoBehaviour
             audioSrc.PlayOneShot(wrong, 0.5f);
         }
 
-        ///////¸Þ´º 3°³
-        if (GameManager.OrderMenu3.Length > 2 && GameManager.OrderMenu4.Length < 2)
+        if (GameManager1.cubeCount == 1)
         {
-            if (GameManager.cubeCount == 1)
+            if (_list.Count == (sumCount + 1) && _list.Contains(GameManager1.OrderMenu2))
             {
-                if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu3))
-                {
-                    popupCorrect.SetActive(true);
-                    audioSrc.PlayOneShot(correct, 0.5f);
+                popupCorrect.SetActive(true);
+                audioSrc.PlayOneShot(correct, 0.5f);
 
-                }
-                else if (_list.Contains(GameManager.OrderMenu3))
+            }
+            else if (_list.Contains(GameManager1.OrderMenu2))
+            {
+                int idx = _list.FindIndex(cube => cube.Contains(GameManager1.OrderMenu2));
+                for (int i = sumCount; i < _list.Count; i++)
                 {
-                    int idx = _list.FindIndex(cube => cube.Contains(GameManager.OrderMenu3));
-                    for (int i = sumCount; i < _list.Count; i++)
+                    if (i != idx)
                     {
-                        if (i != idx)
-                        {
-                            //¿À´äÀÌ ÀÖ´Ù¸é
-                            popupWrong.SetActive(true);
-                            audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                        }
-                    }
-                }
-                else
-                {
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
+                        //¿À´äÀÌ ÀÖ´Ù¸é
                         popupWrong.SetActive(true);
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -164,168 +179,15 @@ public class OrderCube1 : MonoBehaviour
                     }
                 }
             }
-            else if (GameManager.cubeCount == 2)
+            else
             {
-                if (_list.Count == (sumCount + 2) && _list.Contains(GameManager.OrderMenu2) && _list.Contains(GameManager.OrderMenu3))
+                for (int i = sumCount; i < _list.Count; i++)
                 {
-                    popupCorrect.SetActive(true);
-                    audioSrc.PlayOneShot(correct, 0.5f);
-
-                }
-                else if (_list.Contains(GameManager.OrderMenu2) || _list.Contains(GameManager.OrderMenu3))
-                {
-                    int idx1 = _list.FindIndex(cube => cube.Contains(GameManager.OrderMenu2));
-                    int idx2 = _list.FindIndex(cube => cube.Contains(GameManager.OrderMenu3));
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        if (i != idx1 && i != idx2)
-                        {
-                            //¿À´äÀÌ ÀÖ´Ù¸é
-                            popupWrong.SetActive(true);
-                            audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                        }
-                    }
-                    if (_list.Count == (sumCount + 1))
-                    {
-                        popupWrong.SetActive(true);
-                        audioSrc.PlayOneShot(wrong, 0.5f);
-                    }
-                }
-                else
-                {
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        popupWrong.SetActive(true);
-                        audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                    }
-                }
-            }
-
-        }
-        ////////¸Þ´º 4°³
-        else if (GameManager.OrderMenu4.Length > 2)
-        {
-            if (GameManager.cubeCount == 1)
-            {
-                if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu4))
-                {
-                    popupCorrect.SetActive(true);
-                    audioSrc.PlayOneShot(correct, 0.5f);
-                }
-                else if (_list.Contains(GameManager.OrderMenu4))
-                {
-                    int idx = _list.FindIndex(cube => cube.Contains(GameManager.OrderMenu3));
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        if (i != idx)
-                        {
-                            //¿À´äÀÌ ÀÖ´Ù¸é
-                            popupWrong.SetActive(true);
-                            audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                        }
-                    }
-                }
-                else
-                {
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        popupWrong.SetActive(true);
-                        audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                    }
-                }
-            }
-            else if (GameManager.cubeCount == 2)
-            {
-                if (_list.Count == (sumCount + 2) && _list.Contains(GameManager.OrderMenu3) && _list.Contains(GameManager.OrderMenu4))
-                {
-                    popupCorrect.SetActive(true);
-                    audioSrc.PlayOneShot(correct, 0.5f);
-
-                }
-                else if (_list.Contains(GameManager.OrderMenu3) || _list.Contains(GameManager.OrderMenu4))
-                {
-                    int idx1 = _list.FindIndex(cube => cube.Contains(GameManager.OrderMenu3));
-                    int idx2 = _list.FindIndex(cube => cube.Contains(GameManager.OrderMenu4));
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        if (i != idx1 && i != idx2)
-                        {
-                            //¿À´äÀÌ ÀÖ´Ù¸é
-                            popupWrong.SetActive(true);
-                            audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                        }
-                    }
-                    if (_list.Count == (sumCount + 1))
-                    {
-                        popupWrong.SetActive(true);
-                        audioSrc.PlayOneShot(wrong, 0.5f);
-                    }
-                }
-                else
-                {
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        popupWrong.SetActive(true);
-                        audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                    }
-                }
-            }
-        }
-        ///////¸Þ´º 2°³
-        else
-        {
-            if (GameManager.cubeCount == 1)
-            {
-                if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu2))
-                {
-                    popupCorrect.SetActive(true);
-                    audioSrc.PlayOneShot(correct, 0.5f);
-
-                }
-                else if (_list.Contains(GameManager.OrderMenu2))
-                {
-                    int idx = _list.FindIndex(cube => cube.Contains(GameManager.OrderMenu2));
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        if (i != idx)
-                        {
-                            //¿À´äÀÌ ÀÖ´Ù¸é
-                            popupWrong.SetActive(true);
-                            audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                        }
-                    }
-                }
-                else
-                {
-                    for (int i = sumCount; i < _list.Count; i++)
-                    {
-                        popupWrong.SetActive(true);
-                        audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
-                    }
+                    popupWrong.SetActive(true);
+                    audioSrc.PlayOneShot(wrong, 0.5f);
+                    Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                 }
             }
         }
@@ -335,7 +197,7 @@ public class OrderCube1 : MonoBehaviour
     public void NextBtn()
     {
         audioSrc.PlayOneShot(click, 0.5f);
-        SceneManager.LoadScene("Calculate");
+        SceneManager.LoadScene("T_Calculate");
     }
 
     public void ClickSound()

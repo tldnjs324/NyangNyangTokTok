@@ -7,8 +7,7 @@ public class OrderHelp1 : MonoBehaviour
 {
     public GameObject popupHelp;
     public Text helpText;
-
-    string hint = "";
+    
     string hint1;
     string hint2;
 
@@ -17,6 +16,6 @@ public class OrderHelp1 : MonoBehaviour
         hint1 = "ししさ しけぉせい";
         hint2 = "3ぁ せげせしせ";
 
-        
+        helpText.text += hint1 + "\n" + hint2;
     }
 }
