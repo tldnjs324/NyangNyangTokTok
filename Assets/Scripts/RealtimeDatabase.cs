@@ -50,21 +50,35 @@ public class RealtimeDatabase : MonoBehaviour
         //string key = databaseReference.Child("level").Push().Key;
         //databaseReference.Child("users").Child(userId).Child("level").SetValueAsync(level);
 
-        //DB에서 userid까지 가져오는 코드
-        var DBTask = databaseReference.Child("users").OrderByChild(Login.user.UserId).GetValueAsync();
+        //DB에서 user 가져오는 코드
+        var DBTask = databaseReference.Child("users").GetValueAsync();
         databaseReference.GetValueAsync().ContinueWith(task => {
 
             if (task.IsCompleted)
             { // 성공적으로 데이터를 가져왔으면
                 DataSnapshot snapshot = DBTask.Result;// 데이터를 출력하고자 할때는 Snapshot 객체 사용함
+                //현재 user를 가져옴
+                DataSnapshot childSnapshot = snapshot.Child(Login.user.UserId);
 
+                //snapshot으로 레벨 가져옴
+                int level = int.Parse(childSnapshot.Child("level").Value.ToString());
+                Debug.Log("레벨 가져옴");
+                GameManager.currentLevel = level;//가져온 레벨 게임메니저 현재 레벨에 저장
+                Debug.Log(GameManager.currentLevel);
+
+                //snapshot으로 카운트 가져옴
+                int count = int.Parse(childSnapshot.Child("count").Value.ToString());
+                Debug.Log("카운트 가져옴");
+                GameManager.currentCount = count;//가져온 카운트 게임메니저 현재 카운트에 저장
+                Debug.Log(GameManager.currentCount);
+                /*
                 foreach (DataSnapshot childSnapshot in snapshot.Children)
                 {
                     //레벨이랑 카운트 snapshot으로 데베에서 가져옴
                     int level = int.Parse(childSnapshot.Child("level").Value.ToString());
                     Debug.Log("레벨 가져옴");
                     GameManager.currentLevel = level;//가져온 레벨 게임메니저 현재 레벨에 저장
-                    Debug.Log("레벨 변경");
+                    Debug.Log(level);
                 }
                 foreach (DataSnapshot childSnapshot in snapshot.Children)
                 {
@@ -72,8 +86,8 @@ public class RealtimeDatabase : MonoBehaviour
                     int count = int.Parse(childSnapshot.Child("count").Value.ToString());
                     Debug.Log("카운트 가져옴");
                     GameManager.currentCount = count;//가져온 카운트 게임메니저 현재 카운트에 저장
-                    Debug.Log("카운트 변경");
-                }
+                    Debug.Log(count);
+                }*/
             }
         });
     }

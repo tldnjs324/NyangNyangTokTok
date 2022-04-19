@@ -9,7 +9,7 @@ public class Login : MonoBehaviour
 {
     [SerializeField] string email;
     [SerializeField] string password;
-    [SerializeField] int level;
+    private int level;
 
     public InputField inputTextEmail;
     public InputField inputTextPassword;
@@ -17,8 +17,10 @@ public class Login : MonoBehaviour
 
     //팝업창
     public GameObject popup_board;
+    public GameObject popup_board_join;
     //팝업 메시지
     public Text popup_message;
+    public Text popup_message_join;
     //검은 화면
     public GameObject black_screen;
     //게임 시작 버튼
@@ -29,6 +31,7 @@ public class Login : MonoBehaviour
     public AudioClip popup;
     AudioSource audioSrc;
 
+    private bool ok = true;
 
     //private bool yes_or_no;
 
@@ -80,10 +83,10 @@ public class Login : MonoBehaviour
         level = 1;
 
         Debug.Log("email: " + email + ", password: " + password);
-        popup_message.text = email + "님 \n 회원가입 성공~!\n로그인 후 게임을 이용해주세요";
+        popup_message_join.text = email + "님 \n 회원가입 성공~!\n로그인 후 게임을 이용해주세요";
         CreateUser();
         //1초 뒤에 팝업창 띄우기(CreateUser() 할 시간 벌기... 야매 맞음...)
-        StartCoroutine(WaitForSeconds());
+        StartCoroutine(WaitForJoin());
 
     }
 
@@ -94,13 +97,13 @@ public class Login : MonoBehaviour
             if (task.IsCanceled)
             {
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
-                popup_message.text = "로그인 형식이 잘못되었거나 \n 이미 가입한 이메일입니다";
+                popup_message_join.text = "로그인 형식이 잘못되었거나 \n 이미 가입한 이메일입니다";
                 return;
             }
             if (task.IsFaulted)
             {
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                popup_message.text = "로그인 형식이 잘못되었거나 \n 이미 가입한 이메일입니다";
+                popup_message_join.text = "로그인 형식이 잘못되었거나 \n 이미 가입한 이메일입니다";
                 return;
             }
 
@@ -155,10 +158,19 @@ public class Login : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         popup_board.SetActive(true);
         black_screen.SetActive(true);
-        if(popup_message.text.Length < 24)
+        if (popup_message.text.Length < 24)
         {
             gamestart_btn.SetActive(true);
         }
+
+    }
+
+    IEnumerator WaitForJoin()
+    {
+        audioSrc.PlayOneShot(popup, 0.5f);
+        yield return new WaitForSeconds(1.0f);
+        popup_board_join.SetActive(true);
+        black_screen.SetActive(true);
     }
 
     public void ClosePopup()
@@ -167,7 +179,14 @@ public class Login : MonoBehaviour
         popup_board.SetActive(false);
         black_screen.SetActive(false);
     }
-    
+
+    public void ClosePopupJoin()
+    {
+        audioSrc.PlayOneShot(click, 0.5f);
+        popup_board_join.SetActive(false);
+        black_screen.SetActive(false);
+    }
+
     public void GameStart()
     {
         audioSrc.PlayOneShot(click, 0.5f);
