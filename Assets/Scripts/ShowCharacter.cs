@@ -16,7 +16,7 @@ public class ShowCharacter : MonoBehaviour
     {
         if (this.GetComponent<RectTransform>().anchoredPosition.y < 0)
         {
-            y1 += 5.0f;
+            y1 += 10.0f;
             this.GetComponent<RectTransform>().anchoredPosition = new Vector3(x, y1);
         }
 
