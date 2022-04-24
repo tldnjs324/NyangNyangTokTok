@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class Recipe1 : MonoBehaviour
+public class Recipe1_2 : MonoBehaviour
 {
     string ClickedRecipe;
     public string[] iceAmericano = { "얼음", "물", "커피머신", "샷" };
@@ -67,6 +67,8 @@ public class Recipe1 : MonoBehaviour
         }
         else if (t_i == 3)
         {
+            CancelInvoke("TimeCount");
+            CancelInvoke("TimeEnd");
             boss.SetActive(true);
             bossPanel.SetActive(true);
             m_text = "이제 외운 레시피 순서대로 재료를 선택해야 돼요!";
@@ -95,11 +97,31 @@ public class Recipe1 : MonoBehaviour
         else if (t_i == 6)
         {
             StopMethod();
+            m_text = "";
+            StartMethod();
             boss.SetActive(false);
             bossPanel.SetActive(false);
-        
+            t_i++;
+        }
+        else if (t_i == 7)
+        {
+            t_i++;
+            StopMethod();
+            m_text = "이제 남은 재료들도 순서대로 클릭해주세요!";
+            StartMethod();
+            bossPanel.SetActive(true);
+            boss.SetActive(true);     
+            
+        }
+        else if (t_i == 8)
+        {
+            StopMethod();
+            boss.SetActive(false);
+            bossPanel.SetActive(false);
         }
     }
+
+
     IEnumerator _typing()
     {
         yield return new WaitForSeconds(0f);
@@ -132,7 +154,7 @@ public class Recipe1 : MonoBehaviour
     }
     void PanelStart()
     {
-        InvokeRepeating("TimeCount", 1f, 1f);
+        InvokeRepeating("TimeCount", 0f, 1f);
         Invoke("TimeEnd", 20f);
     }
     void TimeCount()
@@ -144,6 +166,8 @@ public class Recipe1 : MonoBehaviour
     {
         CancelInvoke("TimeCount");
         popupRecipe.SetActive(false);
+        BossTalk();
+        t_i++;
     }
 
     public void RecipeClickedBtn()
@@ -166,11 +190,7 @@ public class Recipe1 : MonoBehaviour
 
                 if (i == 1)
                 {
-                    StopMethod();
-                    bossPanel.SetActive(true);
-                    boss.SetActive(true);
-                    m_text = "이제 남은 재료들도 순서대로 클릭해주세요!";
-                    StartMethod();
+                    Invoke("BossTalk", 1.5f);
                 }
                 
                 if (i == 3)
@@ -237,6 +257,6 @@ public class Recipe1 : MonoBehaviour
     public void NextBtn()
     {
         //audioSrc.PlayOneShot(click, 0.5f);
-        SceneManager.LoadScene("T_3CubeCakeScene1");
+        SceneManager.LoadScene("T_PickUp");
     }
 }

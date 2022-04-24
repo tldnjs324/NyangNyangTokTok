@@ -50,7 +50,7 @@ public class Recipe2 : MonoBehaviour
     }
     void PanelStart()
     {
-        InvokeRepeating("TimeCount", 1f, 1f);
+        InvokeRepeating("TimeCount", 0f, 1f);
         Invoke("TimeEnd", 20f);
     }
     void TimeCount()
