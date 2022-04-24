@@ -8,14 +8,14 @@ using UnityEngine.SceneManagement;
 public class OrderToast : MonoBehaviour
 {
     string ClickedMenu;
-    public List<string> _list = new List<string>();
+    public List<string> _list;// = new List<string>();
     public GameObject[] Slot = new GameObject[4];
     public GameObject[] cancleBtn = new GameObject[4];
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
 
-    public static int sumCount = GameManager.coffeeCount;
+    public static int sumCount;// = GameManager.coffeeCount;
 
     public AudioClip click;
     public AudioClip popup;
@@ -27,6 +27,10 @@ public class OrderToast : MonoBehaviour
     {
         audioSrc = GetComponent<AudioSource>();
         ClickedMenu = "";
+        //0425시원수정
+        sumCount = GameManager.coffeeCount;
+        //_list = new List<string>();
+        //_list.RemoveRange(0, 3);
 
         if (sumCount == 1)
         {

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class OrderCoffee : MonoBehaviour
 {
     string ClickedMenu;
-    public List<string> _list = new List<string>();
+    public List<string> _list;// = new List<string>();
     public GameObject[] Slot = new GameObject[4];
     public GameObject[] cancleBtn = new GameObject[4];
 
@@ -25,6 +25,9 @@ public class OrderCoffee : MonoBehaviour
     {
         ClickedMenu = "";
         audioSrc = GetComponent<AudioSource>();
+        //0425시원수정
+        _list = new List<string>();
+        _list.RemoveRange(0, 3);
     }
 
     void Update()

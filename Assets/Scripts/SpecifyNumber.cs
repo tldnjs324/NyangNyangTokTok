@@ -14,6 +14,8 @@ public class SpecifyNumber : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         //OrderMenu1 저장
         if (GameManager.OrderMenu1 == "따뜻한 아메리카노")
         {

@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
             ++coffeeCount;
             OrderMenu2 = level1_Cube_menu;
             ++cubeCount;
+            
         }
         else if(currentLevel == 2) //2´Ü°è
         {
@@ -269,11 +270,25 @@ public class GameManager : MonoBehaviour
             }
         }
 
-
+        Debug.Log(OrderMenu1);
+        Debug.Log(OrderMenu2);
+        Debug.Log(OrderMenu3);
+        Debug.Log(OrderMenu4);
         Invoke("BossShowUp", 1f);
 
     }
-
+    public void ResetMenu()
+    {
+        OrderMenu1 = "";
+        OrderMenu2 = "";
+        OrderMenu3 = "";
+        OrderMenu4 = "";
+        coffeeCount = 0;
+        toastCount = 0;
+        cubeCount = 0;
+        GoNextMenu.num = new List<int>() { 0, 1, 2, 3 };
+        MoveLevel.wrongCount = 0;
+    }
 
     
     void Update()

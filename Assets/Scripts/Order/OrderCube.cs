@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class OrderCube : MonoBehaviour
 {
     string ClickedMenu;
-    public List<string> _list = new List<string>();
+    public List<string> _list;
     public GameObject[] Slot = new GameObject[4];
     public GameObject[] cancleBtn = new GameObject[4];
 
@@ -17,7 +17,7 @@ public class OrderCube : MonoBehaviour
     public GameObject popupCorrect;
     public GameObject popupWrong;
 
-    public static int sumCount = GameManager.coffeeCount + GameManager.toastCount;
+    public static int sumCount;
 
     public AudioClip click;
     public AudioClip popup;
@@ -29,6 +29,10 @@ public class OrderCube : MonoBehaviour
     {
         audioSrc = GetComponent<AudioSource>();
         ClickedMenu = "";
+        //0425시원수정
+        //_list = new List<string>();
+        //_list.RemoveRange(0, 3);
+        sumCount = GameManager.coffeeCount + GameManager.toastCount;
 
         if (sumCount == 1)
         {
@@ -56,6 +60,7 @@ public class OrderCube : MonoBehaviour
     {
 
     }
+
 
     public void MenuClickedBtn()
     {
