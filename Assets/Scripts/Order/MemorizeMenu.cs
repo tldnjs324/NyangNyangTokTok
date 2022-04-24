@@ -29,7 +29,7 @@ public class MemorizeMenu : MonoBehaviour
         retryBtn.SetActive(false);
         timeCountImg.SetActive(false);
 
-        Invoke("PanelStart", 1f);
+        Invoke("PanelStart", 0f);
         Invoke("TimeEnd", 20f); 
     }
     
