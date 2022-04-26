@@ -38,6 +38,8 @@ public class Recipe : MonoBehaviour
     public GameObject coffeeShot;
     public GameObject choco_img;
 
+    public GameObject recipeSlider;
+
     void Start()
     {
         ClickedRecipe = "";
@@ -48,7 +50,8 @@ public class Recipe : MonoBehaviour
     {
         if (i != 0 && i == cnt)
         {
-            Invoke("Correct", 1.5f);         
+            Invoke("Correct", 1.5f);
+            recipeSlider.GetComponent<Image>().fillAmount = 1f;
         }
     }
     void PanelStart()
@@ -80,6 +83,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
@@ -120,6 +124,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
@@ -160,6 +165,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
@@ -200,6 +206,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
@@ -240,6 +247,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
@@ -280,6 +288,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
@@ -320,6 +329,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.1428f; //7개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
@@ -365,6 +375,7 @@ public class Recipe : MonoBehaviour
             {
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.166f; //6개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
