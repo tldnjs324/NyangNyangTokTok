@@ -36,6 +36,8 @@ public class Recipe2 : MonoBehaviour
     public GameObject popupRecipe;
     public GameObject popupName;
 
+    public GameObject recipeSlider;
+
     void Start()
     {
         ClickedRecipe = "";
@@ -46,6 +48,7 @@ public class Recipe2 : MonoBehaviour
         if (i != 0 && i == cnt)
         {
             Invoke("Correct", 1.5f);
+            recipeSlider.GetComponent<Image>().fillAmount = 1f;
         }
     }
     void PanelStart()
@@ -80,6 +83,7 @@ public class Recipe2 : MonoBehaviour
                     img.sprite = sprites[i - 1]; //이미지 변경
                 } 
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.5f; //2개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -125,6 +129,7 @@ public class Recipe2 : MonoBehaviour
                     img.sprite = sprites[i - 1]; //이미지 변경
                 }
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -170,6 +175,7 @@ public class Recipe2 : MonoBehaviour
                     img.sprite = sprites[i - 1]; //이미지 변경
                 }
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -215,6 +221,7 @@ public class Recipe2 : MonoBehaviour
                     img.sprite = sprites[i - 1]; //이미지 변경
                 }
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -260,6 +267,7 @@ public class Recipe2 : MonoBehaviour
                     img.sprite = sprites[i - 1]; //이미지 변경
                 }
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -305,6 +313,7 @@ public class Recipe2 : MonoBehaviour
                     img.sprite = sprites[i - 1]; //이미지 변경
                 }
                 i++;
+                recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 

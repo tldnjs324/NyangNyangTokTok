@@ -12,6 +12,8 @@ public class MemorizeMenu : MonoBehaviour
     public GameObject timeCountImg;
     public Text timeCounting;
     public int time = 20;
+    public GameObject timeSlider;
+
     public Button nextButton; 
     public GameObject nextButton_1;
     public GameObject retryBtn;
@@ -30,7 +32,7 @@ public class MemorizeMenu : MonoBehaviour
         timeCountImg.SetActive(false);
 
         Invoke("PanelStart", 0f);
-        Invoke("TimeEnd", 20f); 
+        Invoke("TimeEnd", 21f); 
     }
     
     void Update()
@@ -41,7 +43,7 @@ public class MemorizeMenu : MonoBehaviour
     void PanelStart()
     {
         //memorizePanel.SetActive(true);
-        timeCountImg.SetActive(true);
+        //timeCountImg.SetActive(true);
 
         if(GameManager.OrderMenu3.Length > 2 && GameManager.OrderMenu4.Length < 2) //문자열 길이로 메뉴개수 판단
         {
@@ -63,7 +65,7 @@ public class MemorizeMenu : MonoBehaviour
     void TimeEnd()
     {
         memoText_1.SetActive(false);
-        time = 20;
+        time = 21;
         CancelInvoke("TimeCount");
         retryBtn.SetActive(true);
     }
@@ -74,18 +76,21 @@ public class MemorizeMenu : MonoBehaviour
         retryBtn.SetActive(false);
         memoText_1.SetActive(true);
 
+        timeSlider.GetComponent<Image>().fillAmount = 1f;
         InvokeRepeating("TimeCount", 1f, 1f);
-        Invoke("TimeEnd", 20f); 
+        Invoke("TimeEnd", 21f); 
     }
     void TimeCount()
     {
-        //timeCountImg.GetComponent<Image>().fillAmount -= 0.05f;
+        timeSlider.GetComponent<Image>().fillAmount -= 0.05f;
         --time;
-        timeCounting.text = time.ToString();
+        //timeCounting.text = time.ToString();
     }
     public void NextBtn()
     {
         audioSrc.PlayOneShot(click, 0.5f);
+        CancelInvoke("TimeCount");
+        CancelInvoke("TimeEnd");
 
         if (GameManager.coffeeCount > 0)
         {

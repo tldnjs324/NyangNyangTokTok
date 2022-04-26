@@ -112,7 +112,7 @@ public class OrderToast : MonoBehaviour
     public void ConfirmMenu()
     {
         audioSrc.PlayOneShot(click, 0.5f);
-        if (_list.Count == 0)
+        if (_list.Count == sumCount)
         {
             popupWrong.SetActive(true);
             MoveLevel.wrongCount += 1;
