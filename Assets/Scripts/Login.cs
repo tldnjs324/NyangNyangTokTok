@@ -9,7 +9,7 @@ public class Login : MonoBehaviour
 {
     [SerializeField] string email;
     [SerializeField] string password;
-    private int level;
+    //private int level;
 
     public InputField inputTextEmail;
     public InputField inputTextPassword;
@@ -31,7 +31,7 @@ public class Login : MonoBehaviour
     public AudioClip popup;
     AudioSource audioSrc;
 
-    private bool ok = true;
+    //private bool ok = true;
 
     //private bool yes_or_no;
 
@@ -80,7 +80,7 @@ public class Login : MonoBehaviour
     {
         email = inputTextEmail.text;
         password = inputTextPassword.text;
-        level = 1;
+        //level = 1;
 
         Debug.Log("email: " + email + ", password: " + password);
         popup_message_join.text = email + "님 \n 회원가입 성공~!\n로그인 후 게임을 이용해주세요";

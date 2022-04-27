@@ -30,7 +30,7 @@ public class Bill1 : MonoBehaviour
     //틀린 횟수
     int wrong_count = 0;
     //메뉴 가격 넣을 변수
-    string menu_price = "";
+    //string menu_price = "";
 
     //AudioClip 소리
     public AudioClip click;
