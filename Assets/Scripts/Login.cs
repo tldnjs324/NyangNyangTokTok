@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Firebase.Auth;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class Login : MonoBehaviour
 {
@@ -39,9 +40,16 @@ public class Login : MonoBehaviour
 
     public static FirebaseUser user;
 
+    //서윤낙서
+     Button gameStart;
+     bool startBtnDown;
+
+     //Button login;
+     //bool loginBtnDown;
+    //
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         // 초기화
         auth = FirebaseAuth.DefaultInstance;
@@ -50,12 +58,34 @@ public class Login : MonoBehaviour
 
         //오디오 컴포넌트 가져오기
         audioSrc = GetComponent<AudioSource>();
+
+        
+
+
     }
+    
+
+
 
     private void Update()
     {
-
+        //서윤
+        if (startBtnDown)
+        {
+            SceneManager.LoadScene("Start");
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("눌림");
+        }
+        
     }
+    //서윤
+    public void gameStartPressed()
+    {
+        startBtnDown = true;
+    }
+    
 
     void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
@@ -114,6 +144,9 @@ public class Login : MonoBehaviour
         });
     }
 
+
+    
+
     //로그인 버튼이 눌리면 실행할 함수.
     public void LoginBtnOnClick()
     {
@@ -154,7 +187,7 @@ public class Login : MonoBehaviour
 
     IEnumerator WaitForSeconds()
     {
-        audioSrc.PlayOneShot(popup, 0.5f);
+        //audioSrc.PlayOneShot(popup, 0.5f);
         yield return new WaitForSeconds(1.0f);
         popup_board.SetActive(true);
         black_screen.SetActive(true);
