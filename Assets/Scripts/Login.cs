@@ -41,12 +41,9 @@ public class Login : MonoBehaviour
     public static FirebaseUser user;
 
     //¼­À±³«¼­
-     Button gameStart;
      bool startBtnDown;
-
-     //Button login;
-     //bool loginBtnDown;
-    //
+     bool loginBtnDown;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -63,29 +60,27 @@ public class Login : MonoBehaviour
 
 
     }
-    
 
 
+    public int count = 1; //¼­À±
 
     private void Update()
     {
         //¼­À±
         if (startBtnDown)
         {
-            SceneManager.LoadScene("Start");
+            SceneManager.LoadScene("IceCafeMocha");
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("´­¸²");
-        }
-        
+
+
     }
     //¼­À±
     public void gameStartPressed()
     {
         startBtnDown = true;
     }
-    
+
+
 
     void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
