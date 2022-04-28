@@ -38,6 +38,8 @@ public class Recipe2 : MonoBehaviour
 
     public GameObject recipeSlider;
 
+    int updateCnt = 1;
+
     void Start()
     {
         ClickedRecipe = "";
@@ -50,7 +52,41 @@ public class Recipe2 : MonoBehaviour
             Invoke("Correct", 1.5f);
             recipeSlider.GetComponent<Image>().fillAmount = 1f;
         }
+
+        //¼­À±
+        
+        if (nameBtnDown)
+        {
+            while (updateCnt > 0)
+            {
+                popupName.SetActive(false);
+                popupRecipe.SetActive(true);
+                Invoke("PanelStart", 1f);
+                updateCnt--;
+            }  
+        }
+        if (rBtnDown)
+        {
+            popupRecipe.SetActive(false);
+        }
+
     }
+    //¼­À±
+
+    bool nameBtnDown;
+    bool rBtnDown;
+
+    public void reciPressed()
+    {
+        nameBtnDown = true;
+    }
+    public void rPressed()
+    {
+        rBtnDown = true;
+    }
+
+
+
     void PanelStart()
     {
         InvokeRepeating("TimeCount", 0f, 1f);
@@ -350,6 +386,8 @@ public class Recipe2 : MonoBehaviour
             }
         }
     }
+    
+
     public void Show_Recipe()
     {
         popupName.SetActive(false);
