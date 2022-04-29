@@ -45,8 +45,8 @@ public class MoveLevel : MonoBehaviour
                 if(GameManager.currentLevel < 5)//레벨 5가 아닐 때
                 {
                     GameManager.currentLevel += 1;//현재 레벨을 올리고!
-                    LevelUp(GameManager.currentLevel);//데베에 레벨 업데이트!
-                    CountUp(0);//데베에 카운트 0으로 업데이트! 3개가 차면 레벨업 후 다시 0이 되기 때문
+                    //LevelUp(GameManager.currentLevel);//데베에 레벨 업데이트!
+                    //CountUp(0);//데베에 카운트 0으로 업데이트! 3개가 차면 레벨업 후 다시 0이 되기 때문
 
                     if(GameManager.currentLevel == 2)//정식 알바생이 돼서 이제 토스트를 배워야 할 때
                     {
@@ -70,19 +70,29 @@ public class MoveLevel : MonoBehaviour
             }
             else//카운트가 1이나 2로 채워졌을 때
             {
-                CountUp(GameManager.currentCount);//데베에 카운트 업데이트
+                //CountUp(GameManager.currentCount);//데베에 카운트 업데이트
                 textOrder = 0;
                 //팝업 띄우기
                 CountPopup.SetActive(true);
             }
         }
-        else//한번이라도 틀리면 발자국, 레벨업 없음. 사장님이랑 인사하고 출근하기ㄱㄱ
+        else//한번이라도 틀리면 발자국, 레벨업 없음. 사장님이랑 인사하고 다시 출근하기ㄱㄱ
         {
             textOrder = 0;
             ShowBoss();
         }
         cat1.SetActive(false);
         talkPanel.SetActive(false);
+        //PlayerPrefs.Save();//데이터 저장
+    }
+
+    //데이터 저장
+    public void SaveData()
+    {
+        PlayerPrefs.SetInt("tmpLevel", GameManager.currentLevel);
+        PlayerPrefs.SetInt("tmpCount", GameManager.currentCount);
+        PlayerPrefs.SetInt("tmpHeart", GameManager.currentHeart);
+        PlayerPrefs.Save();//PlayerPrefs를 저장
     }
 
     public void ShowBoss()
@@ -101,36 +111,8 @@ public class MoveLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    //전달하기 끝나고 레벨업하는 부분에서 데베에 카운트 올릴 코드
-    public void CountUp(int count)
-    {
-        var DBTask = databaseReference.Child("users").Child(Login.user.UserId).Child("count").SetValueAsync(count);
-        if (DBTask.Exception != null)
-        {
-            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
-            //count is now updated
-        }
-    }
-
-    //전달하기 끝나고 레벨업하는 부분에서 데베에 레벨 올릴 코드
-    public void LevelUp(int level)
-    {
-        var DBTask = databaseReference.Child("users").Child(Login.user.UserId).Child("level").SetValueAsync(level);
-        if (DBTask.Exception != null)
-        {
-            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
-            //level is now updated
-        }
-    }
 
     void BossTalkStart()
     {

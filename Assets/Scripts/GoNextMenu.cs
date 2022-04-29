@@ -11,7 +11,7 @@ public class GoNextMenu : MonoBehaviour
     //각 씬에서 다음 메뉴 씬으로 넘어가는 함수
     public void MoveNextMenuScene()
     {
-        Debug.Log(num[0]);
+        Debug.Log("현재 만들고 있는 메뉴는 " + num[0] + "번째 메뉴");
         if (SpecifyNumber.MakingMenu[num[0]] > 19)//만들 메뉴가 고유번호를 받지 못했다면
         {
             SceneManager.LoadScene("PickUpScene");//전달하기 화면으로 이동

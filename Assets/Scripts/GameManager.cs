@@ -21,10 +21,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject boss;
     public GameObject cat1;
-    //private string[] cats = { "cat1", "cat2", "cat3" }; //여러 마리의 고양이 캐릭터 예정
+    //private GameObject[] cat;//나비, 냐옹, 체리 저장
 
     public static int currentLevel; //레벨!!
     public static int currentCount; //발자국 수
+    public static int currentHeart; //하트 수
 
     //public Text levelText;
 
@@ -98,9 +99,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        DatabaseReference reference = FirebaseDatabase.DefaultInstance.RootReference;
-
-
         audioSrc = GetComponent<AudioSource>();
         //this.animator = GetComponent<Animation>().speed = 0.0f;
 
