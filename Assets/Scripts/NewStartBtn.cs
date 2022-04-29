@@ -24,7 +24,7 @@ public class NewStartBtn : MonoBehaviour
     {
         if (startBtnDown)
         {
-            SceneManager.LoadScene("LoginScene");
+            SceneManager.LoadScene("Start");
         }
     }
 }
