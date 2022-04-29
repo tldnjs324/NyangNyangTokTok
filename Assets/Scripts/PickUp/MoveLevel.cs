@@ -45,10 +45,9 @@ public class MoveLevel : MonoBehaviour
                 if(GameManager.currentLevel < 5)//레벨 5가 아닐 때
                 {
                     GameManager.currentLevel += 1;//현재 레벨을 올리고!
-                    //LevelUp(GameManager.currentLevel);//데베에 레벨 업데이트!
-                    //CountUp(0);//데베에 카운트 0으로 업데이트! 3개가 차면 레벨업 후 다시 0이 되기 때문
+                    GameManager.currentCount = 0;//데베에 카운트 0으로 업데이트! 3개가 차면 레벨업 후 다시 0이 되기 때문
 
-                    if(GameManager.currentLevel == 2)//정식 알바생이 돼서 이제 토스트를 배워야 할 때
+                    if (GameManager.currentLevel == 2)//정식 알바생이 돼서 이제 토스트를 배워야 할 때
                     {
                         textOrder = 2;
                     }
@@ -70,7 +69,6 @@ public class MoveLevel : MonoBehaviour
             }
             else//카운트가 1이나 2로 채워졌을 때
             {
-                //CountUp(GameManager.currentCount);//데베에 카운트 업데이트
                 textOrder = 0;
                 //팝업 띄우기
                 CountPopup.SetActive(true);
@@ -145,6 +143,7 @@ public class MoveLevel : MonoBehaviour
         if(textOrder == 2)
         {
             //토스트튜토리얼로 이동
+            SceneManager.LoadScene("T_BasicToast");
         }
         else
         {

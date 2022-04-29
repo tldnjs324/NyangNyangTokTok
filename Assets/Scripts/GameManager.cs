@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour
         Invoke("BossShowUp", 1f);
 
     }
-    public void ResetMenu()
+    public static void ResetMenu()
     {
         OrderMenu1 = "";
         OrderMenu2 = "";

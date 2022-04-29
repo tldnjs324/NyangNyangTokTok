@@ -12,6 +12,7 @@ public class Starting : MonoBehaviour
     public void Start()
     {
         audioSrc = GetComponent<AudioSource>();
+        GameManager.ResetMenu();
     }
 
     public void StartBtn()
