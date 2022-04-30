@@ -5,14 +5,23 @@ using UnityEngine.UI;
 
 public class BlinkAnim : MonoBehaviour
 {
+    private IEnumerator coroutine;
     public GameObject hint;
-
-
+    //int cnt = 1;
+    
     private void Start()
     {
-        StartCoroutine(HintActive());
+        //coroutine = HintActive();
+        //StartCoroutine(coroutine);
+    }
+    private void Awake()
+    {
+        coroutine = HintActive();
+        StartCoroutine(coroutine);
     }
 
+
+    
     IEnumerator HintActive()
     {
         while (true)

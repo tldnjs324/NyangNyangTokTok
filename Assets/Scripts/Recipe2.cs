@@ -120,6 +120,7 @@ public class Recipe2 : MonoBehaviour
                 } 
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.5f; //2개용
+                hintArrows[0].SetActive(false);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -166,6 +167,7 @@ public class Recipe2 : MonoBehaviour
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
+                hintArrows[0].SetActive(false);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -212,6 +214,7 @@ public class Recipe2 : MonoBehaviour
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
+                hintArrows[0].SetActive(false);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -258,6 +261,7 @@ public class Recipe2 : MonoBehaviour
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
+                hintArrows[0].SetActive(false);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -304,6 +308,7 @@ public class Recipe2 : MonoBehaviour
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
+                hintArrows[0].SetActive(false);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
@@ -350,6 +355,7 @@ public class Recipe2 : MonoBehaviour
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
+                hintArrows[0].SetActive(false);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
