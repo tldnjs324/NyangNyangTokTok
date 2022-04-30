@@ -23,8 +23,10 @@ public class AnswerCtrl : MonoBehaviour
     public GameObject sign_yes;
     //틀렸을 시 팝업
     public GameObject[] sign_no;
-    //팝업 뜰 때 검은 배경 화면
+    //정답 팝업 뜰 때 검은 배경 화면
     public GameObject black_screen;
+    //오답 팝업 뜰 때 검은 배경 화면
+    public GameObject black_screen_no;
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +71,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen.SetActive(true);
+                    black_screen_no.SetActive(true);
                     ButtonList[0].interactable = false;
                 }
             }
@@ -90,7 +92,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen.SetActive(true);
+                    black_screen_no.SetActive(true);
                     ButtonList[1].interactable = false;
                 }
             }
@@ -111,7 +113,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen.SetActive(true);
+                    black_screen_no.SetActive(true);
                     ButtonList[2].interactable = false;
                 }
             }
@@ -132,7 +134,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen.SetActive(true);
+                    black_screen_no.SetActive(true);
                     ButtonList[3].interactable = false;
                 }
             }
@@ -145,11 +147,8 @@ public class AnswerCtrl : MonoBehaviour
         {
             sign_no[i].SetActive(false);
         }  
-        black_screen.SetActive(false);
+        black_screen_no.SetActive(false);
     }
 
-    public void NextScene()
-    {
-        //씬 넘어가는 코드
-    }
+    
 }
