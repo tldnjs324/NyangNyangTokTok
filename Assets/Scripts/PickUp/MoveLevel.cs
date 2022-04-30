@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Firebase.Database;
-using Firebase;
-using Firebase.Auth;
+
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MoveLevel : MonoBehaviour
 {
-    DatabaseReference databaseReference;
-
     public static int wrongCount = 0;
 
     public Text bossText;
