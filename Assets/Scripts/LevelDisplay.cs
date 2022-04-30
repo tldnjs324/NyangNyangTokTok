@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class LevelDisplay : MonoBehaviour
 {
-    public Text levelText;
+    //public Text levelText;
     public Text heartText;
+    public GameObject[] level;
     public GameObject[] count;
     
 
@@ -19,8 +20,16 @@ public class LevelDisplay : MonoBehaviour
     public void Display()
     {
         //현재 레벨 가져와서 상단바에 표시
-        levelText.text = GameManager.currentLevel.ToString();
+        //levelText.text = GameManager.currentLevel.ToString();
         heartText.text = GameManager.currentHeart.ToString();
+        //현재 레벨 가져와서 상단바에 표시
+        for (int i = 1; i < 6; i++)
+        {
+            if (GameManager.currentLevel == i)
+            {
+                level[i-1].SetActive(true);
+            }
+        }
         //현재 발자국 개수 가져와서 상단바에 표시
         for (int i = 0; i < 4; i++)
         {
