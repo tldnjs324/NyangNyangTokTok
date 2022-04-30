@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class LevelDisplay : MonoBehaviour
 {
     //public Text levelText;
-    public Text heartText;
-    public GameObject[] level;
-    public GameObject[] count;
+    public Text heartText;//하트 표시 글자
+    public GameObject[] level;//레벨 표시되어있는 발자국
+    public GameObject[] count;//카운트 표시
+
+    public GameObject[] HelpPopup;//하트, 발자국, 도움말 팝업
+    public GameObject BlackScreen;
     
 
     // Start is called before the first frame update
@@ -37,6 +40,33 @@ public class LevelDisplay : MonoBehaviour
             {
                 count[i].SetActive(true);
             }
+        }
+    }
+
+    public void OpenHeartHelp()
+    {
+        HelpPopup[0].SetActive(true);
+        BlackScreen.SetActive(true);
+    }
+
+    public void OpenStepsHelp()
+    {
+        HelpPopup[1].SetActive(true);
+        BlackScreen.SetActive(true);
+    }
+
+    public void OpenHelp()
+    {
+        HelpPopup[2].SetActive(true);
+        BlackScreen.SetActive(true);
+    }
+
+    public void CloseHelp()
+    {
+        for(int i = 0; i<3; i++)
+        {
+            HelpPopup[i].SetActive(false);
+            BlackScreen.SetActive(false);
         }
     }
 

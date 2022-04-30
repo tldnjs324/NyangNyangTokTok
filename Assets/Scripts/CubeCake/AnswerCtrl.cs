@@ -15,9 +15,9 @@ public class AnswerCtrl : MonoBehaviour
     //버튼 리스트(오앞위왼)
     public List<Button> ButtonList = new List<Button>();
 
-    //카메라 위치 리스트(카메라 위치 랜덤 설정 할 때 사용)
+    //카메라 위치 리스트(카메라 위치 랜덤 설정 할 때 사용 / 오앞위왼 순)
     public List<Rect> RectList = new List<Rect>() {
-        new Rect(0.475f, 0.405f, 0.23f, 0.34f), new Rect(0.475f, 0.049f, 0.23f, 0.34f), new Rect(0.71f, 0.049f, 0.23f, 0.34f), new Rect(0.71f, 0.405f, 0.23f, 0.34f)};
+        new Rect(0.475f, 0.434f, 0.23f, 0.363f), new Rect(0.475f, 0.052f, 0.23f, 0.363f), new Rect(0.71f, 0.052f, 0.23f, 0.363f), new Rect(0.71f, 0.434f, 0.23f, 0.363f)};
 
     //맞았을 시 팝업
     public GameObject sign_yes;
@@ -58,7 +58,7 @@ public class AnswerCtrl : MonoBehaviour
     {
         for(int i = 0; i<4; i++)
         {
-            if (CameraList[i].rect == new Rect(0.475f, 0.405f, 0.23f, 0.34f))
+            if (CameraList[i].rect == new Rect(0.475f, 0.434f, 0.23f, 0.363f))
             {
                 if(i == random)
                 {
@@ -79,7 +79,7 @@ public class AnswerCtrl : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            if (CameraList[i].rect == new Rect(0.71f, 0.405f, 0.23f, 0.34f))
+            if (CameraList[i].rect == new Rect(0.71f, 0.434f, 0.23f, 0.363f))
             {
                 if (i == random)
                 {
@@ -100,7 +100,7 @@ public class AnswerCtrl : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            if (CameraList[i].rect == new Rect(0.475f, 0.049f, 0.23f, 0.34f))
+            if (CameraList[i].rect == new Rect(0.475f, 0.052f, 0.23f, 0.363f))
             {
                 if (i == random)
                 {
@@ -121,7 +121,7 @@ public class AnswerCtrl : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            if (CameraList[i].rect == new Rect(0.71f, 0.049f, 0.23f, 0.34f))
+            if (CameraList[i].rect == new Rect(0.71f, 0.052f, 0.23f, 0.363f))
             {
                 if (i == random)
                 {
