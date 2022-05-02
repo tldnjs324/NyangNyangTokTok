@@ -38,12 +38,14 @@ public class Recipe2 : MonoBehaviour
 
     public GameObject recipeSlider;
 
+    public bool playEffect = false;
+    public ParticleSystem particle;
+
     int updateCnt = 1;
 
     void Start()
     {
         ClickedRecipe = "";
-        
     }
     private void Update()
     {
@@ -103,11 +105,27 @@ public class Recipe2 : MonoBehaviour
         popupRecipe.SetActive(false);
     }
 
+    void ParticleEffect()
+    {
+        //particle.transform.position = img.transform.position;
+        particle.Play();
+        
+    }
+    void BtnReScale()
+    {
+        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+        clickObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); //원래대로
+    }
+
     public void RecipeClickedBtn()
     {
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         ClickedRecipe = clickObject.GetComponentInChildren<Text>().text;
         _list.Add(ClickedRecipe);
+        //
+        clickObject.GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1); //클릭시 크기커지게
+        Invoke("BtnReScale", 0.2f);
+
 
         if (SceneManager.GetActiveScene().name == "BasicToast") //기본토스트
         {
@@ -117,6 +135,7 @@ public class Recipe2 : MonoBehaviour
                 if (i > 0)
                 {
                     img.sprite = sprites[i - 1]; //이미지 변경
+                    ParticleEffect(); //그릇 파티클
                 } 
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.5f; //2개용
