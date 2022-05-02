@@ -9,8 +9,8 @@ public class MemorizeMenu : MonoBehaviour
     public GameObject memorizePanel;
     public Text memoText; //"외울 메뉴"
     public GameObject memoText_1;
-    public GameObject timeCountImg;
-    public Text timeCounting;
+    //public GameObject timeCountImg;
+    //public Text timeCounting;
     public int time = 20;
     public GameObject timeSlider;
 
@@ -29,7 +29,7 @@ public class MemorizeMenu : MonoBehaviour
         nextButton_1.SetActive(false);
         //memorizePanel.SetActive(false);
         retryBtn.SetActive(false);
-        timeCountImg.SetActive(false);
+        //timeCountImg.SetActive(false);
 
         Invoke("PanelStart", 0f);
         Invoke("TimeEnd", 21f); 
