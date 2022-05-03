@@ -7,14 +7,9 @@ public class BlinkAnim : MonoBehaviour
 {
     private IEnumerator coroutine;
     public GameObject hint;
-    //int cnt = 1;
+   
     
     private void Start()
-    {
-        //coroutine = HintActive();
-        //StartCoroutine(coroutine);
-    }
-    private void Awake()
     {
         coroutine = HintActive();
         StartCoroutine(coroutine);

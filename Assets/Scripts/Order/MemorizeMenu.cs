@@ -31,8 +31,8 @@ public class MemorizeMenu : MonoBehaviour
         retryBtn.SetActive(false);
         //timeCountImg.SetActive(false);
 
-        Invoke("PanelStart", 0f);
-        Invoke("TimeEnd", 21f); 
+        //Invoke("PanelStart", 0f);
+        //Invoke("TimeEnd", 21f); 
     }
     
     void Update()
@@ -40,12 +40,13 @@ public class MemorizeMenu : MonoBehaviour
         
     }
 
-    void PanelStart()
+    public void PanelStart()
     {
+        Invoke("TimeEnd", 21f);
         //memorizePanel.SetActive(true);
         //timeCountImg.SetActive(true);
 
-        if(GameManager.OrderMenu3.Length > 2 && GameManager.OrderMenu4.Length < 2) //문자열 길이로 메뉴개수 판단
+        if (GameManager.OrderMenu3.Length > 2 && GameManager.OrderMenu4.Length < 2) //문자열 길이로 메뉴개수 판단
         {
             memoText.text = GameManager.OrderMenu1 + "\n" + GameManager.OrderMenu2
                 + "\n" + GameManager.OrderMenu3;
