@@ -28,6 +28,11 @@ public class AnswerCtrl : MonoBehaviour
     //오답 팝업 뜰 때 검은 배경 화면
     public GameObject black_screen_no;
 
+    //팝업 위치
+    public string[] position = { "우측", "앞", "위", "좌측" };
+    //팝업 위치 텍스트
+    public Text position_text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +50,7 @@ public class AnswerCtrl : MonoBehaviour
             if(random == i)
             {
                 QuestionList[i].SetActive(true);
+                position_text.text = position[i];
             }
         }
     }
