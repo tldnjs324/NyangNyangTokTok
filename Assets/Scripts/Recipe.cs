@@ -26,6 +26,9 @@ public class Recipe : MonoBehaviour
 
     public Image img;
     public Sprite[] sprites = new Sprite[7];
+    public GameObject btnMachine;
+    public Sprite sprite1; //커피 내리는중
+    public Sprite sprite2; //원상태로
 
     public GameObject[] hintArrows = new GameObject[8];
     public GameObject popupCorrect;
@@ -38,13 +41,16 @@ public class Recipe : MonoBehaviour
     public GameObject coffeeShot;
     public GameObject choco_img;
 
+    private IEnumerator coroutine;
+    public GameObject hint;
+
     public GameObject recipeSlider;
 
     void Start()
     {
         ClickedRecipe = "";
-        
-        
+        coroutine = HintActive();
+
     }
     private void Update()
     {
@@ -54,6 +60,19 @@ public class Recipe : MonoBehaviour
             recipeSlider.GetComponent<Image>().fillAmount = 1f;
         }
     }
+    IEnumerator HintActive()
+    {
+        while (true)
+        {
+            hint.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            yield return new WaitForSeconds(0.7f);
+
+            hint.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(0.7f);
+        }
+
+    }
+
     void PanelStart()
     {
         InvokeRepeating("TimeCount", 0f, 1f);
@@ -69,12 +88,29 @@ public class Recipe : MonoBehaviour
         CancelInvoke("TimeCount");
         popupRecipe.SetActive(false);
     }
+    void BtnReScale()
+    {
+        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+        clickObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); //원래대로
+    }
+    void BtnImgChange()
+    {
+        btnMachine.GetComponent<Image>().sprite = sprite2; //샷 추출완료
+        coffeeShot.SetActive(true); //샷 생성
+    }
+    void BtnShot()
+    {
+        coffeeShot.SetActive(false); 
+    }
 
     public void RecipeClickedBtn()
     {
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         ClickedRecipe = clickObject.GetComponentInChildren<Text>().text;
         _list.Add(ClickedRecipe);
+
+        clickObject.GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1); //클릭시 크기커지게
+        Invoke("BtnReScale", 0.2f);
 
         if (SceneManager.GetActiveScene().name == "HotAmericano") //따뜻한아메리카노
         {
@@ -85,15 +121,17 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                 }
                 if (i == 3)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -101,6 +139,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -110,6 +149,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -127,15 +167,17 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                 }
                 if (i == 4)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -143,6 +185,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -152,6 +195,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -169,15 +213,17 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                 }
                 if (i == 3)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -185,6 +231,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -194,6 +241,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -211,15 +259,17 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                 }
                 if (i == 4)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -227,6 +277,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -236,6 +287,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -253,15 +305,17 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                 }
                 if (i == 3)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -269,6 +323,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -278,6 +333,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -295,15 +351,17 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                 }
                 if (i == 4)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -311,6 +369,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -320,6 +379,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -337,6 +397,7 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.1428f; //7개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 3)
@@ -345,12 +406,13 @@ public class Recipe : MonoBehaviour
                 }
                 if (i == 4)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                     choco_img.SetActive(false);
                 }
                 if (i == 5)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -358,6 +420,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -367,6 +430,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -384,6 +448,7 @@ public class Recipe : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.166f; //6개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
                 if (i == 2)
@@ -392,12 +457,13 @@ public class Recipe : MonoBehaviour
                 }
                 if (i == 3)
                 {
-                    coffeeShot.SetActive(true); //샷 생성
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
+                    Invoke("BtnImgChange", 1.5f);
                     choco_img.SetActive(false);
                 }
                 if (i == 4)
                 {
-                    coffeeShot.SetActive(false);
+                    Invoke("BtnShot", 0.3f);
                 }
             }
             else
@@ -405,6 +471,7 @@ public class Recipe : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -414,6 +481,7 @@ public class Recipe : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {

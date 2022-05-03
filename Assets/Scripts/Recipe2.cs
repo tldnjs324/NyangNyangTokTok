@@ -25,8 +25,9 @@ public class Recipe2 : MonoBehaviour
     public Image img;
     public Sprite[] sprites = new Sprite[4];
     public GameObject btnMachine;
-    public Sprite sprite;
-    public Sprite sprite2;
+    public Sprite sprite; //다 구워짐
+    public Sprite sprite1; //구워지는 중간상태
+    public Sprite sprite2; //원상태로
 
     public GameObject[] hintArrows = new GameObject[6];
     public GameObject popupCorrect;
@@ -38,6 +39,9 @@ public class Recipe2 : MonoBehaviour
 
     public GameObject recipeSlider;
 
+    private IEnumerator coroutine;
+    public GameObject hint;
+
     public bool playEffect = false;
     public ParticleSystem particle;
 
@@ -46,6 +50,7 @@ public class Recipe2 : MonoBehaviour
     void Start()
     {
         ClickedRecipe = "";
+        coroutine = HintActive();
     }
     private void Update()
     {
@@ -87,7 +92,18 @@ public class Recipe2 : MonoBehaviour
         rBtnDown = true;
     }
 
+    IEnumerator HintActive()
+    {
+        while (true)
+        {
+            hint.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            yield return new WaitForSeconds(0.7f);
 
+            hint.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(0.7f);
+        }
+
+    }
 
     void PanelStart()
     {
@@ -116,6 +132,10 @@ public class Recipe2 : MonoBehaviour
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         clickObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); //원래대로
     }
+    void BtnImgChange()
+    {
+        btnMachine.GetComponent<Image>().sprite = sprite; //다구워짐
+    }
 
     public void RecipeClickedBtn()
     {
@@ -140,12 +160,15 @@ public class Recipe2 : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.5f; //2개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
                 if (i == 1)
                 {
-                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
+                    Invoke("BtnImgChange", 1.5f);
+
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -158,6 +181,7 @@ public class Recipe2 : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -167,6 +191,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -187,12 +212,14 @@ public class Recipe2 : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
                 if (i == 1)
                 {
-                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
+                    Invoke("BtnImgChange", 1.5f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -205,6 +232,7 @@ public class Recipe2 : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -214,6 +242,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -234,12 +263,14 @@ public class Recipe2 : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
                 if (i == 1)
                 {
-                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
+                    Invoke("BtnImgChange", 1.5f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -252,6 +283,7 @@ public class Recipe2 : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -261,6 +293,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -281,12 +314,14 @@ public class Recipe2 : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
                 if (i == 1)
                 {
-                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
+                    Invoke("BtnImgChange", 1.5f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -299,6 +334,7 @@ public class Recipe2 : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -308,6 +344,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -328,12 +365,14 @@ public class Recipe2 : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
                 if (i == 1)
                 {
-                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
+                    Invoke("BtnImgChange", 1.5f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -346,6 +385,7 @@ public class Recipe2 : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -355,6 +395,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
@@ -375,12 +416,14 @@ public class Recipe2 : MonoBehaviour
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
 
                 if (i == 1)
                 {
-                    btnMachine.GetComponent<Image>().sprite = sprite;
+                    btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
+                    Invoke("BtnImgChange", 1.5f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -393,6 +436,7 @@ public class Recipe2 : MonoBehaviour
                 _list.RemoveAt(i);
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
+                StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
@@ -402,6 +446,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     hintArrows[0].SetActive(true); //도움말힌트강조
+                    StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {

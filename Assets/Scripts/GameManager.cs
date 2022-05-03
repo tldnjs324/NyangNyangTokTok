@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject bossPanel;
     public GameObject talkPanel; //나비
 
+    public GameObject startPopup;
+
     public GameObject boss;
     public GameObject cat1;
     //private GameObject[] cat;//나비, 냐옹, 체리 저장
@@ -308,6 +310,12 @@ public class GameManager : MonoBehaviour
 
         boss.SetActive(false);
         bossPanel.SetActive(false);
+        startPopup.SetActive(true);
+        
+    }
+    public void PopupNext()
+    {
+        startPopup.SetActive(false);
         talkPanel.SetActive(true);
         cat1.SetActive(true);
         Invoke("CatTalkStart", 1f); //추후 음성에 맞게 초 수정
