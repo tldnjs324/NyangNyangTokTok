@@ -16,8 +16,19 @@ public class MoveLevel : MonoBehaviour
     public GameObject bossBtn;
 
     public GameObject CountPopup;//카운트가 1,2가 됐을 때 팝업
-    public GameObject Count3Popup;//카운트가 3이 됐을 때 팝업
-    public GameObject LevelPopup;//레벨 팝업
+    //public GameObject Count3Popup;//카운트가 3이 됐을 때 팝업
+    public GameObject LevelPopup;//레벨업 팝업(카운트가 3이 됐을 때 팝업)
+
+    //레벨업 팝업 이미지
+    public GameObject[] PopupImg;
+    //레벨 텍스트에 들어갈 글
+    private string[] LvText = { "Lv.1\n수습기간\n알바생", "Lv.2\n알바생", "Lv.3\n우수 알바생", "Lv.4\n부매니저", "Lv.5\n매니저" };
+    //레벨 텍스트
+    public Text BeforeLevel;//현재 레벨
+    public Text AfterLevel;//승진할 레벨
+    //발자국
+    public GameObject Step1;
+    public GameObject Step2;
 
     private string[] b_text = { "오늘도 고생 많았어요!\n내일도 즐겁게 일해요~!", " 되신걸 축하드려요~!\n앞으로도 같이 재미있게 일해요!",
         "수습기간 끝난거 축하해요!\n이제부터는 알바생님께 토스트도 맡겨볼게요~!", "오랫동안 같이 일해줘서 고마워요~!\n내일도 같이 즐겁게 일해요:)" };
@@ -53,9 +64,16 @@ public class MoveLevel : MonoBehaviour
                         b_text[1] = position[GameManager.currentLevel - 2] + b_text[1];
                         textOrder = 1;
                     }
-
-                    //팝업 띄우기
-                    Count3Popup.SetActive(true);
+                    for(int i = 2; i<6; i++)
+                    {
+                        if (GameManager.currentLevel == i)
+                        {
+                            PopupImg[i - 2].SetActive(true);
+                        }
+                    }
+                    
+                    //레벨 업 팝업 띄우기
+                    LevelPopup.SetActive(true);
                     
                 }else if (GameManager.currentLevel == 5){//레벨5인데 또 3개 카운트 채운 경우
                     textOrder = 3;
@@ -67,6 +85,22 @@ public class MoveLevel : MonoBehaviour
             {
                 textOrder = 0;
                 //팝업 띄우기
+                for(int i = 1; i<5; i++)
+                {
+                    if(GameManager.currentLevel == i)
+                    {
+                        BeforeLevel.text = LvText[i];
+                        AfterLevel.text = LvText[i + 1];
+                    }
+                }
+                if(GameManager.currentCount == 1)
+                {
+                    Step1.SetActive(true);
+                }else if (GameManager.currentCount == 2)
+                {
+                    Step2.SetActive(true);
+                }
+
                 CountPopup.SetActive(true);
             }
         }
@@ -129,11 +163,12 @@ public class MoveLevel : MonoBehaviour
         LevelPopup.SetActive(false);
         //ShowBoss();
     }
+    /*
     public void NextBtn()//팝업 다음버튼
     {
         Count3Popup.SetActive(false);
         LevelPopup.SetActive(true);
-    }
+    }*/
     public void BossBtn()//사장님 끝인사 패널 버튼
     {
         if(textOrder == 2)
