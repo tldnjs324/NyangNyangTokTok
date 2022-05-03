@@ -18,7 +18,7 @@ public class Starting : MonoBehaviour
     public void StartBtn()
     {
         audioSrc.PlayOneShot(btnAudio,0.5f);
-        SceneLoad.LoadScene("Main");
+        SceneLoad.LoadScene("LevelMap");
     }
 }
 
