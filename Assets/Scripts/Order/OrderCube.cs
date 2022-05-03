@@ -25,6 +25,8 @@ public class OrderCube : MonoBehaviour
     public AudioClip wrong;
     AudioSource audioSrc;
 
+    public static int cube_wrong = 0;
+
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
@@ -128,6 +130,7 @@ public class OrderCube : MonoBehaviour
         {
             popupWrong.SetActive(true);
             MoveLevel.wrongCount += 1;
+            cube_wrong += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
         }
 
@@ -141,6 +144,9 @@ public class OrderCube : MonoBehaviour
                     popupCorrect.SetActive(true);
                     audioSrc.PlayOneShot(correct, 0.5f);
 
+                    //하트 올리는 코드
+                    GameManager.IncreaseHeart(cube_wrong);
+
                 }
                 else if (_list.Contains(GameManager.OrderMenu3))
                 {
@@ -151,6 +157,7 @@ public class OrderCube : MonoBehaviour
                         {
                             //오답이 있다면
                             popupWrong.SetActive(true);
+                            cube_wrong += 1;
                             MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -165,6 +172,7 @@ public class OrderCube : MonoBehaviour
                     {
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -191,6 +199,7 @@ public class OrderCube : MonoBehaviour
                             //오답이 있다면
                             popupWrong.SetActive(true);
                             MoveLevel.wrongCount += 1;
+                            cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -201,6 +210,7 @@ public class OrderCube : MonoBehaviour
                     {
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                     }
                 }
@@ -210,6 +220,7 @@ public class OrderCube : MonoBehaviour
                     {
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -239,6 +250,7 @@ public class OrderCube : MonoBehaviour
                             //오답이 있다면
                             popupWrong.SetActive(true);
                             MoveLevel.wrongCount += 1;
+                            cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -252,6 +264,7 @@ public class OrderCube : MonoBehaviour
                     {
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -278,6 +291,7 @@ public class OrderCube : MonoBehaviour
                             //오답이 있다면
                             popupWrong.SetActive(true);
                             MoveLevel.wrongCount += 1;
+                            cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -288,6 +302,7 @@ public class OrderCube : MonoBehaviour
                     {
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                     }
                 }
@@ -297,6 +312,7 @@ public class OrderCube : MonoBehaviour
                     {
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -326,6 +342,7 @@ public class OrderCube : MonoBehaviour
                             //오답이 있다면
                             popupWrong.SetActive(true);
                             MoveLevel.wrongCount += 1;
+                            cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
                             Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -339,6 +356,7 @@ public class OrderCube : MonoBehaviour
                     {
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";

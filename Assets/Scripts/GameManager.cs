@@ -286,8 +286,29 @@ public class GameManager : MonoBehaviour
         cubeCount = 0;
         GoNextMenu.num = new List<int>() { 0, 1, 2, 3 };
         MoveLevel.wrongCount = 0;
+        OrderCoffee.coffee_wrong = 0;
+        OrderToast.toast_wrong = 0;
+        OrderCube.cube_wrong = 0;
     }
 
+    public static void IncreaseHeart(int x)
+    {
+        if (currentHeart < 100000)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (x == i)
+                {
+                    currentHeart += 5 - i;
+                }
+            }
+        }
+        else
+        {
+            currentHeart = 99999;
+        }
+        
+    }
     
     void Update()
     {

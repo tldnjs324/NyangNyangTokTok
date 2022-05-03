@@ -21,6 +21,8 @@ public class OrderCoffee : MonoBehaviour
     public AudioClip wrong;
     AudioSource audioSrc;
 
+    public static int coffee_wrong = 0;
+
     void Start()
     {
         ClickedMenu = "";
@@ -100,6 +102,7 @@ public class OrderCoffee : MonoBehaviour
         {
             popupWrong.SetActive(true);
             MoveLevel.wrongCount += 1;
+            coffee_wrong += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
         }
 
@@ -111,6 +114,9 @@ public class OrderCoffee : MonoBehaviour
                 //정답이라면
                 popupCorrect.SetActive(true);
                 audioSrc.PlayOneShot(correct, 0.5f);
+
+                //하트 올리는 코드
+                GameManager.IncreaseHeart(coffee_wrong);
             }
             else if (_list.Contains(GameManager.OrderMenu1))
             {
@@ -121,6 +127,7 @@ public class OrderCoffee : MonoBehaviour
                     {
                         //오답이 있다면
                         MoveLevel.wrongCount += 1;
+                        coffee_wrong += 1;
                         popupWrong.SetActive(true);
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -134,6 +141,7 @@ public class OrderCoffee : MonoBehaviour
                 for (int i = 0; i < _list.Count; i++)
                 {
                     popupWrong.SetActive(true);
+                    coffee_wrong += 1;
                     MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -161,6 +169,7 @@ public class OrderCoffee : MonoBehaviour
                         //오답이 있다면
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        coffee_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -172,6 +181,7 @@ public class OrderCoffee : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     MoveLevel.wrongCount += 1;
+                    coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                 }
             }
@@ -181,6 +191,7 @@ public class OrderCoffee : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     MoveLevel.wrongCount += 1;
+                    coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -208,6 +219,7 @@ public class OrderCoffee : MonoBehaviour
                         //오답이 있다면
                         popupWrong.SetActive(true);
                         MoveLevel.wrongCount += 1;
+                        coffee_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -219,12 +231,14 @@ public class OrderCoffee : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     MoveLevel.wrongCount += 1;
+                    coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                 }
                 else if (_list.Count == 2)
                 {
                     popupWrong.SetActive(true);
                     MoveLevel.wrongCount += 1;
+                    coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                 }
             }
@@ -234,6 +248,7 @@ public class OrderCoffee : MonoBehaviour
                 {
                     popupWrong.SetActive(true);
                     MoveLevel.wrongCount += 1;
+                    coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
