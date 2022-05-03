@@ -89,8 +89,8 @@ public class MoveLevel : MonoBehaviour
                 {
                     if(GameManager.currentLevel == i)
                     {
-                        BeforeLevel.text = LvText[i];
-                        AfterLevel.text = LvText[i + 1];
+                        BeforeLevel.text = LvText[i-1];
+                        AfterLevel.text = LvText[i];
                     }
                 }
                 if(GameManager.currentCount == 1)

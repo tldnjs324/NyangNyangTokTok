@@ -323,7 +323,7 @@ public class GameManager : MonoBehaviour
 
     void CatTalkStart()
     {
-        
+        Debug.Log("CatTalkStart");
 
         if (currentLevel == 1) //1´Ü°è
         {
