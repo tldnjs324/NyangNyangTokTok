@@ -455,6 +455,8 @@ public class Recipe2 : MonoBehaviour
                 }
             }
         }
+        //하트 올리는 코드
+        GameManager.IncreaseHeart(wrongCnt);
     }
     
 

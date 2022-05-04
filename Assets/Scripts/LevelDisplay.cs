@@ -22,8 +22,7 @@ public class LevelDisplay : MonoBehaviour
 
     public void Display()
     {
-        //현재 레벨 가져와서 상단바에 표시
-        //levelText.text = GameManager.currentLevel.ToString();
+        //현재 하트 가져와서 상단바에 표시
         heartText.text = GameManager.currentHeart.ToString();
         //현재 레벨 가져와서 상단바에 표시
         for (int i = 1; i < 6; i++)

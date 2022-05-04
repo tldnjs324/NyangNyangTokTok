@@ -33,6 +33,9 @@ public class AnswerCtrl : MonoBehaviour
     //팝업 위치 텍스트
     public Text position_text;
 
+    //큐브 틀린 수 
+    public static int cube_wrong;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +75,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_yes.SetActive(true);
                     black_screen.SetActive(true);
+                    //하트 올리는 코드
+                    GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
@@ -79,6 +84,7 @@ public class AnswerCtrl : MonoBehaviour
                     MoveLevel.wrongCount += 1;
                     black_screen_no.SetActive(true);
                     ButtonList[0].interactable = false;
+                    cube_wrong += 1;
                 }
             }
         }
@@ -93,6 +99,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_yes.SetActive(true);
                     black_screen.SetActive(true);
+                    //하트 올리는 코드
+                    GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
@@ -100,6 +108,7 @@ public class AnswerCtrl : MonoBehaviour
                     MoveLevel.wrongCount += 1;
                     black_screen_no.SetActive(true);
                     ButtonList[1].interactable = false;
+                    cube_wrong += 1;
                 }
             }
         }
@@ -114,6 +123,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_yes.SetActive(true);
                     black_screen.SetActive(true);
+                    //하트 올리는 코드
+                    GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
@@ -121,6 +132,7 @@ public class AnswerCtrl : MonoBehaviour
                     MoveLevel.wrongCount += 1;
                     black_screen_no.SetActive(true);
                     ButtonList[2].interactable = false;
+                    cube_wrong += 1;
                 }
             }
         }
@@ -135,6 +147,8 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     sign_yes.SetActive(true);
                     black_screen.SetActive(true);
+                    //하트 올리는 코드
+                    GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
@@ -142,6 +156,7 @@ public class AnswerCtrl : MonoBehaviour
                     MoveLevel.wrongCount += 1;
                     black_screen_no.SetActive(true);
                     ButtonList[3].interactable = false;
+                    cube_wrong += 1;
                 }
             }
         }

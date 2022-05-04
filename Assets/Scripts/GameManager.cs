@@ -289,6 +289,7 @@ public class GameManager : MonoBehaviour
         OrderCoffee.coffee_wrong = 0;
         OrderToast.toast_wrong = 0;
         OrderCube.cube_wrong = 0;
+        AnswerCtrl.cube_wrong = 0;
     }
 
     public static void IncreaseHeart(int x)
