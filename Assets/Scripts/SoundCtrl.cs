@@ -9,70 +9,76 @@ public class SoundCtrl : MonoBehaviour
     public AudioClip[] click;
     AudioSource audioSrc;
 
-    public void ClickSounc(int x)
+    public void ClickSound(int x)
     {
         audioSrc.PlayOneShot(click[x]);
     }
-    public void Click_1()
+
+    public void PopupSound()
+    {
+        audioSrc.PlayOneShot(click[0]);
+    }
+    public void ClickBtn()
     {
         audioSrc.PlayOneShot(click[1]);
     }
-    public void Click_2()
+    public void TrueBtn()
     {
         audioSrc.PlayOneShot(click[2]);
     }
-    public void Click_3()
+    public void FalseBtn()
     {
         audioSrc.PlayOneShot(click[3]);
     }
-    public void Click_4()
+    public void CupBtn()
     {
         audioSrc.PlayOneShot(click[4]);
     }
-    public void Click_5()
+    public void IceBtn()
     {
         audioSrc.PlayOneShot(click[5]);
     }
-    public void Click_6()
+    public void WaterBtn()
     {
         audioSrc.PlayOneShot(click[6]);
     }
-    public void Click_7()
+    public void CoffeeMachineBtn()
     {
         audioSrc.PlayOneShot(click[7]);
     }
-    public void Click_8()
+    public void SyrupBtn()
     {
         audioSrc.PlayOneShot(click[8]);
     }
-    public void Click_9()
+    public void CreamBtn()
     {
         audioSrc.PlayOneShot(click[9]);
     }
-    public void Click_10()
+    public void BreadOutBtn()
     {
         audioSrc.PlayOneShot(click[10]);
     }
-    public void Click_11()
+    public void ToasterBtn()
     {
         audioSrc.PlayOneShot(click[11]);
     }
-    public void Click_12()
+    public void JamBtn()
     {
         audioSrc.PlayOneShot(click[12]);
     }
-    public void Click_13()
+    public void FruitBtn()
     {
         audioSrc.PlayOneShot(click[13]);
     }
-    public void Click_14()
+    public void StepPopup()
     {
         audioSrc.PlayOneShot(click[14]);
     }
-    public void Click_15()
+    public void StepUp()
     {
         audioSrc.PlayOneShot(click[15]);
     }
+
     // Start is called before the first frame update
     void Start()
     {
