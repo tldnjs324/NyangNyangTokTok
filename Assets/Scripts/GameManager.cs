@@ -323,8 +323,9 @@ public class GameManager : MonoBehaviour
     void BossTalkStart()
     {
         //bossText.text = "좋은 아침입니다~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
-        m_text = "좋은 아침입니다~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
-        StartCoroutine(_typing());
+        m_text = "반가워요~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
+        StartMethod();
+        //StartCoroutine(_typing());
     }
     public void ShowCat()
     {
@@ -332,6 +333,7 @@ public class GameManager : MonoBehaviour
 
         boss.SetActive(false);
         bossPanel.SetActive(false);
+        StopMethod();
         startPopup.SetActive(true);
         
     }
@@ -404,6 +406,20 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.07f);
         }
     }
+    IEnumerator coroutine;
+    void StartMethod()
+    {
+        coroutine = _typing();
+        StartCoroutine(coroutine);
+    }
+    void StopMethod()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+    }
+
     public void SceneMove()
     {
         audioSrc.PlayOneShot(click, 0.5f);

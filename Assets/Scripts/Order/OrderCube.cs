@@ -160,8 +160,8 @@ public class OrderCube : MonoBehaviour
                             cube_wrong += 1;
                             MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                         }
                     }
@@ -174,8 +174,8 @@ public class OrderCube : MonoBehaviour
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }
@@ -201,8 +201,8 @@ public class OrderCube : MonoBehaviour
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                         }
                     }
@@ -222,8 +222,8 @@ public class OrderCube : MonoBehaviour
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }
@@ -252,8 +252,8 @@ public class OrderCube : MonoBehaviour
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                         }
                     }
@@ -266,8 +266,8 @@ public class OrderCube : MonoBehaviour
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }
@@ -293,8 +293,8 @@ public class OrderCube : MonoBehaviour
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                         }
                     }
@@ -314,8 +314,8 @@ public class OrderCube : MonoBehaviour
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }
@@ -344,8 +344,8 @@ public class OrderCube : MonoBehaviour
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
-                            Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                            _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                            _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                             //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                         }
                     }
@@ -358,8 +358,8 @@ public class OrderCube : MonoBehaviour
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }

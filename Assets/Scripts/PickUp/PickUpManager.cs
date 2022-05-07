@@ -109,8 +109,9 @@ public class PickUpManager : MonoBehaviour
                 m_text[0] += thanktext[high_no_coffee_text];
             }
         }
-
-        StartCoroutine(_typing(0));
+        StopMethod();
+        StartMethod(0);
+        //StartCoroutine(_typing(0));
     }
     void PlayerTalkStart()
     {
@@ -132,13 +133,16 @@ public class PickUpManager : MonoBehaviour
         {
             p_text += watchout_text[p_noncoffee_text];
         }
-        StartCoroutine(_typing2());
+        
+        StartCoroutine(_typing2());//
     }
 
 
     public void NextTalk()
     {
-        StartCoroutine(_typing(1));
+        StopMethod();
+        StartMethod(1);
+        //StartCoroutine(_typing(1));
         nextButton.SetActive(false);
         nextButton2.SetActive(true);
     }
@@ -177,5 +181,17 @@ public class PickUpManager : MonoBehaviour
         }
     }
 
-
+    IEnumerator coroutine;
+    void StartMethod(int x)
+    {
+        coroutine = _typing(x);
+        StartCoroutine(coroutine);
+    }
+    void StopMethod()
+    {
+        if (coroutine != null)
+        {
+            StopCoroutine(coroutine);
+        }
+    }
 }

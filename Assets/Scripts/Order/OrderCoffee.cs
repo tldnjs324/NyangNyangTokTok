@@ -130,8 +130,8 @@ public class OrderCoffee : MonoBehaviour
                         coffee_wrong += 1;
                         popupWrong.SetActive(true);
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }
@@ -144,8 +144,8 @@ public class OrderCoffee : MonoBehaviour
                     coffee_wrong += 1;
                     MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
-                    Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                    _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                 }
             }
@@ -171,8 +171,8 @@ public class OrderCoffee : MonoBehaviour
                         MoveLevel.wrongCount += 1;
                         coffee_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }
@@ -193,8 +193,8 @@ public class OrderCoffee : MonoBehaviour
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
-                    Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                    _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                 }
             }
@@ -221,8 +221,8 @@ public class OrderCoffee : MonoBehaviour
                         MoveLevel.wrongCount += 1;
                         coffee_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                        _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                     }
                 }
@@ -250,8 +250,8 @@ public class OrderCoffee : MonoBehaviour
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
-                    Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                    _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                    _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     //±ôºý±ôºý Ãß°¡ ÇÊ¿ä
                 }
             }

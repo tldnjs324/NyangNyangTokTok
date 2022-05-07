@@ -42,8 +42,8 @@ public class Recipe2 : MonoBehaviour
     private IEnumerator coroutine;
     public GameObject hint;
 
-    public bool playEffect = false;
-    public ParticleSystem particle;
+    public ParticleSystem particle; //접시용
+    public ParticleSystem particle2; //토스터용
 
     int updateCnt = 1;
 
@@ -121,12 +121,6 @@ public class Recipe2 : MonoBehaviour
         popupRecipe.SetActive(false);
     }
 
-    void ParticleEffect()
-    {
-        //particle.transform.position = img.transform.position;
-        particle.Play();
-        
-    }
     void BtnReScale()
     {
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
@@ -154,8 +148,11 @@ public class Recipe2 : MonoBehaviour
             {
                 if (i > 0)
                 {
+                    //StartCoroutine("AfterParticle");
+                    particle.Play(); //그릇에 파티클
+                    WaitForSeconds(); 
                     img.sprite = sprites[i - 1]; //이미지 변경
-                    ParticleEffect(); //그릇 파티클
+                    
                 } 
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.5f; //2개용
@@ -166,9 +163,11 @@ public class Recipe2 : MonoBehaviour
 
                 if (i == 1)
                 {
+                    particle2.Play();
+                    WaitForSeconds();
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
-                    Invoke("BtnImgChange", 1.5f);
-
+                    Invoke("BtnImgChange", 1.2f);
+                    
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -200,6 +199,7 @@ public class Recipe2 : MonoBehaviour
                 }
             }
         }
+
         if (SceneManager.GetActiveScene().name == "ChocoToast") //초코토스트
         {
             cnt = 3;
@@ -458,7 +458,15 @@ public class Recipe2 : MonoBehaviour
         //하트 올리는 코드
         GameManager.IncreaseHeart(wrongCnt);
     }
-    
+    IEnumerator AfterParticle()
+    {
+        yield return new WaitForSeconds(0.2f);
+        img.sprite = sprites[i - 1]; //이미지 변경
+    }
+    IEnumerator WaitForSeconds()
+    {
+        yield return new WaitForSeconds(1.0f);
+    }
 
     public void Show_Recipe()
     {
