@@ -23,6 +23,7 @@ public class Recipe2 : MonoBehaviour
     public int time = 20;
 
     public Image img;
+    public GameObject plate;
     public Sprite[] sprites = new Sprite[4];
     public GameObject btnMachine;
     public Sprite sprite; //다 구워짐
@@ -43,7 +44,7 @@ public class Recipe2 : MonoBehaviour
     public GameObject hint;
 
     public ParticleSystem particle; //접시용
-    public ParticleSystem particle2; //토스터용
+    //public ParticleSystem particle2; //토스터용
 
     int updateCnt = 1;
 
@@ -51,11 +52,13 @@ public class Recipe2 : MonoBehaviour
     {
         ClickedRecipe = "";
         coroutine = HintActive();
+        
     }
     private void Update()
     {
         if (i != 0 && i == cnt)
         {
+            
             Invoke("Correct", 1.5f);
             recipeSlider.GetComponent<Image>().fillAmount = 1f;
         }
@@ -126,6 +129,12 @@ public class Recipe2 : MonoBehaviour
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         clickObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); //원래대로
     }
+    void PlateReScale()
+    {
+        RectTransform rectTran = plate.GetComponent<RectTransform>();
+        rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1250);
+        rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1250); //그릇 원래대로
+    }
     void BtnImgChange()
     {
         btnMachine.GetComponent<Image>().sprite = sprite; //다구워짐
@@ -138,21 +147,24 @@ public class Recipe2 : MonoBehaviour
         _list.Add(ClickedRecipe);
         //
         clickObject.GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1); //클릭시 크기커지게
-        Invoke("BtnReScale", 0.2f);
+        Invoke("BtnReScale", 0.1f);
 
 
         if (SceneManager.GetActiveScene().name == "BasicToast") //기본토스트
         {
             cnt = 2;
+            
+
             if (_list[i] == basicToast[i])
             {
                 if (i > 0)
                 {
-                    //StartCoroutine("AfterParticle");
-                    particle.Play(); //그릇에 파티클
-                    WaitForSeconds(); 
-                    img.sprite = sprites[i - 1]; //이미지 변경
                     
+                    img.sprite = sprites[i - 1]; //이미지 변경
+                    RectTransform rectTran = plate.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
+                    Invoke("PlateReScale", 0.1f);
                 } 
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.5f; //2개용
@@ -163,7 +175,7 @@ public class Recipe2 : MonoBehaviour
 
                 if (i == 1)
                 {
-                    particle2.Play();
+                    //particle2.Play();
                     WaitForSeconds();
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
                     Invoke("BtnImgChange", 1.2f);
@@ -173,6 +185,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite2;
+                    particle.Play(); //그릇에 완성파티클
                 }
             }
             else
@@ -208,6 +221,10 @@ public class Recipe2 : MonoBehaviour
                 if (i > 0)
                 {
                     img.sprite = sprites[i - 1]; //이미지 변경
+                    RectTransform rectTran = plate.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
+                    Invoke("PlateReScale", 0.1f);
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
@@ -225,6 +242,10 @@ public class Recipe2 : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
+                if (i == 3)
+                {
+                    particle.Play(); //그릇에 완성파티클
                 }
             }
             else
@@ -259,6 +280,10 @@ public class Recipe2 : MonoBehaviour
                 if (i > 0)
                 {
                     img.sprite = sprites[i - 1]; //이미지 변경
+                    RectTransform rectTran = plate.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
+                    Invoke("PlateReScale", 0.1f);
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -276,6 +301,10 @@ public class Recipe2 : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
+                if (i == 4)
+                {
+                    particle.Play(); //그릇에 완성파티클
                 }
             }
             else
@@ -310,6 +339,10 @@ public class Recipe2 : MonoBehaviour
                 if (i > 0)
                 {
                     img.sprite = sprites[i - 1]; //이미지 변경
+                    RectTransform rectTran = plate.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
+                    Invoke("PlateReScale", 0.1f);
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -327,6 +360,10 @@ public class Recipe2 : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
+                if (i == 4)
+                {
+                    particle.Play(); //그릇에 완성파티클
                 }
             }
             else
@@ -361,6 +398,10 @@ public class Recipe2 : MonoBehaviour
                 if (i > 0)
                 {
                     img.sprite = sprites[i - 1]; //이미지 변경
+                    RectTransform rectTran = plate.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
+                    Invoke("PlateReScale", 0.1f);
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -378,6 +419,10 @@ public class Recipe2 : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
+                if (i == 4)
+                {
+                    particle.Play(); //그릇에 완성파티클
                 }
             }
             else
@@ -412,6 +457,10 @@ public class Recipe2 : MonoBehaviour
                 if (i > 0)
                 {
                     img.sprite = sprites[i - 1]; //이미지 변경
+                    RectTransform rectTran = plate.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
+                    Invoke("PlateReScale", 0.1f);
                 }
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
@@ -429,6 +478,10 @@ public class Recipe2 : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite2;
+                }
+                if (i == 5)
+                {
+                    particle.Play(); //그릇에 완성파티클
                 }
             }
             else
