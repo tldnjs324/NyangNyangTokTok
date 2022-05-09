@@ -110,7 +110,7 @@ public class Recipe : MonoBehaviour
         _list.Add(ClickedRecipe);
 
         clickObject.GetComponent<RectTransform>().localScale = new Vector3(1.1f, 1.1f, 1); //클릭시 크기커지게
-        Invoke("BtnReScale", 0.2f);
+        Invoke("BtnReScale", 0.1f);
 
         if (SceneManager.GetActiveScene().name == "HotAmericano") //따뜻한아메리카노
         {
