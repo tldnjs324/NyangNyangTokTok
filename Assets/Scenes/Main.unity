@@ -1718,7 +1718,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1447732588}
         m_TargetAssemblyTypeName: TalkCtrl, Assembly-CSharp
-        m_MethodName: NaviTalkStart
+        m_MethodName: CatTalkStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2342,6 +2342,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1447732588}
+        m_TargetAssemblyTypeName: TalkCtrl, Assembly-CSharp
+        m_MethodName: CatTalkStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &828722727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2832,7 +2844,10 @@ MonoBehaviour:
   click: {fileID: 8300000, guid: 150013ddf7660064081265d280757227, type: 3}
   OpeningBossTalk: {fileID: 8300000, guid: ef4dac5a634a3124698677d0c606035b, type: 3}
   bossText: {fileID: 209352354}
-  talkText: {fileID: 1948162750}
+  talkText:
+  - {fileID: 1948162750}
+  - {fileID: 1597246417}
+  - {fileID: 1384758872}
   bossPanel: {fileID: 1418326559}
   talkPanel:
   - {fileID: 2071398643}
@@ -4053,6 +4068,50 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 757088fa2df9e464ea1b5ed408337e33, type: 3}
   - {fileID: 8300000, guid: 98943a7b42c95434cae1433e66436979, type: 3}
   NaviPlease: {fileID: 8300000, guid: b5a2a6c69dfee0940b0e3e71d66d5a55, type: 3}
+  NyaongMenuVoice:
+  - {fileID: 8300000, guid: 473d6caeb37cebc4780c9726476ad6bb, type: 3}
+  - {fileID: 8300000, guid: ba406fcd67a36194480aede89a2f1a97, type: 3}
+  - {fileID: 8300000, guid: a10ecf5173a8ed54b878167467c811d2, type: 3}
+  - {fileID: 8300000, guid: 0e427b6db3ddca34f80eb8e3bd37e99b, type: 3}
+  - {fileID: 8300000, guid: e99d0ab30572bd8449277223e170bcae, type: 3}
+  - {fileID: 8300000, guid: 92ce5ae062f540c4781c49daeda3c9a7, type: 3}
+  - {fileID: 8300000, guid: 81073162e1c0ab641964b116125de17f, type: 3}
+  - {fileID: 8300000, guid: 7953ff7da1d8cdf4caeb062ead6d6dcf, type: 3}
+  - {fileID: 8300000, guid: edfbb7d428f43314b958ab91a18a1721, type: 3}
+  - {fileID: 8300000, guid: da777dca4a5e59b429b3c0011243d733, type: 3}
+  - {fileID: 8300000, guid: fdb59ce6e38eaa942a131ce7088ed321, type: 3}
+  - {fileID: 8300000, guid: 2a5ab38cd6488d041a8437d29960985b, type: 3}
+  - {fileID: 8300000, guid: d9485f9a8bc630647b48068dd4a79791, type: 3}
+  - {fileID: 8300000, guid: 29a08c1b132b4614ea723176f00f9c83, type: 3}
+  - {fileID: 8300000, guid: 2a1ee4aa2e3a6fe4582af45c27549f06, type: 3}
+  - {fileID: 8300000, guid: ba05364cad7939748a371bc8fcb4cb47, type: 3}
+  - {fileID: 8300000, guid: 6974966d8c19d0a44aea0c1560ddda66, type: 3}
+  - {fileID: 8300000, guid: 22bc61c870290e1438714c5425c6746e, type: 3}
+  - {fileID: 8300000, guid: 5222157ef9cdd2046b7ee4e388eb65d4, type: 3}
+  - {fileID: 8300000, guid: 78ee810bd10c5a941baf2aa7010fd44c, type: 3}
+  NyaongPlease: {fileID: 8300000, guid: 0d34b70f2d7f1804882c40ee78514946, type: 3}
+  CherryMenuVoice:
+  - {fileID: 8300000, guid: 864f09472f592bb45b0da31874fdf46f, type: 3}
+  - {fileID: 8300000, guid: 64e9700960c9a5a42b15fc9d65c75283, type: 3}
+  - {fileID: 8300000, guid: bfbc8195d2f6a954fa8b7723b6da01cd, type: 3}
+  - {fileID: 8300000, guid: 0b0b4564f1bb28a4c88c5276f8f37352, type: 3}
+  - {fileID: 8300000, guid: c48729bd35645d84198fabb93e38fe90, type: 3}
+  - {fileID: 8300000, guid: 72c4342e6c8fdf34ebdac3f8e960e1eb, type: 3}
+  - {fileID: 8300000, guid: bb48a83ddfd29e7479480c580e44fb4e, type: 3}
+  - {fileID: 8300000, guid: 1674b22778959f54a8f50c61f9bade4c, type: 3}
+  - {fileID: 8300000, guid: 4a6ea682bb2043d42b7226c018dd60db, type: 3}
+  - {fileID: 8300000, guid: 6b4d56586d4821b4889525678f720bc4, type: 3}
+  - {fileID: 8300000, guid: c1725c28e37cddf4387a234a1ccf13e5, type: 3}
+  - {fileID: 8300000, guid: 0e9b009155380a0429416c61fc481648, type: 3}
+  - {fileID: 8300000, guid: 0836f4c3eefeea74eb1dd0c64af841cf, type: 3}
+  - {fileID: 8300000, guid: 0e4653adbad64894ea35c1911c00f9e9, type: 3}
+  - {fileID: 8300000, guid: 56d90b00a1ee8b04bac43c78efb03973, type: 3}
+  - {fileID: 8300000, guid: b00f1a05d02dffc46b808691ddc165c6, type: 3}
+  - {fileID: 8300000, guid: 0baf377e264cd4a40a458f2e218795bc, type: 3}
+  - {fileID: 8300000, guid: 879b7b9ce4aa56241b1ab0fee577133b, type: 3}
+  - {fileID: 8300000, guid: c2dfdc8de8220854683e245106831518, type: 3}
+  - {fileID: 8300000, guid: 20c17c6282820c040b76cdea9deb5640, type: 3}
+  CherryPlease: {fileID: 8300000, guid: aefa615b47770af419c0c41272764c4d, type: 3}
 --- !u!4 &1447732589
 Transform:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public AudioClip OpeningBossTalk;//사장 음성
 
     public Text bossText;
-    public Text talkText;
+    public Text[] talkText;
     public GameObject bossPanel;
     public GameObject[] talkPanel; //나비
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject boss;
     public GameObject[] cat;//나비, 냐옹, 체리 저장
 
-    private int random = Random.Range(0, 3);//고양이 랜덤 생성을 위한 랜덤 수
+    public static int random;//고양이 랜덤 생성을 위한 랜덤 수
 
     public static int currentLevel; //레벨!!
     public static int currentCount; //발자국 수
@@ -292,6 +292,7 @@ public class GameManager : MonoBehaviour
         OrderToast.toast_wrong = 0;
         OrderCube.cube_wrong = 0;
         AnswerCtrl.cube_wrong = 0;
+        random = Random.Range(0, 3);
     }
 
     public static void IncreaseHeart(int x)
@@ -401,12 +402,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0f);
         for (int i = 0; i < 4; i++)
         {
-            talkText.text += m[i];
+            talkText[random].text += m[i];
             yield return new WaitForSeconds(0.3f);
         }
         for (int i = 0; i < 5; i++)
         {
-            talkText.text += m_[i];
+            talkText[random].text += m_[i];
             yield return new WaitForSeconds(0.07f);
         }
     }
