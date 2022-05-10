@@ -293,6 +293,7 @@ public class GameManager : MonoBehaviour
         OrderCube.cube_wrong = 0;
         AnswerCtrl.cube_wrong = 0;
         random = Random.Range(0, 3);
+        TalkCtrl.num = new List<int>() { 0, 1, 2, 3 };
     }
 
     public static void IncreaseHeart(int x)

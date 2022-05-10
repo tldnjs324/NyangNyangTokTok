@@ -17,13 +17,15 @@ public class MapManager : MonoBehaviour
     public Text timeCounting;
     public int time = 4;
 
+    //게임 시작 버튼
+    public GameObject StartBtn;
 
     // Start is called before the first frame update
     void Start()
     {
         ShowLevel();
         ShowSteps();
-        TimeStart();
+        //TimeStart();
     }
 
     //레벨 맵 띄우기
@@ -82,7 +84,10 @@ public class MapManager : MonoBehaviour
         CancelInvoke("TimeCount");
         SceneManager.LoadScene("Main");
     }
-
+    public void GameStart()
+    {
+        SceneManager.LoadScene("Main");
+    }
 
     // Update is called once per frame
     void Update()
