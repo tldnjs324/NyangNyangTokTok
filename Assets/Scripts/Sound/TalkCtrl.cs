@@ -5,10 +5,11 @@ using UnityEngine;
 public class TalkCtrl : MonoBehaviour
 {
     AudioSource audioSrc;
-    public AudioClip[] MenuVoice;
+    public AudioClip[] NaviMenuVoice;
 
     int menuCount = 0;//주문한 메뉴 수
 
+    public static List<int> num = new List<int>() { 0, 1, 2, 3 };
 
     // Start is called before the first frame update
     void Start()
@@ -30,16 +31,30 @@ public class TalkCtrl : MonoBehaviour
 
     }
 
-    public void NaviTalkStart(int x)
+    public void NaviTalkStart()
     {
-
-
-        audioSrc.PlayOneShot(MenuVoice[x]);
-        WaitForSeconds();
+        WaitForSeconds(1);
+        for(int j = 0; j<menuCount; j++)
+        {
+            for (int i = 0; i < 20; i++)//i는 메뉴의 고유번호
+            {
+                if (SpecifyNumber.MakingMenu[num[0]] == i)//now+1번째 메뉴가 고유번호 i 메뉴를 받았다면
+                {
+                    audioSrc.PlayOneShot(NaviMenuVoice[i]);
+                    WaitForTalk();
+                }
+            }
+            num.RemoveAt(0);
+        }
+       
     }
-    IEnumerator WaitForSeconds()
+    IEnumerator WaitForTalk()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
+    }
+    IEnumerator WaitForSeconds(int x)
+    {
+        yield return new WaitForSeconds(x);
     }
 
 

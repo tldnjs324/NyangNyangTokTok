@@ -354,33 +354,33 @@ public class GameManager : MonoBehaviour
 
         if (currentLevel == 1) //1´Ü°è
         {
-            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + "¶û ";
+            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + ", ";
             m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>";
         }
         else if(currentLevel == 2) //2´Ü°è
         {
-            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + "¶û ";
+            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + ", ";
             m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>";
         }
         else if (currentLevel == 3) //3´Ü°è
         {
             
-            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + "¶û ";
-            m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>" + "¶û ";
+            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + ", ";
+            m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>" + ", ";
             m[2] = "<color=#d85b00>" + OrderMenu3 + "</color>";
 
         }
         else if (currentLevel == 4) //4´Ü°è
         {
-            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + "¶û ";
-            m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>" + "¶û ";
+            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + ", ";
+            m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>" + ", ";
             m[2] = "<color=#d85b00>" + OrderMenu3 + "</color>";
         }
         else if (currentLevel == 5) //5´Ü°è
         {
-            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + "¶û ";
-            m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>" + "¶û ";
-            m[2] = "<color=#d85b00>" + OrderMenu3 + "</color>" + "¶û ";
+            m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + ", ";
+            m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>" + ", ";
+            m[2] = "<color=#d85b00>" + OrderMenu3 + "</color>" + ", ";
             m[3] = "<color=#d85b00>" + OrderMenu4 + "</color>";
         }
         StartCoroutine(_typing2());
