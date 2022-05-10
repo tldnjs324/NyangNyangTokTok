@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public AudioClip click;
     AudioSource audioSrc;
+    public AudioClip OpeningBossTalk;//사장 음성
 
     public Text bossText;
     public Text talkText;
@@ -323,8 +324,10 @@ public class GameManager : MonoBehaviour
     void BossTalkStart()
     {
         //bossText.text = "좋은 아침입니다~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
-        m_text = "반가워요~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
+        m_text = "어서와요~\n오늘 하루도 힘내서 카페를 운영해봅시다~!";
         StartMethod();
+        audioSrc.PlayOneShot(OpeningBossTalk);
+        //TalkCtrl.BossTalkStart();
         //StartCoroutine(_typing());
     }
     public void ShowCat()

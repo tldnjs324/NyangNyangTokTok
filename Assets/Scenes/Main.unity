@@ -2470,9 +2470,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1043941091}
   - component: {fileID: 1043941090}
-  - component: {fileID: 1043941092}
   - component: {fileID: 1043941093}
   - component: {fileID: 1043941094}
+  - component: {fileID: 1043941092}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2493,6 +2493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   click: {fileID: 8300000, guid: 150013ddf7660064081265d280757227, type: 3}
+  OpeningBossTalk: {fileID: 8300000, guid: ef4dac5a634a3124698677d0c606035b, type: 3}
   bossText: {fileID: 209352354}
   talkText: {fileID: 1948162750}
   bossPanel: {fileID: 1418326559}
@@ -2524,11 +2525,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 62726b3ef2fd2fc4f9d779b7c666b22f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3424,6 +3425,50 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2960, y: 1440}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1447732587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447732589}
+  - component: {fileID: 1447732588}
+  m_Layer: 0
+  m_Name: TalkSoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1447732588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447732587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336f9e0f5987237459b890a656b60a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpeningBossTalk: {fileID: 8300000, guid: ef4dac5a634a3124698677d0c606035b, type: 3}
+--- !u!4 &1447732589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447732587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485546866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3786,7 +3831,7 @@ GameObject:
   - component: {fileID: 1581184389}
   - component: {fileID: 1581184391}
   m_Layer: 0
-  m_Name: SoundManager
+  m_Name: SoundEffectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3845,9 +3890,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 62726b3ef2fd2fc4f9d779b7c666b22f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
