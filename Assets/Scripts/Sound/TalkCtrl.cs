@@ -35,7 +35,6 @@ public class TalkCtrl : MonoBehaviour
 
     public void NaviTalkStart()
     {
-        WaitForTalk();
         for (int i = 0; i<menuCount; i++)
         {
             Invoke("NaviTalkMenu", time*i+1);
@@ -60,15 +59,7 @@ public class TalkCtrl : MonoBehaviour
         audioSrc.PlayOneShot(NaviPlease);
     }
 
-    IEnumerator WaitForTalk()
-    {
-        yield return new WaitForSeconds(1.0f);
-    }
-    IEnumerator WaitForSeconds(int x)
-    {
-        yield return new WaitForSeconds(x);
-    }
-
+    
 
 
 

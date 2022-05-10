@@ -16,13 +16,14 @@ public class GameManager : MonoBehaviour
     public Text bossText;
     public Text talkText;
     public GameObject bossPanel;
-    public GameObject talkPanel; //나비
+    public GameObject[] talkPanel; //나비
 
     public GameObject startPopup;
 
     public GameObject boss;
-    public GameObject cat1;
-    //private GameObject[] cat;//나비, 냐옹, 체리 저장
+    public GameObject[] cat;//나비, 냐옹, 체리 저장
+
+    private int random = Random.Range(0, 3);//고양이 랜덤 생성을 위한 랜덤 수
 
     public static int currentLevel; //레벨!!
     public static int currentCount; //발자국 수
@@ -343,8 +344,8 @@ public class GameManager : MonoBehaviour
     public void PopupNext()
     {
         startPopup.SetActive(false);
-        talkPanel.SetActive(true);
-        cat1.SetActive(true);
+        talkPanel[random].SetActive(true);
+        cat[random].SetActive(true);
         Invoke("CatTalkStart", 1f); //추후 음성에 맞게 초 수정
     }
 
