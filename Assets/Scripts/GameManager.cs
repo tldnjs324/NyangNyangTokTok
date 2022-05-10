@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 
     private string m_text;
     private string[] m = new string[4];
-    private string[] m_ = { "林", "技", "夸", "成", "~" };
+    private string[] m_ = { " 林", "技", "夸", "成", "~" };
 
 
     //Animation animator;

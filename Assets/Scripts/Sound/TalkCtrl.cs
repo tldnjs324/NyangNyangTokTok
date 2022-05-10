@@ -6,8 +6,10 @@ public class TalkCtrl : MonoBehaviour
 {
     AudioSource audioSrc;
     public AudioClip[] NaviMenuVoice;
+    public AudioClip NaviPlease;
 
     int menuCount = 0;//주문한 메뉴 수
+    float time = 1.2f;
 
     public static List<int> num = new List<int>() { 0, 1, 2, 3 };
 
@@ -33,24 +35,34 @@ public class TalkCtrl : MonoBehaviour
 
     public void NaviTalkStart()
     {
-        WaitForSeconds(1);
-        for(int j = 0; j<menuCount; j++)
+        WaitForTalk();
+        for (int i = 0; i<menuCount; i++)
         {
-            for (int i = 0; i < 20; i++)//i는 메뉴의 고유번호
-            {
-                if (SpecifyNumber.MakingMenu[num[0]] == i)//now+1번째 메뉴가 고유번호 i 메뉴를 받았다면
-                {
-                    audioSrc.PlayOneShot(NaviMenuVoice[i]);
-                    WaitForTalk();
-                }
-            }
-            num.RemoveAt(0);
+            Invoke("NaviTalkMenu", time*i+1);
         }
-       
+        Invoke("NaviTalkPlease", time*menuCount+1);
     }
+
+
+    public void NaviTalkMenu()
+    {
+        for (int i = 0; i < 20; i++)//i는 메뉴의 고유번호
+        {
+            if (SpecifyNumber.MakingMenu[num[0]] == i)//num[0]+1번째 메뉴가 고유번호 i 메뉴를 받았다면
+            {
+                audioSrc.PlayOneShot(NaviMenuVoice[i]);
+            }
+        }
+        num.RemoveAt(0);
+    }
+    public void NaviTalkPlease()
+    {
+        audioSrc.PlayOneShot(NaviPlease);
+    }
+
     IEnumerator WaitForTalk()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
     }
     IEnumerator WaitForSeconds(int x)
     {
