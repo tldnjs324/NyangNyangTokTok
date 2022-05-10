@@ -25,6 +25,7 @@ public class Recipe : MonoBehaviour
     public int time = 20;
 
     public Image img;
+    public GameObject cup;
     public Sprite[] sprites = new Sprite[7];
     public GameObject btnMachine;
     public Sprite sprite1; //커피 내리는중
@@ -45,6 +46,7 @@ public class Recipe : MonoBehaviour
     public GameObject hint;
 
     public GameObject recipeSlider;
+    public ParticleSystem particle; //컵용
 
     void Start()
     {
@@ -93,6 +95,12 @@ public class Recipe : MonoBehaviour
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
         clickObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); //원래대로
     }
+    void CupReScale()
+    {
+        RectTransform rectTran = cup.GetComponent<RectTransform>();
+        rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 310);
+        rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 310); //원래대로
+    }
     void BtnImgChange()
     {
         btnMachine.GetComponent<Image>().sprite = sprite2; //샷 추출완료
@@ -124,6 +132,14 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+                
+                if (i != 2)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
@@ -132,6 +148,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     Invoke("BtnShot", 0.3f);
+                    particle.Play(); //완성파티클
                 }
             }
             else
@@ -170,6 +187,14 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+
+                if (i != 3)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 3)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
@@ -178,6 +203,7 @@ public class Recipe : MonoBehaviour
                 if (i == 4)
                 {
                     Invoke("BtnShot", 0.3f);
+                    particle.Play(); //완성파티클
                 }
             }
             else
@@ -216,6 +242,13 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+                if (i != 2)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
@@ -224,6 +257,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     Invoke("BtnShot", 0.3f);
+                    particle.Play(); //완성파티클
                 }
             }
             else
@@ -262,6 +296,13 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+                if (i != 3)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 3)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
@@ -270,6 +311,7 @@ public class Recipe : MonoBehaviour
                 if (i == 4)
                 {
                     Invoke("BtnShot", 0.3f);
+                    particle.Play(); //완성파티클
                 }
             }
             else
@@ -308,6 +350,13 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+                if (i != 2)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
@@ -316,6 +365,10 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     Invoke("BtnShot", 0.3f);
+                }
+                if( i == 4)
+                {
+                    particle.Play(); //완성파티클
                 }
             }
             else
@@ -354,6 +407,13 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+                if (i != 3)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 3)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
@@ -362,6 +422,10 @@ public class Recipe : MonoBehaviour
                 if (i == 4)
                 {
                     Invoke("BtnShot", 0.3f);
+                }
+                if (i == 5)
+                {
+                    particle.Play(); //완성파티클
                 }
             }
             else
@@ -400,6 +464,13 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+                if (i != 4 && i != 3)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 3)
                 {
                     choco_img.SetActive(true); //초코시럽 생성
@@ -413,6 +484,10 @@ public class Recipe : MonoBehaviour
                 if (i == 5)
                 {
                     Invoke("BtnShot", 0.3f);
+                }
+                if (i == 7)
+                {
+                    particle.Play(); //완성파티클
                 }
             }
             else
@@ -451,6 +526,13 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 hintArrows[i].SetActive(false);
                 wrongCnt = 0;
+                if (i != 2 && i != 3)
+                {
+                    RectTransform rectTran = cup.GetComponent<RectTransform>();
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
+                    rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
+                    Invoke("CupReScale", 0.1f);
+                }
                 if (i == 2)
                 {
                     choco_img.SetActive(true); //초코시럽 생성
@@ -464,6 +546,10 @@ public class Recipe : MonoBehaviour
                 if (i == 4)
                 {
                     Invoke("BtnShot", 0.3f);
+                }
+                if (i == 6)
+                {
+                    particle.Play(); //완성파티클
                 }
             }
             else
