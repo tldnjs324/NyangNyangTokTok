@@ -48,6 +48,15 @@ public class Recipe : MonoBehaviour
     public GameObject recipeSlider;
     public ParticleSystem particle; //컵용
 
+    //효과음
+    public AudioClip[] click;
+    AudioSource audioSrc;
+    //효과음 나오게 하기
+    public void ClickSound(int x)
+    {
+        audioSrc.PlayOneShot(click[x]);
+    }
+
     void Start()
     {
         ClickedRecipe = "";
@@ -126,6 +135,16 @@ public class Recipe : MonoBehaviour
             if (_list[i] == hotAmericano[i])
             {
                 img.sprite = sprites[i]; //이미지 변경
+                //0511효과음
+                /*
+                if(i == 0 || i == 2)//0은 물, 2는 샷
+                {
+                    audioSrc.PlayOneShot(click[6]);
+                }
+                if (i == 1)//커피머신
+                {
+                    audioSrc.PlayOneShot(click[7]);
+                }*/
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[0].SetActive(false);
@@ -148,6 +167,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     Invoke("BtnShot", 0.3f);
+                    //audioSrc.PlayOneShot(click[2]);
                     particle.Play(); //완성파티클
                 }
             }
@@ -157,6 +177,7 @@ public class Recipe : MonoBehaviour
                 wrongCnt++;
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
+                //audioSrc.PlayOneShot(click[3]);//틀린 효과음
                 if (wrongCnt == 1)
                 {
                     popupWrong.SetActive(true);
