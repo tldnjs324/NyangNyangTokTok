@@ -47,6 +47,8 @@ public class Recipe : MonoBehaviour
 
     public GameObject recipeSlider;
     public ParticleSystem particle; //컵용
+    public ParticleSystem particleBasic; //항상
+    public ParticleSystem particleHeart; //하트
 
     //효과음
     public AudioClip[] click;
@@ -134,6 +136,10 @@ public class Recipe : MonoBehaviour
             cnt = 3;
             if (_list[i] == hotAmericano[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 //0511효과음
                 /*
@@ -169,6 +175,7 @@ public class Recipe : MonoBehaviour
                     Invoke("BtnShot", 0.3f);
                     //audioSrc.PlayOneShot(click[2]);
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -201,6 +208,10 @@ public class Recipe : MonoBehaviour
             cnt = 4;
             if (_list[i] == iceAmericano[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -225,6 +236,7 @@ public class Recipe : MonoBehaviour
                 {
                     Invoke("BtnShot", 0.3f);
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -256,6 +268,10 @@ public class Recipe : MonoBehaviour
             cnt = 3;
             if (_list[i] == hotLatte[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
@@ -279,6 +295,7 @@ public class Recipe : MonoBehaviour
                 {
                     Invoke("BtnShot", 0.3f);
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -310,6 +327,10 @@ public class Recipe : MonoBehaviour
             cnt = 4;
             if (_list[i] == iceLatte[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -333,6 +354,7 @@ public class Recipe : MonoBehaviour
                 {
                     Invoke("BtnShot", 0.3f);
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -364,6 +386,10 @@ public class Recipe : MonoBehaviour
             cnt = 4;
             if (_list[i] == hotVanillaLatte[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -390,6 +416,7 @@ public class Recipe : MonoBehaviour
                 if( i == 4)
                 {
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -421,6 +448,10 @@ public class Recipe : MonoBehaviour
             cnt = 5;
             if (_list[i] == iceVanillaLatte[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
@@ -447,6 +478,7 @@ public class Recipe : MonoBehaviour
                 if (i == 5)
                 {
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -478,6 +510,10 @@ public class Recipe : MonoBehaviour
             cnt = 7;
             if (_list[i] == iceCafeMocha[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.1428f; //7개용
@@ -509,6 +545,7 @@ public class Recipe : MonoBehaviour
                 if (i == 7)
                 {
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -540,6 +577,10 @@ public class Recipe : MonoBehaviour
             cnt = 6;
             if (_list[i] == hotCafeMocha[i])
             {
+                if (i != cnt - 1)
+                {
+                    particleBasic.Play();
+                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.166f; //6개용
@@ -571,6 +612,7 @@ public class Recipe : MonoBehaviour
                 if (i == 6)
                 {
                     particle.Play(); //완성파티클
+                    particleHeart.Play();
                 }
             }
             else

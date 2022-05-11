@@ -45,8 +45,9 @@ public class Recipe2 : MonoBehaviour
     private IEnumerator coroutine;
     public GameObject hint;
 
-    public ParticleSystem particle; //접시용
-    //public ParticleSystem particle2; //토스터용
+    public ParticleSystem particle; //접시에 완성용
+    public ParticleSystem particleBasic; //항상
+    public ParticleSystem particleHeart; //하트
 
     int updateCnt = 1;
 
@@ -162,7 +163,10 @@ public class Recipe2 : MonoBehaviour
             {
                 if (i > 0)
                 {
-                    
+                    if(i != cnt-1)
+                    {
+                        particleBasic.Play();
+                    }
                     img.sprite = sprites[i - 1]; //이미지 변경
                     RectTransform rectTran = plate.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
@@ -189,6 +193,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite2;
                     particle.Play(); //그릇에 완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -223,6 +228,10 @@ public class Recipe2 : MonoBehaviour
             {
                 if (i > 0)
                 {
+                    if (i != cnt - 1)
+                    {
+                        particleBasic.Play();
+                    }
                     img.sprite = sprites[i - 1]; //이미지 변경
                     RectTransform rectTran = plate.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
@@ -249,6 +258,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 3)
                 {
                     particle.Play(); //그릇에 완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -282,6 +292,10 @@ public class Recipe2 : MonoBehaviour
             {
                 if (i > 0)
                 {
+                    if (i != cnt - 1)
+                    {
+                        particleBasic.Play();
+                    }
                     img.sprite = sprites[i - 1]; //이미지 변경
                     RectTransform rectTran = plate.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
@@ -308,6 +322,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 4)
                 {
                     particle.Play(); //그릇에 완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -341,6 +356,10 @@ public class Recipe2 : MonoBehaviour
             {
                 if (i > 0)
                 {
+                    if (i != cnt - 1)
+                    {
+                        particleBasic.Play();
+                    }
                     img.sprite = sprites[i - 1]; //이미지 변경
                     RectTransform rectTran = plate.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
@@ -367,6 +386,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 4)
                 {
                     particle.Play(); //그릇에 완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -400,6 +420,10 @@ public class Recipe2 : MonoBehaviour
             {
                 if (i > 0)
                 {
+                    if (i != cnt - 1)
+                    {
+                        particleBasic.Play();
+                    }
                     img.sprite = sprites[i - 1]; //이미지 변경
                     RectTransform rectTran = plate.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
@@ -426,6 +450,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 4)
                 {
                     particle.Play(); //그릇에 완성파티클
+                    particleHeart.Play();
                 }
             }
             else
@@ -459,6 +484,10 @@ public class Recipe2 : MonoBehaviour
             {
                 if (i > 0)
                 {
+                    if (i != cnt - 1)
+                    {
+                        particleBasic.Play();
+                    }
                     img.sprite = sprites[i - 1]; //이미지 변경
                     RectTransform rectTran = plate.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
@@ -485,6 +514,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 5)
                 {
                     particle.Play(); //그릇에 완성파티클
+                    particleHeart.Play();
                 }
             }
             else
