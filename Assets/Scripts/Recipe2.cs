@@ -38,8 +38,6 @@ public class Recipe2 : MonoBehaviour
     public GameObject popupRecipe;
     public GameObject popupName;
 
-    public static bool popup = true;
-
     public GameObject recipeSlider;
 
     private IEnumerator coroutine;
@@ -55,7 +53,9 @@ public class Recipe2 : MonoBehaviour
     {
         ClickedRecipe = "";
         coroutine = HintActive();
-        popupName.SetActive(true);
+
+        Popup pop = popupName.GetComponent<Popup>();
+        pop.PopUp(); //½ÃÀÛÆË¾÷
     }
     private void Update()
     {
@@ -72,9 +72,9 @@ public class Recipe2 : MonoBehaviour
         {
             while (updateCnt > 0)
             {
-                //popup = false;
-                popupName.SetActive(false);
-                popupRecipe.SetActive(true);
+                //Popup pop = popupRecipe.GetComponent<Popup>();
+                //pop.PopUp();
+                popupRecipe.SetActive(true);//
                 Invoke("PanelStart", 1f);
                 updateCnt--;
             }  
@@ -562,7 +562,9 @@ public class Recipe2 : MonoBehaviour
     }
     public void Help_Click()
     {
-        popupHelp.SetActive(true);
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp();
+        //popupHelp.SetActive(true);
         hintArrows[0].SetActive(false);
     }
     public void Correct()
