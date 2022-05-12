@@ -63,13 +63,15 @@ public class Recipe : MonoBehaviour
     {
         ClickedRecipe = "";
         coroutine = HintActive();
+        Popup pop = popupName.GetComponent<Popup>();
+        pop.PopUp();
 
     }
     private void Update()
     {
         if (i != 0 && i == cnt)
         {
-            Invoke("Correct", 1.5f);
+            Invoke("Correct", 1.0f);
             recipeSlider.GetComponent<Image>().fillAmount = 1f;
         }
     }
@@ -187,18 +189,21 @@ public class Recipe : MonoBehaviour
                 //audioSrc.PlayOneShot(click[3]);//틀린 효과음
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -247,18 +252,21 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -306,18 +314,21 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -365,18 +376,21 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -427,18 +441,21 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -489,18 +506,21 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -556,18 +576,21 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -623,18 +646,21 @@ public class Recipe : MonoBehaviour
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                 }
                 else if (wrongCnt == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[0].SetActive(true); //도움말힌트강조
                     StartCoroutine(coroutine);
                 }
                 else if (wrongCnt == 3)
                 {
-                    popupBoss.SetActive(true);
+                    Popup pop = popupBoss.GetComponent<Popup>();
+                    pop.PopUp();
                     hintArrows[i + 1].SetActive(true); //재료를 알려줌
                 }
             }
@@ -644,19 +670,26 @@ public class Recipe : MonoBehaviour
         GameManager.IncreaseHeart(wrongCnt);
 
     }
+    void ShowRecipe()
+    {
+        Popup pop = popupRecipe.GetComponent<Popup>();
+        pop.PopUp2();
+        Invoke("PanelStart", 1f);
+
+    }
     public void Show_Recipe()
     {
-        popupName.SetActive(false);
-        popupRecipe.SetActive(true);
-        Invoke("PanelStart", 1f);
+        Invoke("ShowRecipe", 1f);
     }
     public void Help_Click()
     {
-        popupHelp.SetActive(true);
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp();
         hintArrows[0].SetActive(false);
     }
     public void Correct()
     {
-        popupCorrect.SetActive(true);
+        Popup pop = popupCorrect.GetComponent<Popup>();
+        pop.PopUp();
     }
 }

@@ -11,11 +11,16 @@ public class Popup : MonoBehaviour
         this.animator = GetComponent<Animator>();
     }
 
-    public void PopUp()
+    public void PopUp() //일반팝업용
     {
         popup.SetActive(true);
         animator.SetTrigger("pop");
     }
+    public void PopUp2() //레시피용(타이머포함)
+    {
+        popup.SetActive(true);
+        animator.SetTrigger("pop2");
+    }
 
-    
+
 }
