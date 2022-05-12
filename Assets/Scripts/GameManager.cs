@@ -340,12 +340,13 @@ public class GameManager : MonoBehaviour
         boss.SetActive(false);
         bossPanel.SetActive(false);
         StopMethod();
-        startPopup.SetActive(true);
-        
+        Popup pop = startPopup.GetComponent<Popup>();
+        pop.PopUp();
+
     }
     public void PopupNext()
     {
-        startPopup.SetActive(false);
+        //startPopup.SetActive(false);
         talkPanel[random].SetActive(true);
         cat[random].SetActive(true);
         Invoke("CatTalkStart", 1f); //추후 음성에 맞게 초 수정
