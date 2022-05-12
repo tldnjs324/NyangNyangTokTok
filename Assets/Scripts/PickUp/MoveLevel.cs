@@ -36,8 +36,8 @@ public class MoveLevel : MonoBehaviour
     private string[] position = { "정식 알바생이", "우수 알바생이", "부매니저가", "매니저가"};//직급 저장
 
     //고양이
-    public GameObject talkPanel; //나비
-    public GameObject cat1;
+    public GameObject[] talkPanel; //나비
+    public GameObject[] cat;
 
     public AudioClip click;
     AudioSource audioSrc;
@@ -109,8 +109,8 @@ public class MoveLevel : MonoBehaviour
             textOrder = 0;
             ShowBoss();
         }
-        cat1.SetActive(false);
-        talkPanel.SetActive(false);
+        cat[GameManager.random].SetActive(false);
+        talkPanel[GameManager.random].SetActive(false);
         //PlayerPrefs.Save();//데이터 저장
     }
 

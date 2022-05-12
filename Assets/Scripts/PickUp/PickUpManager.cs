@@ -12,13 +12,13 @@ public class PickUpManager : MonoBehaviour
 
     public Text playerText;
     public Text bossText;
-    public Text talkText;
+    public Text[] talkText;//나비 냐옹 나비 텍스트
     public GameObject playerPanel;
     public GameObject bossPanel;
-    public GameObject talkPanel; //나비
+    public GameObject[] talkPanel; //나비 냐옹 체리 말하는 패널
     
-    public GameObject nextButton;
-    public GameObject nextButton2;
+    public GameObject[] nextButton;//첫번째 대사 넘어갈 때 버튼
+    public GameObject[] nextButton2;//두번째 패널에 있는 다음 버튼
 
     public GameObject p_nextButton;
 
@@ -26,12 +26,18 @@ public class PickUpManager : MonoBehaviour
     public GameObject big_background;
 
     public GameObject boss;
-    //public GameObject cat1;
-    public GameObject[] cat; //여러 마리의 고양이 캐릭터 예정
+    public GameObject[] cat; //나비 냐옹 체리
 
+    //나비 대사
     private string[] m_text = { "와 너무 맛있겠다냥!\n", "덕분에 행복해졌다냥!\n좋은 하루 되시라냥~!" };
-
     private string[] thanktext = { "이 집 커피향이 참 좋다냥~!", "알록달록한 케이크가 먹음직스럽다냥~!", "저번에 왔을 때 보다 더 잘 만들어줬다냥~!", "토스트가 너무 귀엽다냥~!", "많이 시켰는데 고생 많았다냥~!" };
+    //냐옹 대사
+    private string[] m2_text = { "우와 맛있어 보인다냥!\n", "맛있게 만들어줘서 고맙다냥!\n좋은 하루 되시라냥~!" };
+    private string[] thank2text = { "군침이 삭 돈다냥! 역시 커피는 여기가 최고라냥!", "내 동년배 고양이들은 모두 여기 카페만 온다냥!"};
+    //체리 대사
+    private string[] m3_text = { "꺄 얼른 먹고싶다냥!\n", "덕분에 기분이 좋아졌다냥!\n좋은 하루 되시라냥~!" };
+    private string[] thank3text = { "깊고 진한 커피향에 취한다냥~!", "체리 취향에 딱 맞을 것 같다냥~!"};
+
 
     private string p_text = "주문하신 메뉴 나왔습니다 :)\n";
     private string[] watchout_text = { "커피가 뜨거우니 젤리를 조심하세요!", "케이크를 조심히 들고가세요!", "토스트가 뜨거우니 젤리를 조심하세요!" };
@@ -64,24 +70,29 @@ public class PickUpManager : MonoBehaviour
         playerPanel.SetActive(false);
         big_background.SetActive(false);
         big_counter.SetActive(false);
-        talkPanel.SetActive(true);
+        talkPanel[GameManager.random].SetActive(true);
         Invoke("CatShowUp", 1f);
     }
     void CatShowUp()
     {
         cat[GameManager.random].SetActive(true);
-        Invoke("CatTalkStart", 1f);
+        if(GameManager.random == 0)
+        {
+            Invoke("CatTalkStart", 1f);
+        }else if (GameManager.random == 1)
+        {
+            Invoke("Cat2TalkStart", 1f);
+        }else if (GameManager.random == 2)
+        {
+            Invoke("Cat3TalkStart", 1f);
+        }
+
     }
+    //나비
     void CatTalkStart()
     {
-        /*
-        playerPanel.SetActive(false);
-        big_background.SetActive(false);
-        big_counter.SetActive(false);
-
-        talkPanel.SetActive(true);*/
-        first_text = Random.Range(0, 2)
-;       yes_coffee_text = Random.Range(0, 3);
+        first_text = Random.Range(0, 2);
+        yes_coffee_text = Random.Range(0, 3);
         low_no_coffee_text = Random.Range(1, 4);
         high_no_coffee_text = Random.Range(1, 5);
         if (GameManager.currentLevel == 1)//1단계
@@ -113,6 +124,38 @@ public class PickUpManager : MonoBehaviour
         StartMethod(0);
         //StartCoroutine(_typing(0));
     }
+    //냐옹
+    void Cat2TalkStart()
+    {
+        int coffee = Random.Range(0, 2);
+        if (SpecifyNumber.MakingMenu[0] <= 7)//커피 메뉴를 시켰을 때 
+        {
+            m2_text[0] += thank2text[coffee];
+        }
+        else//토스트랑 큐브만 있을 때
+        {
+            m2_text[0] += thank2text[1];
+        }
+
+        StopMethod();
+        StartMethod(0);
+    }
+    //체리
+    void Cat3TalkStart()
+    {
+        int coffee = Random.Range(0, 2);
+        if (SpecifyNumber.MakingMenu[0] <= 7)//커피 메뉴를 시켰을 때 
+        {
+            m3_text[0] += thank3text[coffee];
+        }
+        else//토스트랑 큐브만 있을 때
+        {
+            m3_text[0] += thank3text[1];
+        }
+
+        StopMethod();
+        StartMethod(0);
+    }
     void PlayerTalkStart()
     {
         p_coffee_text = Random.Range(0, 2);
@@ -143,33 +186,38 @@ public class PickUpManager : MonoBehaviour
         StopMethod();
         StartMethod(1);
         //StartCoroutine(_typing(1));
-        nextButton.SetActive(false);
-        nextButton2.SetActive(true);
+        nextButton[GameManager.random].SetActive(false);
+        nextButton2[GameManager.random].SetActive(true);
     }
-
-
-    /*
-    public void ShowBoss()
-    {
-        audioSrc.PlayOneShot(click, 0.5f); 
-
-        cat1.SetActive(false);
-        talkPanel.SetActive(false);
-        bossPanel.SetActive(true);
-        boss.SetActive(true);
-        Invoke("BossTalkStart", 1f); //추후 음성에 맞게 초 수정
-    }*/
 
 
 
     IEnumerator _typing(int x)
     {
         yield return new WaitForSeconds(0f);
-        for (int i=0; i<= m_text[x].Length; i++)
+        if(GameManager.random == 0)
         {
-            talkText.text = m_text[x].Substring(0, i);
-            yield return new WaitForSeconds(0.07f);
+            for (int i = 0; i <= m_text[x].Length; i++)
+            {
+                talkText[0].text = m_text[x].Substring(0, i);
+                yield return new WaitForSeconds(0.07f);
+            }
+        }else if (GameManager.random == 1)
+        {
+            for (int i = 0; i <= m2_text[x].Length; i++)
+            {
+                talkText[1].text = m2_text[x].Substring(0, i);
+                yield return new WaitForSeconds(0.07f);
+            }
+        }else if (GameManager.random == 2)
+        {
+            for (int i = 0; i <= m3_text[x].Length; i++)
+            {
+                talkText[2].text = m3_text[x].Substring(0, i);
+                yield return new WaitForSeconds(0.07f);
+            }
         }
+
     }
     IEnumerator _typing2()
     {
