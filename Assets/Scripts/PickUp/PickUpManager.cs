@@ -26,8 +26,8 @@ public class PickUpManager : MonoBehaviour
     public GameObject big_background;
 
     public GameObject boss;
-    public GameObject cat1;
-    //private GameObject[] cats; //여러 마리의 고양이 캐릭터 예정
+    //public GameObject cat1;
+    public GameObject[] cat; //여러 마리의 고양이 캐릭터 예정
 
     private string[] m_text = { "와 너무 맛있겠다냥!\n", "덕분에 행복해졌다냥!\n좋은 하루 되시라냥~!" };
 
@@ -69,7 +69,7 @@ public class PickUpManager : MonoBehaviour
     }
     void CatShowUp()
     {
-        cat1.SetActive(true);
+        cat[GameManager.random].SetActive(true);
         Invoke("CatTalkStart", 1f);
     }
     void CatTalkStart()
