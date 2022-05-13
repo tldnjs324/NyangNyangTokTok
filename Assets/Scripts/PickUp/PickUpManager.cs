@@ -31,13 +31,15 @@ public class PickUpManager : MonoBehaviour
     //나비 대사
     private string[] m_text = { "와 너무 맛있겠다냥!\n", "덕분에 행복해졌다냥!\n좋은 하루 되시라냥~!" };
     private string[] thanktext = { "이 집 커피향이 참 좋다냥~!", "알록달록한 케이크가 먹음직스럽다냥~!", "저번에 왔을 때 보다 더 잘 만들어줬다냥~!", "토스트가 너무 귀엽다냥~!", "많이 시켰는데 고생 많았다냥~!" };
+    public AudioClip[] naviThank;
     //냐옹 대사
     private string[] m2_text = { "우와 맛있어 보인다냥!\n", "맛있게 만들어줘서 고맙다냥!\n좋은 하루 되시라냥~!" };
     private string[] thank2text = { "군침이 삭 돈다냥! 역시 커피는 여기가 최고라냥!", "내 동년배 고양이들은 모두 여기 카페만 온다냥!"};
+    public AudioClip[] nyaongThank;
     //체리 대사
     private string[] m3_text = { "꺄 얼른 먹고싶다냥!\n", "덕분에 기분이 좋아졌다냥!\n좋은 하루 되시라냥~!" };
     private string[] thank3text = { "깊고 진한 커피향에 취한다냥~!", "체리 취향에 딱 맞을 것 같다냥~!"};
-
+    public AudioClip[] cherryThank;
 
     private string p_text = "주문하신 메뉴 나왔습니다 :)\n";
     private string[] watchout_text = { "커피가 뜨거우니 젤리를 조심하세요!", "케이크를 조심히 들고가세요!", "토스트가 뜨거우니 젤리를 조심하세요!" };
@@ -54,9 +56,6 @@ public class PickUpManager : MonoBehaviour
     {
 
         audioSrc = GetComponent<AudioSource>();
-        //this.animator = GetComponent<Animation>().speed = 0.0f;
-
-        //Invoke("CatShowUp", 1f);
         PlayerTalkStart();
 
     }
@@ -95,18 +94,28 @@ public class PickUpManager : MonoBehaviour
         yes_coffee_text = Random.Range(0, 3);
         low_no_coffee_text = Random.Range(1, 4);
         high_no_coffee_text = Random.Range(1, 5);
+
+        audioSrc.PlayOneShot(naviThank[0]);
+
         if (GameManager.currentLevel == 1)//1단계
         {
             m_text[0] += thanktext[first_text];
+
+            StartCoroutine(catsTalking(first_text + 3));
+            //catsTalking(first_text+3);
         }else if(GameManager.currentLevel == 2)//2단계
         {
             if (SpecifyNumber.MakingMenu[0] <= 7)//커피 메뉴를 시켰을 때 
             {
                 m_text[0] += thanktext[yes_coffee_text];
+                StartCoroutine(catsTalking(yes_coffee_text + 3));
+                //catsTalking(yes_coffee_text + 3);
             }
             else//토스트랑 큐브만 있을 때
             {
                 m_text[0] += thanktext[low_no_coffee_text];
+                StartCoroutine(catsTalking(low_no_coffee_text + 3));
+                //catsTalking(low_no_coffee_text + 3);
             }
         }
         else//3,4,5단계
@@ -114,10 +123,14 @@ public class PickUpManager : MonoBehaviour
             if (SpecifyNumber.MakingMenu[0] <= 7)//커피 메뉴를 시켰을 때 
             {
                 m_text[0] += thanktext[yes_coffee_text];
+                StartCoroutine(catsTalking(yes_coffee_text + 3));
+                //catsTalking(yes_coffee_text + 3);
             }
             else//토스트랑 큐브만 있을 때
             {
                 m_text[0] += thanktext[high_no_coffee_text];
+                StartCoroutine(catsTalking(high_no_coffee_text + 3));
+                //catsTalking(high_no_coffee_text + 3);
             }
         }
         StopMethod();
@@ -128,13 +141,20 @@ public class PickUpManager : MonoBehaviour
     void Cat2TalkStart()
     {
         int coffee = Random.Range(0, 2);
+
+        audioSrc.PlayOneShot(nyaongThank[0]);
+
         if (SpecifyNumber.MakingMenu[0] <= 7)//커피 메뉴를 시켰을 때 
         {
             m2_text[0] += thank2text[coffee];
+            StartCoroutine(catsTalking(coffee + 3));
+            //catsTalking(coffee + 3);
         }
         else//토스트랑 큐브만 있을 때
         {
             m2_text[0] += thank2text[1];
+            StartCoroutine(catsTalking(4));
+            //catsTalking(4);
         }
 
         StopMethod();
@@ -144,13 +164,20 @@ public class PickUpManager : MonoBehaviour
     void Cat3TalkStart()
     {
         int coffee = Random.Range(0, 2);
+
+        audioSrc.PlayOneShot(cherryThank[0]);
+
         if (SpecifyNumber.MakingMenu[0] <= 7)//커피 메뉴를 시켰을 때 
         {
             m3_text[0] += thank3text[coffee];
+            StartCoroutine(catsTalking(coffee + 3));
+            //catsTalking(coffee + 3);
         }
         else//토스트랑 큐브만 있을 때
         {
             m3_text[0] += thank3text[1];
+            StartCoroutine(catsTalking(4));
+            //catsTalking(4);
         }
 
         StopMethod();
@@ -185,13 +212,76 @@ public class PickUpManager : MonoBehaviour
     {
         StopMethod();
         StartMethod(1);
-        //StartCoroutine(_typing(1));
+        //나비, 냐옹, 체리 두번째 패널 대사
+        StartCoroutine(catsTalking2());
+
         nextButton[GameManager.random].SetActive(false);
         nextButton2[GameManager.random].SetActive(true);
     }
 
+    //고양이들 랜덤 대사 말하기(첫번째 패널)
+    IEnumerator catsTalking(int x)
+    {
+        //나비
+        if(GameManager.random == 0)
+        {
+            yield return new WaitForSeconds(1.7f);
+            audioSrc.PlayOneShot(naviThank[x]);
+        }
+        //냐옹
+        if (GameManager.random == 1)
+        {
+            yield return new WaitForSeconds(1.7f);
+            audioSrc.PlayOneShot(nyaongThank[x]);
+        }
+        //체리
+        if (GameManager.random == 2)
+        {
+            yield return new WaitForSeconds(1.9f);
+            audioSrc.PlayOneShot(cherryThank[x]);
+        }
+    }
 
-
+    //고양이들 대사 말하기(두번째 패널
+    IEnumerator catsTalking2()
+    {
+        yield return new WaitForSeconds(0f);
+        //첫번째 대사
+        //나비
+        if (GameManager.random == 0)
+        {
+            audioSrc.PlayOneShot(naviThank[1]);
+            yield return new WaitForSeconds(1.5f);
+        }
+        //냐옹
+        if (GameManager.random == 1)
+        {
+            audioSrc.PlayOneShot(nyaongThank[1]);
+            yield return new WaitForSeconds(1.7f);
+        }
+        //체리
+        if (GameManager.random == 2)
+        {
+            audioSrc.PlayOneShot(cherryThank[1]);
+            yield return new WaitForSeconds(1.8f);
+        }
+        //두번째 대사
+        //나비
+        if (GameManager.random == 0)
+        {
+            audioSrc.PlayOneShot(naviThank[2]);
+        }
+        //냐옹
+        if (GameManager.random == 1)
+        {
+            audioSrc.PlayOneShot(nyaongThank[2]);
+        }
+        //체리
+        if (GameManager.random == 2)
+        {
+            audioSrc.PlayOneShot(cherryThank[2]);
+        }
+    }
     IEnumerator _typing(int x)
     {
         yield return new WaitForSeconds(0f);
