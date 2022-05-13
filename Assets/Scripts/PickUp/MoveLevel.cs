@@ -15,6 +15,8 @@ public class MoveLevel : MonoBehaviour
     public GameObject boss;
     public GameObject bossBtn;
 
+    public AudioClip[] bossTalk;
+
     public GameObject CountPopup;//카운트가 1,2가 됐을 때 팝업
     //public GameObject Count3Popup;//카운트가 3이 됐을 때 팝업
     public GameObject LevelPopup;//레벨업 팝업(카운트가 3이 됐을 때 팝업)
@@ -36,11 +38,10 @@ public class MoveLevel : MonoBehaviour
     private string[] position = { "정식 알바생이", "우수 알바생이", "부매니저가", "매니저가"};//직급 저장
 
     //고양이
-    public GameObject[] talkPanel; //나비
-    public GameObject[] cat;
+    public GameObject[] talkPanel; //나비, 냐옹, 체리
+    public GameObject[] cat;//나비, 냐옹, 체리
 
-    public AudioClip click;
-    AudioSource audioSrc;
+    //AudioSource audioSrc;
 
     public void MovingLevel()
     {
@@ -125,15 +126,44 @@ public class MoveLevel : MonoBehaviour
 
     public void ShowBoss()
     {
-        Debug.Log("쇼보스 함수 실행");
-        //audioSrc.PlayOneShot(click, 0.5f);
-
         bossPanel.SetActive(true);
         boss.SetActive(true);
-        WaitForSeconds();
         //BossTalkStart();
-        //StartCoroutine(_typing(textOrder));
-        Invoke("BossTalkStart", 1f); //추후 음성에 맞게 초 수정
+        StartCoroutine(_typing(textOrder));
+        StartCoroutine(bossTalking(textOrder));
+        //Invoke("BossTalkStart", 1f); //추후 음성에 맞게 초 수정
+    }
+
+    IEnumerator bossTalking(int x)
+    {
+        yield return new WaitForSeconds(1f);
+
+        if(x == 0)
+        {
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[0]);
+            yield return new WaitForSeconds(1.9f);
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[1]);
+        }
+        if (x == 1)
+        {
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[GameManager.currentLevel]);
+            yield return new WaitForSeconds(2.5f);
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[6]);
+        }
+        if (x == 2)
+        {
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[7]);
+            yield return new WaitForSeconds(2.5f);
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[8]);
+        }
+        if (x == 3)
+        {
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[9]);
+            yield return new WaitForSeconds(2.5f);
+            PickUpManager.audioSrc.PlayOneShot(bossTalk[10]);
+        }
+
+
     }
 
     // Start is called before the first frame update
@@ -141,15 +171,15 @@ public class MoveLevel : MonoBehaviour
     {
     }
 
-
+    /*
     void BossTalkStart()
     {
         StartCoroutine(_typing(textOrder));
-    }
+    }*/
 
     IEnumerator _typing(int a)
     {
-        yield return new WaitForSeconds(0f);
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i <= b_text[a].Length; i++)
         {
             bossText.text = b_text[a].Substring(0, i);
@@ -163,12 +193,7 @@ public class MoveLevel : MonoBehaviour
         LevelPopup.SetActive(false);
         //ShowBoss();
     }
-    /*
-    public void NextBtn()//팝업 다음버튼
-    {
-        Count3Popup.SetActive(false);
-        LevelPopup.SetActive(true);
-    }*/
+
     public void BossBtn()//사장님 끝인사 패널 버튼
     {
         if(textOrder == 2)

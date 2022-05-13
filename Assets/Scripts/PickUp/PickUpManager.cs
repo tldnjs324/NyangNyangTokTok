@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PickUpManager : MonoBehaviour
 {
-    public AudioClip click;
-    AudioSource audioSrc;
+    public static AudioSource audioSrc;
 
     public Text playerText;
     public Text bossText;
@@ -257,7 +256,7 @@ public class PickUpManager : MonoBehaviour
         if (GameManager.random == 1)
         {
             audioSrc.PlayOneShot(nyaongThank[1]);
-            yield return new WaitForSeconds(1.7f);
+            yield return new WaitForSeconds(1.8f);
         }
         //Ã¼¸®
         if (GameManager.random == 2)
