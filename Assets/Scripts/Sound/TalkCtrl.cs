@@ -19,7 +19,7 @@ public class TalkCtrl : MonoBehaviour
     public AudioClip CherryPlease;
 
     int menuCount = 0;//주문한 메뉴 수
-    float time = 1.2f;//말하는 시간
+    float time = 1.3f;//말하는 시간
     int random;
 
     public static List<int> num = new List<int>() { 0, 1, 2, 3 };
