@@ -15,6 +15,7 @@ public class OrderCoffee : MonoBehaviour
     public GameObject popupCorrect;
     public GameObject popupWrong;
     public GameObject popupStart;
+    public GameObject popupHelp;
 
     public AudioClip click;
     public AudioClip popup;
@@ -26,7 +27,7 @@ public class OrderCoffee : MonoBehaviour
 
     void Start()
     {
-        Invoke("StartPopup", 0.1f);
+        Invoke("StartPopup", 0.5f);
 
         ClickedMenu = "";
         audioSrc = GetComponent<AudioSource>();
@@ -40,6 +41,11 @@ public class OrderCoffee : MonoBehaviour
     {
         Popup pop = popupStart.GetComponent<Popup>();
         pop.PopUp3();
+    }
+    public void Help_Click()
+    {
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp4();
     }
 
     void Update()
@@ -110,7 +116,8 @@ public class OrderCoffee : MonoBehaviour
 
         if(_list.Count == 0)
         {
-            popupWrong.SetActive(true);
+            Popup pop = popupWrong.GetComponent<Popup>();
+            pop.PopUp(); //팝업내용수정필요
             MoveLevel.wrongCount += 1;
             coffee_wrong += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -122,7 +129,8 @@ public class OrderCoffee : MonoBehaviour
             if (_list.Count == 1 && _list.Contains(GameManager.OrderMenu1))
             {
                 //정답이라면
-                popupCorrect.SetActive(true);
+                Popup pop = popupCorrect.GetComponent<Popup>();
+                pop.PopUp(); 
                 audioSrc.PlayOneShot(correct, 0.5f);
 
                 //하트 올리는 코드
@@ -138,7 +146,8 @@ public class OrderCoffee : MonoBehaviour
                         //오답이 있다면
                         MoveLevel.wrongCount += 1;
                         coffee_wrong += 1;
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp(); 
                         audioSrc.PlayOneShot(wrong, 0.5f);
                         Slot[i].GetComponentInChildren<Text>().text = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                         _list[i] = "<color=#d85b00>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -150,7 +159,8 @@ public class OrderCoffee : MonoBehaviour
             {
                 for (int i = 0; i < _list.Count; i++)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     coffee_wrong += 1;
                     MoveLevel.wrongCount += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
@@ -165,7 +175,8 @@ public class OrderCoffee : MonoBehaviour
             if (_list.Count == 2 && _list.Contains(GameManager.OrderMenu1) && _list.Contains(GameManager.OrderMenu2))
             {
                 //정답이라면
-                popupCorrect.SetActive(true);
+                Popup pop = popupCorrect.GetComponent<Popup>();
+                pop.PopUp();
                 audioSrc.PlayOneShot(correct, 0.5f);
             }
             else if (_list.Contains(GameManager.OrderMenu1) || _list.Contains(GameManager.OrderMenu2))
@@ -177,7 +188,8 @@ public class OrderCoffee : MonoBehaviour
                     if (i != idxCoffee1 && i != idxCoffee2)
                     {
                         //오답이 있다면
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         coffee_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -189,7 +201,8 @@ public class OrderCoffee : MonoBehaviour
                 //
                 if (_list.Count == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
@@ -199,7 +212,8 @@ public class OrderCoffee : MonoBehaviour
             {
                 for (int i = 0; i < _list.Count; i++)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
@@ -214,7 +228,8 @@ public class OrderCoffee : MonoBehaviour
             if (_list.Count == 3 && _list.Contains(GameManager.OrderMenu1) && _list.Contains(GameManager.OrderMenu2) && _list.Contains(GameManager.OrderMenu3))
             {
                 //정답이라면
-                popupCorrect.SetActive(true);
+                Popup pop = popupCorrect.GetComponent<Popup>();
+                pop.PopUp();
                 audioSrc.PlayOneShot(correct, 0.5f);
             }
             else if (_list.Contains(GameManager.OrderMenu1) || _list.Contains(GameManager.OrderMenu2) || _list.Contains(GameManager.OrderMenu3))
@@ -227,7 +242,8 @@ public class OrderCoffee : MonoBehaviour
                     if (i != idxCoffee1 && i != idxCoffee2 && i != idxCoffee3)
                     {
                         //오답이 있다면
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         coffee_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -239,14 +255,16 @@ public class OrderCoffee : MonoBehaviour
                 //
                 if (_list.Count == 1)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
                 }
                 else if (_list.Count == 2)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);
@@ -256,7 +274,8 @@ public class OrderCoffee : MonoBehaviour
             {
                 for (int i = 0; i < _list.Count; i++)
                 {
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
                     audioSrc.PlayOneShot(wrong, 0.5f);

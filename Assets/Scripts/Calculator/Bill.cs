@@ -17,7 +17,7 @@ public class Bill : MonoBehaviour
     [SerializeField] Text sum_1000;
     [SerializeField] Text sum_10000;
 
-
+    public GameObject popupStart;
     //맞았을 시 팝업
     public GameObject sign_yes;
     //한번 틀렸을 시/ 두번 틀렸을 시 / 3, 4번 틀렸을 시 / 5번 이상 틀렸을 시 팝업
@@ -42,6 +42,8 @@ public class Bill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Invoke("StartPopup", 0.5f);
+
         cal = GameObject.Find("Calculator").GetComponent<Calculator>();
 
         //오디오 컴포넌트 가져오기
@@ -106,6 +108,11 @@ public class Bill : MonoBehaviour
                 menu_price_[i].text = "";
             }
         }
+    }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp();
     }
 
     void FindPrice(string menu)

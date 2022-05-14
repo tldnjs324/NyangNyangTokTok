@@ -17,6 +17,7 @@ public class OrderCube : MonoBehaviour
     public GameObject popupCorrect;
     public GameObject popupWrong;
     public GameObject popupStart;
+    public GameObject popupHelp;
 
     public static int sumCount;
 
@@ -30,7 +31,7 @@ public class OrderCube : MonoBehaviour
 
     void Start()
     {
-        Invoke("StartPopup", 0.1f);
+        Invoke("StartPopup", 0.5f);
 
         audioSrc = GetComponent<AudioSource>();
         ClickedMenu = "";
@@ -64,6 +65,11 @@ public class OrderCube : MonoBehaviour
     {
         Popup pop = popupStart.GetComponent<Popup>();
         pop.PopUp3();
+    }
+    public void Help_Click()
+    {
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp4();
     }
 
     void Update()
@@ -136,7 +142,8 @@ public class OrderCube : MonoBehaviour
         audioSrc.PlayOneShot(click, 0.5f);
         if (_list.Count == sumCount)
         {
-            popupWrong.SetActive(true);
+            Popup pop = popupWrong.GetComponent<Popup>();
+            pop.PopUp();
             MoveLevel.wrongCount += 1;
             cube_wrong += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -149,7 +156,8 @@ public class OrderCube : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu3))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
 
                     //하트 올리는 코드
@@ -164,7 +172,8 @@ public class OrderCube : MonoBehaviour
                         if (i != idx)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             cube_wrong += 1;
                             MoveLevel.wrongCount += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -178,7 +187,8 @@ public class OrderCube : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -192,7 +202,8 @@ public class OrderCube : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 2) && _list.Contains(GameManager.OrderMenu2) && _list.Contains(GameManager.OrderMenu3))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
 
                 }
@@ -205,7 +216,8 @@ public class OrderCube : MonoBehaviour
                         if (i != idx1 && i != idx2)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -216,7 +228,8 @@ public class OrderCube : MonoBehaviour
                     }
                     if (_list.Count == (sumCount + 1))
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -226,7 +239,8 @@ public class OrderCube : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -245,7 +259,8 @@ public class OrderCube : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu4))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
                 }
                 else if (_list.Contains(GameManager.OrderMenu4))
@@ -256,7 +271,8 @@ public class OrderCube : MonoBehaviour
                         if (i != idx)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -270,7 +286,8 @@ public class OrderCube : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -284,7 +301,8 @@ public class OrderCube : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 2) && _list.Contains(GameManager.OrderMenu3) && _list.Contains(GameManager.OrderMenu4))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
 
                 }
@@ -297,7 +315,8 @@ public class OrderCube : MonoBehaviour
                         if (i != idx1 && i != idx2)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -308,7 +327,8 @@ public class OrderCube : MonoBehaviour
                     }
                     if (_list.Count == (sumCount + 1))
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -318,7 +338,8 @@ public class OrderCube : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -336,7 +357,8 @@ public class OrderCube : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu2))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
 
                 }
@@ -348,7 +370,8 @@ public class OrderCube : MonoBehaviour
                         if (i != idx)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             cube_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -362,7 +385,8 @@ public class OrderCube : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         cube_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
