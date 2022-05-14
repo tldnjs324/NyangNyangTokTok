@@ -36,8 +36,7 @@ public class Recipe : MonoBehaviour
     public GameObject popupWrong;
     public GameObject popupHelp;
     public GameObject popupBoss;
-    public GameObject popupRecipe;
-    public GameObject popupName;
+    public GameObject popupStart;
 
     public GameObject coffeeShot;
     public GameObject choco_img;
@@ -63,10 +62,15 @@ public class Recipe : MonoBehaviour
     {
         ClickedRecipe = "";
         coroutine = HintActive();
-        Popup pop = popupName.GetComponent<Popup>();
-        pop.PopUp();
 
+        Invoke("StartPopup", 0.1f);
     }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp2();
+    }
+
     private void Update()
     {
         if (i != 0 && i == cnt)
@@ -101,7 +105,8 @@ public class Recipe : MonoBehaviour
     void TimeEnd()
     {
         CancelInvoke("TimeCount");
-        popupRecipe.SetActive(false);
+        //popupRecipe.SetActive(false);
+        popupStart.GetComponent<Animator>().SetTrigger("sclose");
     }
     void BtnReScale()
     {
@@ -670,16 +675,10 @@ public class Recipe : MonoBehaviour
         GameManager.IncreaseHeart(wrongCnt);
 
     }
-    void ShowRecipe()
-    {
-        Popup pop = popupRecipe.GetComponent<Popup>();
-        pop.PopUp2();
-        Invoke("PanelStart", 1f);
 
-    }
     public void Show_Recipe()
     {
-        Invoke("ShowRecipe", 1f);
+        Invoke("PanelStart", 1f);
     }
     public void Help_Click()
     {

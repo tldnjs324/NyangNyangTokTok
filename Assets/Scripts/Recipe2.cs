@@ -35,8 +35,7 @@ public class Recipe2 : MonoBehaviour
     public GameObject popupWrong;
     public GameObject popupHelp;
     public GameObject popupBoss;
-    public GameObject popupRecipe;
-    public GameObject popupName;
+    public GameObject popupStart;
 
     public GameObject recipeSlider;
 
@@ -54,9 +53,14 @@ public class Recipe2 : MonoBehaviour
         ClickedRecipe = "";
         coroutine = HintActive();
 
-        Popup pop = popupName.GetComponent<Popup>();
-        pop.PopUp(); //½ÃÀÛÆË¾÷
+        Invoke("StartPopup", 0.1f);
     }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp2();
+    }
+
     private void Update()
     {
         if (i != 0 && i == cnt)
@@ -101,13 +105,7 @@ public class Recipe2 : MonoBehaviour
         }
 
     }
-    void ShowRecipe()
-    {
-        Popup pop = popupRecipe.GetComponent<Popup>();
-        pop.PopUp2();
-        Invoke("PanelStart", 1f);
-        
-    }
+
     void PanelStart()
     {
         InvokeRepeating("TimeCount", 0f, 1f);
@@ -121,7 +119,7 @@ public class Recipe2 : MonoBehaviour
     void TimeEnd()
     {
         CancelInvoke("TimeCount");
-        popupRecipe.SetActive(false);
+        popupStart.GetComponent<Animator>().SetTrigger("sclose");
     }
 
     void BtnReScale()
@@ -561,8 +559,7 @@ public class Recipe2 : MonoBehaviour
 
     public void Show_Recipe()
     {
-        Invoke("ShowRecipe", 1f);
-        //Invoke("PanelStart", 1f);
+        Invoke("PanelStart", 1f);
     }
     public void Help_Click()
     {

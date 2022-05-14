@@ -14,6 +14,7 @@ public class OrderCoffee : MonoBehaviour
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
+    public GameObject popupStart;
 
     public AudioClip click;
     public AudioClip popup;
@@ -25,11 +26,20 @@ public class OrderCoffee : MonoBehaviour
 
     void Start()
     {
+        Invoke("StartPopup", 0.1f);
+
         ClickedMenu = "";
         audioSrc = GetComponent<AudioSource>();
         //0425시원수정
         _list = new List<string>();
         _list.RemoveRange(0, 3);
+
+        
+    }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp3();
     }
 
     void Update()

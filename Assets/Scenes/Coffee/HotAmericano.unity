@@ -12532,7 +12532,7 @@ GameObject:
   - component: {fileID: 644326177}
   - component: {fileID: 644326176}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12602,7 +12602,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1073931414}
+      - m_Target: {fileID: 1713159633}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
@@ -12611,7 +12611,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: close
+          m_StringArgument: snext
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1073542125}
@@ -13203,7 +13203,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 72ee07a85e1099845a91e689edd54719, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 4292cb5314c45c345afe0c6b2fe889e2, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -13217,7 +13217,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1073931414}
+      - m_Target: {fileID: 1713159633}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
@@ -13226,7 +13226,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: close
+          m_StringArgument: snext
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1073542125}
@@ -13261,7 +13261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56b5d9ff4f16cb442b52bfdb622ebf6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f93b5dda86d537b41b315cde28c9af69, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13292,7 +13292,7 @@ GameObject:
   - component: {fileID: 821143727}
   - component: {fileID: 821143726}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13362,7 +13362,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 826332181}
+      - m_Target: {fileID: 1713159633}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
@@ -13371,7 +13371,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: close2
+          m_StringArgument: sclose
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &821143727
@@ -13421,15 +13421,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826332180}
-  - component: {fileID: 826332181}
-  - component: {fileID: 826332182}
   m_Layer: 5
   m_Name: Recipe2
   m_TagString: PopupManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &826332180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13443,47 +13441,14 @@ RectTransform:
   m_Children:
   - {fileID: 821143725}
   - {fileID: 2104607416}
-  m_Father: {fileID: 944219838}
-  m_RootOrder: 11
+  m_Father: {fileID: 1713159632}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &826332181
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826332179}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf2b712474323e2488b877e9ecd632ae, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &826332182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826332179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a364cfda92d8df3458ca0a434e30c05c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popup: {fileID: 826332179}
-  animator: {fileID: 826332181}
 --- !u!1 &856006583
 GameObject:
   m_ObjectHideFlags: 0
@@ -14111,7 +14076,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 826332181}
+      - m_Target: {fileID: 1713159633}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
@@ -14120,7 +14085,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: close2
+          m_StringArgument: sclose
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &933713035
@@ -14202,8 +14167,7 @@ RectTransform:
   - {fileID: 697019478}
   - {fileID: 115341757}
   - {fileID: 1346560993}
-  - {fileID: 826332180}
-  - {fileID: 1073931413}
+  - {fileID: 1713159632}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15073,8 +15037,7 @@ MonoBehaviour:
   popupWrong: {fileID: 210238065}
   popupHelp: {fileID: 1346560992}
   popupBoss: {fileID: 697019477}
-  popupRecipe: {fileID: 826332179}
-  popupName: {fileID: 1073931412}
+  popupStart: {fileID: 1713159631}
   coffeeShot: {fileID: 917882679}
   choco_img: {fileID: 0}
   hint: {fileID: 1431898241}
@@ -15231,15 +15194,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1073931413}
-  - component: {fileID: 1073931414}
-  - component: {fileID: 1073931415}
   m_Layer: 5
   m_Name: PopupName
   m_TagString: PopupManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1073931413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15253,47 +15214,14 @@ RectTransform:
   m_Children:
   - {fileID: 644326175}
   - {fileID: 1792061090}
-  m_Father: {fileID: 944219838}
-  m_RootOrder: 12
+  m_Father: {fileID: 1713159632}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1073931414
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073931412}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97310f61ee2026849b4d5c616c3413b3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1073931415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073931412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a364cfda92d8df3458ca0a434e30c05c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popup: {fileID: 1073931412}
-  animator: {fileID: 1073931414}
 --- !u!1 &1083266354
 GameObject:
   m_ObjectHideFlags: 0
@@ -22146,6 +22074,78 @@ Transform:
   m_Father: {fileID: 944219838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1713159631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1713159632}
+  - component: {fileID: 1713159633}
+  - component: {fileID: 1713159634}
+  m_Layer: 5
+  m_Name: StartPopup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1713159632
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713159631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 826332180}
+  - {fileID: 1073931413}
+  m_Father: {fileID: 944219838}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1713159633
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713159631}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2a52565fb9d22a4aa634035dee61c2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1713159634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713159631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a364cfda92d8df3458ca0a434e30c05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 1713159631}
+  animator: {fileID: 1713159633}
 --- !u!1 &1723520346
 GameObject:
   m_ObjectHideFlags: 0
