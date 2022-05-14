@@ -16,6 +16,7 @@ public class OrderCube : MonoBehaviour
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
+    public GameObject popupStart;
 
     public static int sumCount;
 
@@ -29,6 +30,8 @@ public class OrderCube : MonoBehaviour
 
     void Start()
     {
+        Invoke("StartPopup", 0.1f);
+
         audioSrc = GetComponent<AudioSource>();
         ClickedMenu = "";
         //0425시원수정
@@ -56,6 +59,11 @@ public class OrderCube : MonoBehaviour
             _list.Add(GameManager.OrderMenu3);
             FreshSlot();
         }
+    }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp3();
     }
 
     void Update()

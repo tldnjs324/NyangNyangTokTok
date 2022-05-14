@@ -16,10 +16,15 @@ public class Popup : MonoBehaviour
         popup.SetActive(true);
         animator.SetTrigger("pop");
     }
-    public void PopUp2() //레시피용(타이머포함)
+    public void PopUp2() //만들기 스타트용
     {
         popup.SetActive(true);
-        animator.SetTrigger("pop2");
+        animator.SetTrigger("spop");
+    }
+    public void PopUp3() //외우기 스타트
+    {
+        popup.SetActive(true);
+        animator.SetTrigger("mpop");
     }
 
 

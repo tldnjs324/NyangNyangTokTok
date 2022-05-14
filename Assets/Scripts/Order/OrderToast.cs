@@ -14,6 +14,7 @@ public class OrderToast : MonoBehaviour
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
+    public GameObject popupStart;
 
     public static int sumCount;// = GameManager.coffeeCount;
 
@@ -27,6 +28,8 @@ public class OrderToast : MonoBehaviour
 
     void Start()
     {
+        Invoke("StartPopup", 0.1f);
+
         audioSrc = GetComponent<AudioSource>();
         ClickedMenu = "";
         //0425시원수정
@@ -46,6 +49,11 @@ public class OrderToast : MonoBehaviour
             FreshSlot();
         }
 
+    }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp3();
     }
 
     void Update()
