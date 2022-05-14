@@ -15,6 +15,7 @@ public class OrderToast : MonoBehaviour
     public GameObject popupCorrect;
     public GameObject popupWrong;
     public GameObject popupStart;
+    public GameObject popupHelp;
 
     public static int sumCount;// = GameManager.coffeeCount;
 
@@ -28,7 +29,7 @@ public class OrderToast : MonoBehaviour
 
     void Start()
     {
-        Invoke("StartPopup", 0.1f);
+        Invoke("StartPopup", 0.5f);
 
         audioSrc = GetComponent<AudioSource>();
         ClickedMenu = "";
@@ -54,6 +55,11 @@ public class OrderToast : MonoBehaviour
     {
         Popup pop = popupStart.GetComponent<Popup>();
         pop.PopUp3();
+    }
+    public void Help_Click()
+    {
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp4();
     }
 
     void Update()
@@ -124,7 +130,8 @@ public class OrderToast : MonoBehaviour
         audioSrc.PlayOneShot(click, 0.5f);
         if (_list.Count == sumCount)
         {
-            popupWrong.SetActive(true);
+            Popup pop = popupWrong.GetComponent<Popup>();
+            pop.PopUp();
             MoveLevel.wrongCount += 1;
             toast_wrong += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -137,7 +144,8 @@ public class OrderToast : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu3))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
                     //계산기 씬 이동
 
@@ -152,7 +160,8 @@ public class OrderToast : MonoBehaviour
                         if (i != idx)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             toast_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -166,7 +175,8 @@ public class OrderToast : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -180,7 +190,8 @@ public class OrderToast : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 2) && _list.Contains(GameManager.OrderMenu2) && _list.Contains(GameManager.OrderMenu3))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
                     //계산기 씬 이동
                 }
@@ -193,7 +204,8 @@ public class OrderToast : MonoBehaviour
                         if (i != idx1 && i != idx2)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             toast_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -204,7 +216,8 @@ public class OrderToast : MonoBehaviour
                     }
                     if (_list.Count == (sumCount + 1))
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -214,7 +227,8 @@ public class OrderToast : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -232,7 +246,8 @@ public class OrderToast : MonoBehaviour
             {
                 if (_list.Count == (sumCount + 1) && _list.Contains(GameManager.OrderMenu2))
                 {
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
                     //계산기 씬 이동
                 }
@@ -244,7 +259,8 @@ public class OrderToast : MonoBehaviour
                         if (i != idx)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             toast_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -258,7 +274,8 @@ public class OrderToast : MonoBehaviour
                 {
                     for (int i = sumCount; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -273,7 +290,8 @@ public class OrderToast : MonoBehaviour
                 if (_list.Count == 2 && _list.Contains(GameManager.OrderMenu1) && _list.Contains(GameManager.OrderMenu2))
                 {
                     //정답이라면
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
                     //큐브 고르기 씬이동 추가!
                 }
@@ -286,7 +304,8 @@ public class OrderToast : MonoBehaviour
                         if (i != idx1 && i != idx2)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             toast_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -297,7 +316,8 @@ public class OrderToast : MonoBehaviour
                     }
                     if (_list.Count == 1)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -307,7 +327,8 @@ public class OrderToast : MonoBehaviour
                 {
                     for (int i = 0; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);
@@ -326,7 +347,8 @@ public class OrderToast : MonoBehaviour
                 if (_list.Count == 1 && _list.Contains(GameManager.OrderMenu1))
                 {
                     //정답이라면
-                    popupCorrect.SetActive(true);
+                    Popup pop = popupCorrect.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(correct, 0.5f);
                 }
                 else if (_list.Contains(GameManager.OrderMenu1))
@@ -337,7 +359,8 @@ public class OrderToast : MonoBehaviour
                         if (i != idx)
                         {
                             //오답이 있다면
-                            popupWrong.SetActive(true);
+                            Popup pop = popupWrong.GetComponent<Popup>();
+                            pop.PopUp();
                             MoveLevel.wrongCount += 1;
                             toast_wrong += 1;
                             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -351,7 +374,8 @@ public class OrderToast : MonoBehaviour
                 {
                     for (int i = 0; i < _list.Count; i++)
                     {
-                        popupWrong.SetActive(true);
+                        Popup pop = popupWrong.GetComponent<Popup>();
+                        pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
                         audioSrc.PlayOneShot(wrong, 0.5f);

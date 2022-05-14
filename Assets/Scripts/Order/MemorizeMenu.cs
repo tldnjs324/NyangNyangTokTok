@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MemorizeMenu : MonoBehaviour
 {
     public GameObject popupStart;
+    public GameObject popupHelp;
     public GameObject memorizePanel;
     public Text memoText; //"외울 메뉴"
     public GameObject memoText_1;
@@ -35,7 +36,7 @@ public class MemorizeMenu : MonoBehaviour
         //Invoke("PanelStart", 0f);
         //Invoke("TimeEnd", 21f); 
 
-        Invoke("StartPopup", 0.1f);
+        Invoke("StartPopup", 0.5f);
     }
     
     void Update()
@@ -46,6 +47,12 @@ public class MemorizeMenu : MonoBehaviour
     {
         Popup pop = popupStart.GetComponent<Popup>();
         pop.PopUp3();
+    }
+
+    public void Help_Click()
+    {
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp();
     }
 
     public void PanelStart()

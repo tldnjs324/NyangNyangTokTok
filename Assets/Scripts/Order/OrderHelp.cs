@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class OrderHelp : MonoBehaviour
 {
-    public GameObject popupHelp;
+    //public GameObject popupHelp;
     public Text helpText;
-    //string menu = "";
 
     string hint = "";
     string hint1;
@@ -32,6 +31,8 @@ public class OrderHelp : MonoBehaviour
             hint2 = hint;
             FindHint(GameManager.OrderMenu3);
             hint3 = hint;
+
+            helpText.text = hint1 + "\n" + hint2 + "\n" + hint3;
         }
         else if (GameManager.OrderMenu4.Length > 2) //메뉴 4개
         {
@@ -43,6 +44,8 @@ public class OrderHelp : MonoBehaviour
             hint3 = hint;
             FindHint(GameManager.OrderMenu4);
             hint4 = hint;
+
+            helpText.text = hint1 + "\n" + hint2 + "\n" + hint3 + "\n" + hint4;
         }
         else //메뉴 2개
         {
@@ -50,13 +53,10 @@ public class OrderHelp : MonoBehaviour
             hint1 = hint;
             FindHint(GameManager.OrderMenu2);
             hint2 = hint;
+
+            helpText.text = hint1 + "\n" + hint2;
         }
 
-        helpText.text += hint1 + "\n" + hint2 + "\n" + hint3 + "\n" + hint4;
-    }
-    
-    void Update()
-    {
         
     }
 

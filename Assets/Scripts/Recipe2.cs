@@ -53,7 +53,7 @@ public class Recipe2 : MonoBehaviour
         ClickedRecipe = "";
         coroutine = HintActive();
 
-        Invoke("StartPopup", 0.1f);
+        Invoke("StartPopup", 0.5f);
     }
     void StartPopup()
     {

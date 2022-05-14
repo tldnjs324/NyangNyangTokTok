@@ -26,6 +26,10 @@ public class Popup : MonoBehaviour
         popup.SetActive(true);
         animator.SetTrigger("mpop");
     }
-
+    public void PopUp4() //메뉴고르기 도움말
+    {
+        popup.SetActive(true);
+        animator.SetTrigger("opop");
+    }
 
 }
