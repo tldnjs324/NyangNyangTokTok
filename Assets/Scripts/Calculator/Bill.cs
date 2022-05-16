@@ -21,7 +21,9 @@ public class Bill : MonoBehaviour
     //맞았을 시 팝업
     public GameObject sign_yes;
     //한번 틀렸을 시/ 두번 틀렸을 시 / 3, 4번 틀렸을 시 / 5번 이상 틀렸을 시 팝업
-    public GameObject[] sign_no_;
+    //public GameObject[] sign_no_;
+    public GameObject popupWrong1;
+    public GameObject popupWrong2;
     //Calculator 가져오기
     private Calculator cal;
     //menu1~4 계산 값(정답)
@@ -200,11 +202,13 @@ public class Bill : MonoBehaviour
             }
 
             //sum_Result.text = sum_doing;
-            sign_yes.SetActive(true);
+            //sign_yes.SetActive(true);
             //StartCoroutine(WaitForYes());
-
             audioSrc.PlayOneShot(correct, 0.5f);
-            black_screen.SetActive(true);
+            //black_screen.SetActive(true);
+
+            Popup pop = sign_yes.GetComponent<Popup>();
+            pop.PopUp();
         }
         else//틀렸다면
         {
@@ -212,31 +216,41 @@ public class Bill : MonoBehaviour
             wrong_count++;//틀린 수 세기
             if (wrong_count == 1)//한번 틀리면 그냥 다시하라고 함
             {
-                sign_no_[0].SetActive(true);//한번 틀린 팝업
+                //sign_no_[0].SetActive(true);//한번 틀린 팝업
+                Popup pop = popupWrong1.GetComponent<Popup>();
+                pop.PopUp();
                 MoveLevel.wrongCount += 1;
                 //StartCoroutine(WaitForNo(0));
             }
             else if (wrong_count == 2)//두번 틀리면 1000의 자리수 알려줌
             {
-                sign_no_[1].SetActive(true);//두번 틀린 팝업
+                //sign_no_[1].SetActive(true);//두번 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(1));
                 sum_1000.text = ((int.Parse(sum_doing) % 10000) / 1000).ToString();
             }
             else if (wrong_count == 3)//세번 틀리면 100의자리 수 알려줌
             {
-                sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                //sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(2));
                 sum_100.text = ((int.Parse(sum_doing) % 1000) / 100).ToString();
             }
             else if (wrong_count == 4)//네번 틀리면 10의자리 수 알려줌
             {
-                sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                //sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(2));
                 sum_10.text = ((int.Parse(sum_doing) % 100) / 10).ToString();
             }
             else if (wrong_count == 5)//다섯번 틀리면 1의자리 수, 10000보다 클 시 10000의자리 수 까지 알려줌
             {
-                sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                //sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(3));
                 sum_1.text = (int.Parse(sum_doing) % 10).ToString();
                 if (int.Parse(sum_doing) >= 10000)
@@ -247,7 +261,9 @@ public class Bill : MonoBehaviour
             }
             else//다섯번 넘게 틀리면 답을 빨간색으로 적어줌
             {
-                sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                //sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(3));
                 sum_1.text = "<color=#D85B00>" + sum_1.text + "</color>";
                 sum_10.text = "<color=#D85B00>" + sum_10.text + "</color>";
@@ -257,17 +273,17 @@ public class Bill : MonoBehaviour
             }
 
             audioSrc.PlayOneShot(wrong, 0.5f);
-            black_screen.SetActive(true);
+            //black_screen.SetActive(true);
         }
 
     }
 
     //닫기 버튼 누를 때
-    public void Close_No(int num)
+    public void Close_No()
     {
-        sign_no_[num].SetActive(false);
+        //sign_no_[num].SetActive(false);
         audioSrc.PlayOneShot(click, 0.5f);
-        black_screen.SetActive(false);
+        //black_screen.SetActive(false);
     }
 
     public void NextScene()

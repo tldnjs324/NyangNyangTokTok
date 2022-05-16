@@ -16,15 +16,17 @@ public class Help : MonoBehaviour
 
     public void Help_Click()
     {
-        Help_Popup.SetActive(true);
+        //Help_Popup.SetActive(true);
+        Popup pop = Help_Popup.GetComponent<Popup>();
+        pop.PopUp();
         audioSrc.PlayOneShot(popup, 0.5f);
-        black_screen.SetActive(true);
+        //black_screen.SetActive(true);
     }
     public void Close_Help()
     {
-        Help_Popup.SetActive(false);
+        //Help_Popup.SetActive(false);
         audioSrc.PlayOneShot(click, 0.5f);
-        black_screen.SetActive(false);
+        //black_screen.SetActive(false);
     }
 
     // Start is called before the first frame update
