@@ -56,8 +56,10 @@ public class LevelDisplay : MonoBehaviour
 
     public void OpenHelp()
     {
-        HelpPopup[2].SetActive(true);
-        BlackScreen.SetActive(true);
+        Popup pop = HelpPopup[2].GetComponent<Popup>();
+        pop.PopUp5();
+        //HelpPopup[2].SetActive(true);
+        //BlackScreen.SetActive(true);
     }
 
     public void CloseHelp()

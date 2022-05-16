@@ -24,9 +24,9 @@ public class AnswerCtrl : MonoBehaviour
     //틀렸을 시 팝업
     public GameObject[] sign_no;
     //정답 팝업 뜰 때 검은 배경 화면
-    public GameObject black_screen;
+    //public GameObject black_screen;
     //오답 팝업 뜰 때 검은 배경 화면
-    public GameObject black_screen_no;
+    //public GameObject black_screen_no;
 
     //팝업 위치
     public string[] position = { "우측", "앞", "위", "좌측" };
@@ -73,16 +73,20 @@ public class AnswerCtrl : MonoBehaviour
             {
                 if(i == random)
                 {
-                    sign_yes.SetActive(true);
-                    black_screen.SetActive(true);
+                    //sign_yes.SetActive(true);
+                    //black_screen.SetActive(true);
+                    Popup pop = sign_yes.GetComponent<Popup>();
+                    pop.PopUp();
                     //하트 올리는 코드
                     GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
-                    sign_no[i].SetActive(true);
+                    Popup pop = sign_no[i].GetComponent<Popup>();
+                    pop.PopUp();
+                    //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen_no.SetActive(true);
+                    //black_screen_no.SetActive(true);
                     ButtonList[0].interactable = false;
                     cube_wrong += 1;
                 }
@@ -97,16 +101,20 @@ public class AnswerCtrl : MonoBehaviour
             {
                 if (i == random)
                 {
-                    sign_yes.SetActive(true);
-                    black_screen.SetActive(true);
+                    Popup pop = sign_yes.GetComponent<Popup>();
+                    pop.PopUp();
+                    //sign_yes.SetActive(true);
+                    //black_screen.SetActive(true);
                     //하트 올리는 코드
                     GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
-                    sign_no[i].SetActive(true);
+                    Popup pop = sign_no[i].GetComponent<Popup>();
+                    pop.PopUp();
+                    //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen_no.SetActive(true);
+                    //black_screen_no.SetActive(true);
                     ButtonList[1].interactable = false;
                     cube_wrong += 1;
                 }
@@ -121,16 +129,20 @@ public class AnswerCtrl : MonoBehaviour
             {
                 if (i == random)
                 {
-                    sign_yes.SetActive(true);
-                    black_screen.SetActive(true);
+                    Popup pop = sign_yes.GetComponent<Popup>();
+                    pop.PopUp();
+                    //sign_yes.SetActive(true);
+                    //black_screen.SetActive(true);
                     //하트 올리는 코드
                     GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
-                    sign_no[i].SetActive(true);
+                    Popup pop = sign_no[i].GetComponent<Popup>();
+                    pop.PopUp();
+                    //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen_no.SetActive(true);
+                    //black_screen_no.SetActive(true);
                     ButtonList[2].interactable = false;
                     cube_wrong += 1;
                 }
@@ -145,16 +157,20 @@ public class AnswerCtrl : MonoBehaviour
             {
                 if (i == random)
                 {
-                    sign_yes.SetActive(true);
-                    black_screen.SetActive(true);
+                    Popup pop = sign_yes.GetComponent<Popup>();
+                    pop.PopUp();
+                    //sign_yes.SetActive(true);
+                    //black_screen.SetActive(true);
                     //하트 올리는 코드
                     GameManager.IncreaseHeart(cube_wrong);
                 }
                 else
                 {
-                    sign_no[i].SetActive(true);
+                    Popup pop = sign_no[i].GetComponent<Popup>();
+                    pop.PopUp();
+                    //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
-                    black_screen_no.SetActive(true);
+                    //black_screen_no.SetActive(true);
                     ButtonList[3].interactable = false;
                     cube_wrong += 1;
                 }
@@ -162,6 +178,7 @@ public class AnswerCtrl : MonoBehaviour
         }
     }
 
+    /*
     public void Close_No()
     {
         for(int i = 0; i<4; i++)
@@ -170,6 +187,6 @@ public class AnswerCtrl : MonoBehaviour
         }  
         black_screen_no.SetActive(false);
     }
-
+    */
     
 }

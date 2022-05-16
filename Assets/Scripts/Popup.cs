@@ -31,5 +31,10 @@ public class Popup : MonoBehaviour
         popup.SetActive(true);
         animator.SetTrigger("opop");
     }
+    public void PopUp5() //큐브 도움말
+    {
+        popup.SetActive(true);
+        animator.SetTrigger("chpop");
+    }
 
 }
