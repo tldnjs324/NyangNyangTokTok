@@ -17,8 +17,9 @@ public class MoveLevel : MonoBehaviour
 
     public AudioClip[] bossTalk;
 
-    public GameObject CountPopup;//카운트가 1,2가 됐을 때 팝업
-    public GameObject CountInfoPopup;//카운트 설명해주는 팝업
+    public GameObject CountPopups;
+    //public GameObject CountPopup;//카운트가 1,2가 됐을 때 팝업
+    //public GameObject CountInfoPopup;//카운트 설명해주는 팝업
     public GameObject LevelPopup;//레벨업 팝업(카운트가 3이 됐을 때 팝업)
 
     //레벨업 팝업 이미지
@@ -72,11 +73,14 @@ public class MoveLevel : MonoBehaviour
                             PopupImg[i - 2].SetActive(true);
                         }
                     }
-                    
+
                     //레벨 업 팝업 띄우기
-                    LevelPopup.SetActive(true);
-                    
-                }else if (GameManager.currentLevel == 5){//레벨5인데 또 3개 카운트 채운 경우
+                    //LevelPopup.SetActive(true);
+                    Popup pop = LevelPopup.GetComponent<Popup>();
+                    pop.PopUp7();
+
+                }
+                else if (GameManager.currentLevel == 5){//레벨5인데 또 3개 카운트 채운 경우
                     textOrder = 3;
                     //사장님 나타나서 고맙다는 인사와 함께 계속해달라는 메시지 전하기
                     ShowBoss();
@@ -103,7 +107,9 @@ public class MoveLevel : MonoBehaviour
                     Step2.SetActive(true);
                 }
                 //설명 팝업 같이 띄우기
-                CountInfoPopup.SetActive(true);
+                //CountInfoPopup.SetActive(true);
+                Popup pop = CountPopups.GetComponent<Popup>();
+                pop.PopUp6();
                 //카운트 올라가는 팝업 띄우기(다음버튼 누르고로 변경)
                 //CountPopup.SetActive(true);
             }
@@ -120,8 +126,8 @@ public class MoveLevel : MonoBehaviour
 
     public void ShowCountPopup()
     {
-        CountInfoPopup.SetActive(false);
-        CountPopup.SetActive(true);
+        //CountInfoPopup.SetActive(false);
+        //CountPopup.SetActive(true);
     }
 
     //데이터 저장
@@ -198,8 +204,8 @@ public class MoveLevel : MonoBehaviour
 
     public void CloseBtn()//팝업 닫기 버튼
     {
-        CountPopup.SetActive(false);
-        LevelPopup.SetActive(false);
+        //CountPopup.SetActive(false);
+        //LevelPopup.SetActive(false);
         //ShowBoss();
     }
 
