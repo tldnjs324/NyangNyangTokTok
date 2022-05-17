@@ -18,7 +18,7 @@ public class MoveLevel : MonoBehaviour
     public AudioClip[] bossTalk;
 
     public GameObject CountPopup;//카운트가 1,2가 됐을 때 팝업
-    //public GameObject Count3Popup;//카운트가 3이 됐을 때 팝업
+    public GameObject CountInfoPopup;//카운트 설명해주는 팝업
     public GameObject LevelPopup;//레벨업 팝업(카운트가 3이 됐을 때 팝업)
 
     //레벨업 팝업 이미지
@@ -99,10 +99,13 @@ public class MoveLevel : MonoBehaviour
                     Step1.SetActive(true);
                 }else if (GameManager.currentCount == 2)
                 {
+                    Step1.SetActive(true);
                     Step2.SetActive(true);
                 }
-
-                CountPopup.SetActive(true);
+                //설명 팝업 같이 띄우기
+                CountInfoPopup.SetActive(true);
+                //카운트 올라가는 팝업 띄우기(다음버튼 누르고로 변경)
+                //CountPopup.SetActive(true);
             }
         }
         else//한번이라도 틀리면 발자국, 레벨업 없음. 사장님이랑 인사하고 다시 출근하기ㄱㄱ
@@ -113,6 +116,12 @@ public class MoveLevel : MonoBehaviour
         cat[GameManager.random].SetActive(false);
         talkPanel[GameManager.random].SetActive(false);
         //PlayerPrefs.Save();//데이터 저장
+    }
+
+    public void ShowCountPopup()
+    {
+        CountInfoPopup.SetActive(false);
+        CountPopup.SetActive(true);
     }
 
     //데이터 저장
