@@ -5,8 +5,10 @@ using UnityEngine.EventSystems;
 
 public class SoundCtrl : MonoBehaviour
 {
-
+    //효과음
     public AudioClip[] click;
+    //시작 팝업 읽어주기
+    public AudioClip firstSound;
     AudioSource audioSrc;
 
     public void ClickSound(int x)
@@ -83,9 +85,13 @@ public class SoundCtrl : MonoBehaviour
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
-
+        Invoke("FirstTalk", 0.5f);
     }
 
+    public void FirstTalk()
+    {
+        audioSrc.PlayOneShot(firstSound);
+    }
     // Update is called once per frame
     void Update()
     {
