@@ -14,6 +14,7 @@ public class OrderToast : MonoBehaviour
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
+    public GameObject popupWrong0;
     public GameObject popupStart;
     public GameObject popupHelp;
 
@@ -130,7 +131,7 @@ public class OrderToast : MonoBehaviour
         audioSrc.PlayOneShot(click, 0.5f);
         if (_list.Count == sumCount)
         {
-            Popup pop = popupWrong.GetComponent<Popup>();
+            Popup pop = popupWrong0.GetComponent<Popup>();
             pop.PopUp();
             MoveLevel.wrongCount += 1;
             toast_wrong += 1;
@@ -216,7 +217,7 @@ public class OrderToast : MonoBehaviour
                     }
                     if (_list.Count == (sumCount + 1))
                     {
-                        Popup pop = popupWrong.GetComponent<Popup>();
+                        Popup pop = popupWrong0.GetComponent<Popup>();
                         pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;
@@ -316,7 +317,7 @@ public class OrderToast : MonoBehaviour
                     }
                     if (_list.Count == 1)
                     {
-                        Popup pop = popupWrong.GetComponent<Popup>();
+                        Popup pop = popupWrong0.GetComponent<Popup>();
                         pop.PopUp();
                         MoveLevel.wrongCount += 1;
                         toast_wrong += 1;

@@ -145,7 +145,7 @@ public class Recipe : MonoBehaviour
             {
                 if (i != cnt - 1)
                 {
-                    particleBasic.Play();
+                    
                 }
                 img.sprite = sprites[i]; //이미지 변경
                 //0511효과음
@@ -167,6 +167,10 @@ public class Recipe : MonoBehaviour
                 
                 if (i != 2)
                 {
+                    if( i != 3)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
@@ -218,10 +222,6 @@ public class Recipe : MonoBehaviour
             cnt = 4;
             if (_list[i] == iceAmericano[i])
             {
-                if (i != cnt - 1)
-                {
-                    particleBasic.Play();
-                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -232,6 +232,10 @@ public class Recipe : MonoBehaviour
 
                 if (i != 3)
                 {
+                    if (i != 4)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
@@ -281,10 +285,6 @@ public class Recipe : MonoBehaviour
             cnt = 3;
             if (_list[i] == hotLatte[i])
             {
-                if (i != cnt - 1)
-                {
-                    particleBasic.Play();
-                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
@@ -294,6 +294,10 @@ public class Recipe : MonoBehaviour
                 wrongCnt = 0;
                 if (i != 2)
                 {
+                    if (i != 3)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
@@ -343,10 +347,6 @@ public class Recipe : MonoBehaviour
             cnt = 4;
             if (_list[i] == iceLatte[i])
             {
-                if (i != cnt - 1)
-                {
-                    particleBasic.Play();
-                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -356,6 +356,10 @@ public class Recipe : MonoBehaviour
                 wrongCnt = 0;
                 if (i != 3)
                 {
+                    if (i != 4)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
@@ -405,10 +409,6 @@ public class Recipe : MonoBehaviour
             cnt = 4;
             if (_list[i] == hotVanillaLatte[i])
             {
-                if (i != cnt - 1)
-                {
-                    particleBasic.Play();
-                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.25f; //4개용
@@ -418,6 +418,10 @@ public class Recipe : MonoBehaviour
                 wrongCnt = 0;
                 if (i != 2)
                 {
+                    if (i != 4)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
@@ -470,10 +474,6 @@ public class Recipe : MonoBehaviour
             cnt = 5;
             if (_list[i] == iceVanillaLatte[i])
             {
-                if (i != cnt - 1)
-                {
-                    particleBasic.Play();
-                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.2f; //5개용
@@ -483,6 +483,10 @@ public class Recipe : MonoBehaviour
                 wrongCnt = 0;
                 if (i != 3)
                 {
+                    if (i != 5)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
@@ -535,10 +539,6 @@ public class Recipe : MonoBehaviour
             cnt = 7;
             if (_list[i] == iceCafeMocha[i])
             {
-                if (i != cnt - 1)
-                {
-                    particleBasic.Play();
-                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.1428f; //7개용
@@ -548,6 +548,10 @@ public class Recipe : MonoBehaviour
                 wrongCnt = 0;
                 if (i != 4 && i != 3)
                 {
+                    if (i != 7)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게
@@ -605,10 +609,6 @@ public class Recipe : MonoBehaviour
             cnt = 6;
             if (_list[i] == hotCafeMocha[i])
             {
-                if (i != cnt - 1)
-                {
-                    particleBasic.Play();
-                }
                 img.sprite = sprites[i]; //이미지 변경
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.166f; //6개용
@@ -618,6 +618,10 @@ public class Recipe : MonoBehaviour
                 wrongCnt = 0;
                 if (i != 2 && i != 3)
                 {
+                    if (i != 6)
+                    {
+                        particleBasic.Play();
+                    }
                     RectTransform rectTran = cup.GetComponent<RectTransform>();
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 350); //컵 커지게

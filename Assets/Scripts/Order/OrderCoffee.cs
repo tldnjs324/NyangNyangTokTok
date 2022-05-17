@@ -14,6 +14,7 @@ public class OrderCoffee : MonoBehaviour
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
+    public GameObject popupWrong0;
     public GameObject popupStart;
     public GameObject popupHelp;
 
@@ -116,8 +117,8 @@ public class OrderCoffee : MonoBehaviour
 
         if(_list.Count == 0)
         {
-            Popup pop = popupWrong.GetComponent<Popup>();
-            pop.PopUp(); //팝업내용수정필요
+            Popup pop = popupWrong0.GetComponent<Popup>();
+            pop.PopUp(); 
             MoveLevel.wrongCount += 1;
             coffee_wrong += 1;
             audioSrc.PlayOneShot(wrong, 0.5f);
@@ -201,7 +202,7 @@ public class OrderCoffee : MonoBehaviour
                 //
                 if (_list.Count == 1)
                 {
-                    Popup pop = popupWrong.GetComponent<Popup>();
+                    Popup pop = popupWrong0.GetComponent<Popup>();
                     pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
@@ -255,7 +256,7 @@ public class OrderCoffee : MonoBehaviour
                 //
                 if (_list.Count == 1)
                 {
-                    Popup pop = popupWrong.GetComponent<Popup>();
+                    Popup pop = popupWrong0.GetComponent<Popup>();
                     pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;
@@ -263,7 +264,7 @@ public class OrderCoffee : MonoBehaviour
                 }
                 else if (_list.Count == 2)
                 {
-                    Popup pop = popupWrong.GetComponent<Popup>();
+                    Popup pop = popupWrong0.GetComponent<Popup>();
                     pop.PopUp();
                     MoveLevel.wrongCount += 1;
                     coffee_wrong += 1;

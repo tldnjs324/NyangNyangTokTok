@@ -36,5 +36,15 @@ public class Popup : MonoBehaviour
         popup.SetActive(true);
         animator.SetTrigger("chpop");
     }
+    public void PopUp6() //전달하기 count
+    {
+        popup.SetActive(true);
+        animator.SetTrigger("ppop");
+    }
+    public void PopUp7() //전달하기 level
+    {
+        popup.SetActive(true);
+        animator.SetTrigger("lpop");
+    }
 
 }
