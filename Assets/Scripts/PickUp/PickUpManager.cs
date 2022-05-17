@@ -23,6 +23,7 @@ public class PickUpManager : MonoBehaviour
 
     public GameObject big_counter;
     public GameObject big_background;
+    public GameObject counter;
 
     public GameObject boss;
     public GameObject[] cat; //나비 냐옹 체리
@@ -67,6 +68,7 @@ public class PickUpManager : MonoBehaviour
     {
         playerPanel.SetActive(false);
         big_background.SetActive(false);
+        counter.SetActive(true);
         big_counter.SetActive(false);
         talkPanel[GameManager.random].SetActive(true);
         Invoke("CatShowUp", 1f);
