@@ -212,7 +212,7 @@ public class MoveLevel : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Start");
+            SceneManager.LoadScene("LevelMap");
         }
     }
 

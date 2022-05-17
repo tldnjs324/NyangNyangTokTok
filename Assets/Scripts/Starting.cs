@@ -6,19 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class Starting : MonoBehaviour
 {
-    public AudioClip btnAudio;
-    AudioSource audioSrc;
+    int time = 3;
 
     public void Start()
     {
-        audioSrc = GetComponent<AudioSource>();
-        GameManager.ResetMenu();
+        TimeStart();
     }
-
-    public void StartBtn()
+    void TimeStart()
     {
-        audioSrc.PlayOneShot(btnAudio);
+        InvokeRepeating("TimeCount", 0f, 1f);
+        Invoke("TimeEnd", 3f);
+    }
+    void TimeCount()
+    {
+        --time;
+    }
+    void TimeEnd()
+    {
+        CancelInvoke("TimeCount");
         SceneLoad.LoadScene("LevelMap");
     }
+    /*
+    public void StartBtn()
+    {
+        SceneLoad.LoadScene("LevelMap");
+    }*/
 }
 

@@ -59,7 +59,7 @@ public class DBManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        LoadData();
     }
 
     // Update is called once per frame

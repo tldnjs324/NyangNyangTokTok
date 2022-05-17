@@ -13,10 +13,6 @@ public class MapManager : MonoBehaviour
     public GameObject[] Step1;//발자국이 1개일 때
     public GameObject[] Step2;//발자국이 2개일 때
 
-    //3초후 게임 시작
-    public Text timeCounting;
-    public int time = 4;
-
     //게임 시작 버튼
     public GameObject StartBtn;
 
@@ -61,31 +57,10 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    void TimeStart()
-    {
-        InvokeRepeating("TimeCount", 0f, 1f);
-        Invoke("TimeEnd", 5f);
-    }
-    void TimeCount()
-    {
-        --time;
-        if (time > 0)
-        {
-            timeCounting.text = time.ToString();
-        }
-        else
-        {
-            timeCounting.text = "Start!";
-        }
-        
-    }
-    void TimeEnd()
-    {
-        CancelInvoke("TimeCount");
-        SceneManager.LoadScene("Main");
-    }
+    
     public void GameStart()
     {
+        GameManager.ResetMenu();
         SceneManager.LoadScene("Main");
     }
 
