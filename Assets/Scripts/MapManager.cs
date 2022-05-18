@@ -13,8 +13,6 @@ public class MapManager : MonoBehaviour
     public GameObject[] Step1;//발자국이 1개일 때
     public GameObject[] Step2;//발자국이 2개일 때
 
-    //게임 시작 버튼
-    public GameObject StartBtn;
 
     // Start is called before the first frame update
     void Start()
