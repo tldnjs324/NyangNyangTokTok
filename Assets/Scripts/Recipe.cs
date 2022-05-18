@@ -280,6 +280,7 @@ public class Recipe : MonoBehaviour
             {
                 _list.RemoveAt(i);
                 wrongCnt++;
+                audioSrc.PlayOneShot(click[3]);//오답 효과음
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
@@ -747,7 +748,11 @@ public class Recipe : MonoBehaviour
                 {
                     audioSrc.PlayOneShot(click[10]);
                 }
-                if (i == 4)//초코 시럽
+                if (i == 4)//휘핑크림
+                {
+                    audioSrc.PlayOneShot(click[9]);
+                }
+                if (i == 5)//초코 시럽
                 {
                     audioSrc.PlayOneShot(click[8]);
                 }

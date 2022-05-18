@@ -48,12 +48,18 @@ public class Recipe2 : MonoBehaviour
 
     int updateCnt = 1;
 
+    //효과음
+    public AudioClip[] click;
+    AudioSource audioSrc;
+
     void Start()
     {
         ClickedRecipe = "";
         coroutine = HintActive();
 
         Invoke("StartPopup", 0.5f);
+
+        audioSrc = GetComponent<AudioSource>();
     }
     void StartPopup()
     {
@@ -153,6 +159,14 @@ public class Recipe2 : MonoBehaviour
             cnt = 2;
             if (_list[i] == basicToast[i])
             {
+                if (i == 0)//빵
+                {
+                    audioSrc.PlayOneShot(click[3]);
+                }
+                if (i == 1)//토스터
+                {
+                    audioSrc.PlayOneShot(click[4]);
+                }
                 if (i > 0)
                 {
                     if(i != cnt-1)
@@ -164,7 +178,9 @@ public class Recipe2 : MonoBehaviour
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1350);
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
                     Invoke("PlateReScale", 0.1f);
-                } 
+                }
+                
+                
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.5f; //2개용
                 hintArrows[0].SetActive(false);
@@ -183,12 +199,14 @@ public class Recipe2 : MonoBehaviour
                     btnMachine.GetComponent<Image>().sprite = sprite2;
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
+                    audioSrc.PlayOneShot(click[1]);//정답 효과음
                 }
             }
             else
             {
                 _list.RemoveAt(i);
                 wrongCnt++;
+                audioSrc.PlayOneShot(click[2]);//오답 효과음
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
@@ -218,6 +236,18 @@ public class Recipe2 : MonoBehaviour
             cnt = 3;
             if (_list[i] == chocoToast[i])
             {
+                if (i == 0)//빵
+                {
+                    audioSrc.PlayOneShot(click[3]);
+                }
+                if (i == 1)//토스터
+                {
+                    audioSrc.PlayOneShot(click[4]);
+                }
+                if (i == 2)//초코시럽
+                {
+                    audioSrc.PlayOneShot(click[7]);
+                }
                 if (i > 0)
                 {
                     if (i != cnt - 1)
@@ -230,6 +260,7 @@ public class Recipe2 : MonoBehaviour
                     rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1350); //그릇 커지게
                     Invoke("PlateReScale", 0.1f);
                 }
+                
                 i++;
                 recipeSlider.GetComponent<Image>().fillAmount += 0.33f; //3개용
                 hintArrows[0].SetActive(false);
@@ -251,12 +282,14 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
+                    audioSrc.PlayOneShot(click[1]);//정답 효과음
                 }
             }
             else
             {
                 _list.RemoveAt(i);
                 wrongCnt++;
+                audioSrc.PlayOneShot(click[2]);//오답 효과음
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
@@ -283,8 +316,25 @@ public class Recipe2 : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "StrawberryToast") //딸기토스트
         {
             cnt = 4;
+
             if (_list[i] == strawberryToast[i])
             {
+                if (i == 0)//빵
+                {
+                    audioSrc.PlayOneShot(click[3]);
+                }
+                if (i == 1)//토스터
+                {
+                    audioSrc.PlayOneShot(click[4]);
+                }
+                if (i == 2)//잼
+                {
+                    audioSrc.PlayOneShot(click[5]);
+                }
+                if (i == 3)//과일
+                {
+                    audioSrc.PlayOneShot(click[6]);
+                }
                 if (i > 0)
                 {
                     if (i != cnt - 1)
@@ -318,12 +368,14 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
+                    audioSrc.PlayOneShot(click[1]);//정답 효과음
                 }
             }
             else
             {
                 _list.RemoveAt(i);
                 wrongCnt++;
+                audioSrc.PlayOneShot(click[2]);//오답 효과음
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
@@ -352,6 +404,22 @@ public class Recipe2 : MonoBehaviour
             cnt = 4;
             if (_list[i] == blueberryToast[i])
             {
+                if (i == 0)//빵
+                {
+                    audioSrc.PlayOneShot(click[3]);
+                }
+                if (i == 1)//토스터
+                {
+                    audioSrc.PlayOneShot(click[4]);
+                }
+                if (i == 2)//잼
+                {
+                    audioSrc.PlayOneShot(click[5]);
+                }
+                if (i == 3)//과일
+                {
+                    audioSrc.PlayOneShot(click[6]);
+                }
                 if (i > 0)
                 {
                     if (i != cnt - 1)
@@ -385,12 +453,14 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
+                    audioSrc.PlayOneShot(click[1]);//정답 효과음
                 }
             }
             else
             {
                 _list.RemoveAt(i);
                 wrongCnt++;
+                audioSrc.PlayOneShot(click[2]);//오답 효과음
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
@@ -419,6 +489,22 @@ public class Recipe2 : MonoBehaviour
             cnt = 4;
             if (_list[i] == strawberryChocoToast[i])
             {
+                if (i == 0)//빵
+                {
+                    audioSrc.PlayOneShot(click[3]);
+                }
+                if (i == 1)//토스터
+                {
+                    audioSrc.PlayOneShot(click[4]);
+                }
+                if (i == 2)//초코시럽
+                {
+                    audioSrc.PlayOneShot(click[7]);
+                }
+                if (i == 3)//과일
+                {
+                    audioSrc.PlayOneShot(click[6]);
+                }
                 if (i > 0)
                 {
                     if (i != cnt - 1)
@@ -452,12 +538,14 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
+                    audioSrc.PlayOneShot(click[1]);//정답 효과음
                 }
             }
             else
             {
                 _list.RemoveAt(i);
                 wrongCnt++;
+                audioSrc.PlayOneShot(click[2]);//오답 효과음
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
@@ -486,6 +574,22 @@ public class Recipe2 : MonoBehaviour
             cnt = 5;
             if (_list[i] == nyangnyangToast[i])
             {
+                if (i == 0)//빵
+                {
+                    audioSrc.PlayOneShot(click[3]);
+                }
+                if (i == 1)//토스터
+                {
+                    audioSrc.PlayOneShot(click[4]);
+                }
+                if (i == 2)//초코시럽
+                {
+                    audioSrc.PlayOneShot(click[5]);
+                }
+                if (i == 3 || i == 4)//과일
+                {
+                    audioSrc.PlayOneShot(click[6]);
+                }
                 if (i > 0)
                 {
                     if (i != cnt - 1)
@@ -519,12 +623,14 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
+                    audioSrc.PlayOneShot(click[1]);//정답 효과음
                 }
             }
             else
             {
                 _list.RemoveAt(i);
                 wrongCnt++;
+                audioSrc.PlayOneShot(click[2]);//오답 효과음
                 hintArrows[0].SetActive(false);
                 StopCoroutine(coroutine);
                 if (wrongCnt == 1)
