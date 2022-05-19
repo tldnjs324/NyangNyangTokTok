@@ -140,7 +140,16 @@ public class GameManager : MonoBehaviour
         }
         else if (currentLevel == 3) //3단계
         {
+            //시연을 위한 조작 코드!!
+            OrderMenu1 = level3_Coffee_menu[5];
+            ++coffeeCount;
+            OrderMenu2 = level3_Toast_menu[4];
+            ++toastCount;
+            OrderMenu3 = level3_Cube_menu[1];
+            ++cubeCount;
 
+            //원래 코드!! 얘가 찐!!
+            /*
             level3_random = Random.Range(1, 4);
             randomCoffee3 = Random.Range(0, 6);
             randomCoffee3_1 = Random.Range(0, 5);
@@ -174,7 +183,7 @@ public class GameManager : MonoBehaviour
                     OrderMenu3 = level3_Cube_menu[2];
                     ++cubeCount;
                     break;
-            }
+            }*/
         }
         else if (currentLevel == 4) //4단계
         {
