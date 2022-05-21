@@ -199,7 +199,7 @@ public class Recipe2 : MonoBehaviour
                     btnMachine.GetComponent<Image>().sprite = sprite2;
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
-                    audioSrc.PlayOneShot(click[1]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                 }
             }
             else
@@ -282,7 +282,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
-                    audioSrc.PlayOneShot(click[1]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                 }
             }
             else
@@ -368,7 +368,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
-                    audioSrc.PlayOneShot(click[1]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                 }
             }
             else
@@ -453,7 +453,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
-                    audioSrc.PlayOneShot(click[1]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                 }
             }
             else
@@ -538,7 +538,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
-                    audioSrc.PlayOneShot(click[1]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                 }
             }
             else
@@ -623,7 +623,7 @@ public class Recipe2 : MonoBehaviour
                 {
                     particle.Play(); //그릇에 완성파티클
                     particleHeart.Play();
-                    audioSrc.PlayOneShot(click[1]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                 }
             }
             else
@@ -662,6 +662,11 @@ public class Recipe2 : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         img.sprite = sprites[i - 1]; //이미지 변경
     }
+    public void CorrectSound()
+    {
+        audioSrc.PlayOneShot(click[1]);//정답 효과음
+    }
+
 
     public void Show_Recipe()
     {

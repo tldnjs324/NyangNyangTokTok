@@ -190,7 +190,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     Invoke("BtnShot", 0.3f);
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particle.Play(); //완성파티클
                     particleHeart.Play();
                 }
@@ -272,7 +272,7 @@ public class Recipe : MonoBehaviour
                 {
                     Invoke("BtnShot", 0.3f);
                     particle.Play(); //완성파티클
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particleHeart.Play();
                 }
             }
@@ -347,7 +347,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     Invoke("BtnShot", 0.3f);
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particle.Play(); //완성파티클
                     particleHeart.Play();
                 }
@@ -428,7 +428,7 @@ public class Recipe : MonoBehaviour
                 {
                     Invoke("BtnShot", 0.3f);
                     particle.Play(); //완성파티클
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particleHeart.Play();
                 }
             }
@@ -511,7 +511,7 @@ public class Recipe : MonoBehaviour
                 if( i == 4)
                 {
                     particle.Play(); //완성파티클
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particleHeart.Play();
                 }
             }
@@ -598,7 +598,7 @@ public class Recipe : MonoBehaviour
                 if (i == 5)
                 {
                     particle.Play(); //완성파티클
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particleHeart.Play();
                 }
             }
@@ -694,7 +694,7 @@ public class Recipe : MonoBehaviour
                 if (i == 7)
                 {
                     particle.Play(); //완성파티클
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particleHeart.Play();
                 }
             }
@@ -790,7 +790,7 @@ public class Recipe : MonoBehaviour
                 if (i == 6)
                 {
                     particle.Play(); //완성파티클
-                    audioSrc.PlayOneShot(click[2]);//정답 효과음
+                    Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
                     particleHeart.Play();
                 }
             }
@@ -828,6 +828,12 @@ public class Recipe : MonoBehaviour
 
     }
 
+    public void CorrectSound()
+    {
+        audioSrc.PlayOneShot(click[2]);//정답 효과음
+    }
+
+
     public void Show_Recipe()
     {
         Invoke("PanelStart", 1f);
@@ -835,6 +841,7 @@ public class Recipe : MonoBehaviour
     public void Help_Click()
     {
         Popup pop = popupHelp.GetComponent<Popup>();
+        audioSrc.PlayOneShot(click[0]);
         pop.PopUp();
         hintArrows[0].SetActive(false);
     }
