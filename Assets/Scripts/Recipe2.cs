@@ -191,7 +191,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 1)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
-                    Invoke("BtnImgChange", 1.2f);
+                    Invoke("BtnImgChange", 0.8f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -271,7 +271,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 1)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
-                    Invoke("BtnImgChange", 1.5f);
+                    Invoke("BtnImgChange", 0.8f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -357,7 +357,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 1)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
-                    Invoke("BtnImgChange", 1.5f);
+                    Invoke("BtnImgChange", 0.8f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -442,7 +442,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 1)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
-                    Invoke("BtnImgChange", 1.5f);
+                    Invoke("BtnImgChange", 0.8f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -527,7 +527,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 1)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
-                    Invoke("BtnImgChange", 1.5f);
+                    Invoke("BtnImgChange", 0.8f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)
@@ -612,7 +612,7 @@ public class Recipe2 : MonoBehaviour
                 if (i == 1)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //구워지는 중
-                    Invoke("BtnImgChange", 1.5f);
+                    Invoke("BtnImgChange", 0.8f);
                     //식빵이 기계에 들어감(버튼 사진 변경)
                 }
                 if (i == 2)

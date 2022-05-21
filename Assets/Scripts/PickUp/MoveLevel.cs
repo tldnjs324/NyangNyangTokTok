@@ -21,6 +21,7 @@ public class MoveLevel : MonoBehaviour
     //public GameObject CountPopup;//카운트가 1,2가 됐을 때 팝업
     //public GameObject CountInfoPopup;//카운트 설명해주는 팝업
     public GameObject LevelPopup;//레벨업 팝업(카운트가 3이 됐을 때 팝업)
+    public GameObject Gifsteps;
 
     //레벨업 팝업 이미지
     public GameObject[] PopupImg;
@@ -43,6 +44,10 @@ public class MoveLevel : MonoBehaviour
     public GameObject[] cat;//나비, 냐옹, 체리
 
     //AudioSource audioSrc;
+    void Start()
+    {
+        
+    }
 
     public void MovingLevel()
     {
@@ -78,6 +83,7 @@ public class MoveLevel : MonoBehaviour
                     //LevelPopup.SetActive(true);
                     Popup pop = LevelPopup.GetComponent<Popup>();
                     pop.PopUp7();
+                    Invoke("ShowGif", 0.25f);
 
                 }
                 else if (GameManager.currentLevel == 5){//레벨5인데 또 3개 카운트 채운 경우
@@ -123,7 +129,10 @@ public class MoveLevel : MonoBehaviour
         talkPanel[GameManager.random].SetActive(false);
         //PlayerPrefs.Save();//데이터 저장
     }
-
+    void ShowGif()
+    {
+        Gifsteps.SetActive(true);
+    }
     public void ShowCountPopup()
     {
         //CountInfoPopup.SetActive(false);
@@ -179,11 +188,6 @@ public class MoveLevel : MonoBehaviour
         }
 
 
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
     }
 
     /*

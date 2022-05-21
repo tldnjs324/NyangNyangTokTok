@@ -11,6 +11,8 @@ public class LevelDisplay : MonoBehaviour
     public GameObject[] count;//카운트 표시
 
     public GameObject[] HelpPopup;//하트, 발자국, 도움말 팝업
+    public GameObject HeartEffect;
+    public GameObject StepsEffect;
     public GameObject BlackScreen;
     
 
@@ -44,14 +46,25 @@ public class LevelDisplay : MonoBehaviour
 
     public void OpenHeartHelp()
     {
-        HelpPopup[0].SetActive(true);
-        BlackScreen.SetActive(true);
+        Popup pop = HeartEffect.GetComponent<Popup>();
+        pop.PopUp();
+        Invoke("ShowGif1", 0.5f);
+        //HelpPopup[0].SetActive(true);
+        //BlackScreen.SetActive(true);
     }
-
     public void OpenStepsHelp()
     {
+        Popup pop = StepsEffect.GetComponent<Popup>();
+        pop.PopUp();
+        Invoke("ShowGif2", 0.5f);
+    }
+    void ShowGif1()
+    {
+        HelpPopup[0].SetActive(true);
+    }
+    void ShowGif2()
+    {
         HelpPopup[1].SetActive(true);
-        BlackScreen.SetActive(true);
     }
 
     public void OpenHelp()
