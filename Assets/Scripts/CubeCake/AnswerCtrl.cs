@@ -36,9 +36,22 @@ public class AnswerCtrl : MonoBehaviour
     //큐브 틀린 수 
     public static int cube_wrong;
 
+    //효과음
+    public AudioClip[] click;
+    AudioSource audioSrc;
+
+    //효과음 나오게 하기
+    public void ClickSound(int x)
+    {
+        audioSrc.PlayOneShot(click[x]);
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSrc = GetComponent<AudioSource>();
+
         //카메라 위치 랜덤 설정
         for (int i = 0; i<4; i++)
         {
@@ -77,6 +90,7 @@ public class AnswerCtrl : MonoBehaviour
                     //black_screen.SetActive(true);
                     Popup pop = sign_yes.GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[0]);
                     //하트 올리는 코드
                     GameManager.IncreaseHeart(cube_wrong);
                 }
@@ -84,6 +98,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     Popup pop = sign_no[i].GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[1]);
                     //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
                     //black_screen_no.SetActive(true);
@@ -103,6 +118,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     Popup pop = sign_yes.GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[0]);
                     //sign_yes.SetActive(true);
                     //black_screen.SetActive(true);
                     //하트 올리는 코드
@@ -112,6 +128,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     Popup pop = sign_no[i].GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[1]);
                     //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
                     //black_screen_no.SetActive(true);
@@ -131,6 +148,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     Popup pop = sign_yes.GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[0]);
                     //sign_yes.SetActive(true);
                     //black_screen.SetActive(true);
                     //하트 올리는 코드
@@ -140,6 +158,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     Popup pop = sign_no[i].GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[1]);
                     //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
                     //black_screen_no.SetActive(true);
@@ -159,6 +178,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     Popup pop = sign_yes.GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[0]);
                     //sign_yes.SetActive(true);
                     //black_screen.SetActive(true);
                     //하트 올리는 코드
@@ -168,6 +188,7 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     Popup pop = sign_no[i].GetComponent<Popup>();
                     pop.PopUp();
+                    audioSrc.PlayOneShot(click[1]);
                     //sign_no[i].SetActive(true);
                     MoveLevel.wrongCount += 1;
                     //black_screen_no.SetActive(true);
