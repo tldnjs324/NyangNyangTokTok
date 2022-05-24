@@ -15,6 +15,9 @@ public class MoveLevel : MonoBehaviour
     public GameObject boss;
     public GameObject bossBtn;
 
+    //오디오
+    public AudioClip levelup;
+    public AudioClip popup;
     public AudioClip[] bossTalk;
 
     public GameObject CountPopups;
@@ -33,6 +36,8 @@ public class MoveLevel : MonoBehaviour
     //발자국
     public GameObject Step1;
     public GameObject Step2;
+
+
 
     private string[] b_text = { "오늘도 고생 많았어요!\n내일도 즐겁게 일해요~!", " 되신 걸 축하드려요~!\n앞으로도 같이 재미있게 일해요!",
         "수습기간 끝난거 축하해요!\n이제부터는 알바생님께 토스트도 맡겨볼게요~!", "오랫동안 같이 일해줘서 고마워요~!\n내일도 같이 즐겁게 일해요!" };
@@ -82,6 +87,7 @@ public class MoveLevel : MonoBehaviour
                     //레벨 업 팝업 띄우기
                     //LevelPopup.SetActive(true);
                     Popup pop = LevelPopup.GetComponent<Popup>();
+                    Invoke("UpSound", 0.5f);
                     pop.PopUp7();
                     Invoke("ShowGif", 0.25f);
 
@@ -116,6 +122,7 @@ public class MoveLevel : MonoBehaviour
                 //CountInfoPopup.SetActive(true);
                 Popup pop = CountPopups.GetComponent<Popup>();
                 pop.PopUp6();
+                Invoke("PopSound", 0.5f);
                 //카운트 올라가는 팝업 띄우기(다음버튼 누르고로 변경)
                 //CountPopup.SetActive(true);
             }
@@ -190,6 +197,14 @@ public class MoveLevel : MonoBehaviour
 
     }
 
+    private void UpSound()
+    {
+        PickUpManager.audioSrc.PlayOneShot(levelup);
+    }
+    private void PopSound()
+    {
+        PickUpManager.audioSrc.PlayOneShot(popup);
+    }
     /*
     void BossTalkStart()
     {
