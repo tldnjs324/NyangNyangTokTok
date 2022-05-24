@@ -34,8 +34,8 @@ public class MoveLevel : MonoBehaviour
     public GameObject Step1;
     public GameObject Step2;
 
-    private string[] b_text = { "오늘도 고생 많았어요!\n내일도 즐겁게 일해요~!", " 되신걸 축하드려요~!\n앞으로도 같이 재미있게 일해요!",
-        "수습기간 끝난거 축하해요!\n이제부터는 알바생님께 토스트도 맡겨볼게요~!", "오랫동안 같이 일해줘서 고마워요~!\n내일도 같이 즐겁게 일해요:)" };
+    private string[] b_text = { "오늘도 고생 많았어요!\n내일도 즐겁게 일해요~!", " 되신 걸 축하드려요~!\n앞으로도 같이 재미있게 일해요!",
+        "수습기간 끝난거 축하해요!\n이제부터는 알바생님께 토스트도 맡겨볼게요~!", "오랫동안 같이 일해줘서 고마워요~!\n내일도 같이 즐겁게 일해요!" };
     private static int textOrder = 0;//b_text 나올 숫자 저장
     private string[] position = { "정식 알바생이", "우수 알바생이", "부매니저가", "매니저가"};//직급 저장
 

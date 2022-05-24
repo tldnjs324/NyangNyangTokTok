@@ -41,7 +41,7 @@ public class PickUpManager : MonoBehaviour
     private string[] thank3text = { "깊고 진한 커피향에 취한다냥~!", "체리 취향에 딱 맞을 것 같다냥~!"};
     public AudioClip[] cherryThank;
 
-    private string p_text = "주문하신 메뉴 나왔습니다 :)\n";
+    private string p_text = "주문하신 메뉴 나왔습니다~!\n";
     private string[] watchout_text = { "커피가 뜨거우니 젤리를 조심하세요!", "케이크를 조심히 들고가세요!", "토스트가 뜨거우니 젤리를 조심하세요!" };
 
     private int first_text;//1단계 랜덤값
