@@ -14,7 +14,7 @@ public class GameManager1 : MonoBehaviour
     public Text talkText;
     public GameObject bossPanel;
     public GameObject talkPanel; //나비
-
+    public GameObject startPopup;
     public GameObject boss;
     public GameObject cat1;
    
@@ -69,13 +69,19 @@ public class GameManager1 : MonoBehaviour
             StopMethod();
             boss.SetActive(false);
             bossPanel.SetActive(false);
-            talkPanel.SetActive(true);
-            cat1.SetActive(true);
-            Invoke("CatTalk", 1f); //추후 음성에 맞게 초 수정
-            i = 0;
+            Popup pop = startPopup.GetComponent<Popup>();
+            pop.PopUp();
+
+            
         }
     }
-
+    public void PopupBtn()
+    {
+        talkPanel.SetActive(true);
+        cat1.SetActive(true);
+        Invoke("CatTalk", 1f); //추후 음성에 맞게 초 수정
+        i = 0;
+    }
     void CatTalk()
     {
         m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + "랑 ";
