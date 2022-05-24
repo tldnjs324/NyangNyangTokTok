@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class MemorizeMenu1 : MonoBehaviour
 {
+    public GameObject popupStart;
+    public GameObject popupHelp;
     public GameObject memorizePanel;
     public Text memoText; //"외울 메뉴"
     public GameObject memoText_1;
-    public GameObject timeCountImg;
-    public Text timeCounting;
+    //public GameObject timeCountImg;
+    //public Text timeCounting;
     public int time = 20;
+    public GameObject timeSlider;
+
     public Button nextButton; 
     public GameObject nextButton_1;
     public GameObject retryBtn;
@@ -32,15 +36,27 @@ public class MemorizeMenu1 : MonoBehaviour
 
         nextButton_1.SetActive(false);
         retryBtn.SetActive(false);
-        timeCountImg.SetActive(false);
 
-        Invoke("BossTalk", 1f);
+        Invoke("StartPopup", 0.5f);
         
+        
+    }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp();
+    }
+    public void Interval()
+    {
+        Invoke("BossTalk", 0.8f);
     }
     public void BossTalk()
     {
         if (i == 0)
         {
+            boss.SetActive(true);
+            bossPanel.SetActive(true);
+
             m_text = "주문이 들어왔네요! 이제 주문 받은 메뉴들을 20초 동안 외워주세요~";
             StartMethod();
             i++;
@@ -56,8 +72,8 @@ public class MemorizeMenu1 : MonoBehaviour
         {
             boss.SetActive(false);
             bossPanel.SetActive(false);
-            Invoke("PanelStart", 1f);
-            Invoke("TimeEnd", 20f);
+            Invoke("PanelStart", 0f);
+            Invoke("TimeEnd", 21f);
         }
     }
     IEnumerator _typing()
@@ -85,8 +101,7 @@ public class MemorizeMenu1 : MonoBehaviour
 
     void PanelStart()
     {
-        timeCountImg.SetActive(true);
-        memoText.text = GameManager1.OrderMenu1 + "\n" + GameManager1.OrderMenu2;
+        memoText.text = "아이스 아메리카노" + "\n" + "3구 큐브케이크";
         
         nextButton_1.SetActive(true);
         InvokeRepeating("TimeCount", 1f, 1f);
@@ -105,13 +120,20 @@ public class MemorizeMenu1 : MonoBehaviour
         retryBtn.SetActive(false);
         memoText_1.SetActive(true);
 
+        timeSlider.GetComponent<Image>().fillAmount = 1f;
         InvokeRepeating("TimeCount", 1f, 1f);
         Invoke("TimeEnd", 20f); 
     }
     void TimeCount()
     {
+        timeSlider.GetComponent<Image>().fillAmount -= 0.05f;
         --time;
-        timeCounting.text = time.ToString();
+        //timeCounting.text = time.ToString();
+    }
+    public void Help_Click()
+    {
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp();
     }
     public void NextBtn()
     {

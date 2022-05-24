@@ -46,7 +46,7 @@ public class MemorizeMenu : MonoBehaviour
     void StartPopup()
     {
         Popup pop = popupStart.GetComponent<Popup>();
-        pop.PopUp3();
+        pop.PopUp();
     }
 
     public void Help_Click()
