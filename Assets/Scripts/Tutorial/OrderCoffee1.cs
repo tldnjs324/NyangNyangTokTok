@@ -14,6 +14,9 @@ public class OrderCoffee1 : MonoBehaviour
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
+    public GameObject popupWrong0;
+    public GameObject popupStart;
+    public GameObject popupHelp;
 
     public AudioClip click;
     public AudioClip popup;
@@ -29,17 +32,38 @@ public class OrderCoffee1 : MonoBehaviour
     public GameObject focus_c;
     int i = 0;
     int cnt = 0;
+    string orderMenu1 = "아이스 아메리카노";
 
     void Start()
     {
         ClickedMenu = "";
         audioSrc = GetComponent<AudioSource>();
-        Invoke("BossTalk", 1f);
+        //Invoke("BossTalk", 1f);
+        Invoke("StartPopup", 0.5f);
     }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp3();
+    }
+    public void Interval()
+    {
+        Invoke("BossTalk", 0.8f);
+    }
+    public void Help_Click()
+    {
+        bossPanel.SetActive(false);
+        focus_hint.SetActive(false);
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp4();
+    }
+
     public void BossTalk()
     {
         if (i == 0)
         {
+            boss.SetActive(true);
+            bossPanel.SetActive(true);
             m_text = "이제 방금 외운 메뉴들을 포스기에 찍어 맞는지 확인해 볼 거예요~";
             StartMethod();
             i++;
@@ -158,24 +182,30 @@ public class OrderCoffee1 : MonoBehaviour
 
         if(_list.Count == 0)
         {
-            popupWrong.SetActive(true);
+            //popupWrong.SetActive(true);
+            Popup pop = popupWrong0.GetComponent<Popup>();
+            pop.PopUp();
             audioSrc.PlayOneShot(wrong, 0.5f);
         }
-        if (_list.Count == 1 && _list.Contains(GameManager1.OrderMenu1))
+        if (_list.Count == 1 && _list.Contains(orderMenu1))
         {
             //정답이라면
-            popupCorrect.SetActive(true);
+            Popup pop = popupCorrect.GetComponent<Popup>();
+            pop.PopUp();
+            //popupCorrect.SetActive(true);
             audioSrc.PlayOneShot(correct, 0.5f);
         }
-        else if (_list.Contains(GameManager1.OrderMenu1))
+        else if (_list.Contains(orderMenu1))
         {
-            int idxCoffee = _list.FindIndex(coffee => coffee.Contains(GameManager1.OrderMenu1));
+            int idxCoffee = _list.FindIndex(coffee => coffee.Contains(orderMenu1));
             for (int i = 0; i < _list.Count; i++)
             {
                 if (i != idxCoffee)
                 {
                     //오답이 있다면
-                    popupWrong.SetActive(true);
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
+                    //popupWrong.SetActive(true);
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -187,7 +217,9 @@ public class OrderCoffee1 : MonoBehaviour
         {
             for (int i = 0; i < _list.Count; i++)
             {
-                popupWrong.SetActive(true);
+                //popupWrong.SetActive(true);
+                Popup pop = popupWrong.GetComponent<Popup>();
+                pop.PopUp();
                 audioSrc.PlayOneShot(wrong, 0.5f);
                 Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                 _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";

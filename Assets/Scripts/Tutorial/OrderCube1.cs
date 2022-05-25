@@ -16,6 +16,9 @@ public class OrderCube1 : MonoBehaviour
 
     public GameObject popupCorrect;
     public GameObject popupWrong;
+    public GameObject popupWrong0;
+    public GameObject popupStart;
+    public GameObject popupHelp;
 
     public static int sumCount = GameManager1.coffeeCount;
 
@@ -30,23 +33,44 @@ public class OrderCube1 : MonoBehaviour
     public GameObject boss;
     private string m_text;
     int i = 0;
+    string orderMenu1 = "아이스 아메리카노";
+    string orderMenu2 = "3구 큐브케이크";
 
     void Start()
     {
+        Invoke("StartPopup", 0.5f);
+
         audioSrc = GetComponent<AudioSource>();
         ClickedMenu = "";
 
         if (sumCount == 1)
         {
-            _list.Add(GameManager1.OrderMenu1);
+            _list.Add(orderMenu1);
             FreshSlot();
         }
-        Invoke("BossTalk", 1f);
+        //Invoke("BossTalk", 1f);
     }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp3();
+    }
+    public void Interval()
+    {
+        Invoke("BossTalk", 0.8f);
+    }
+    public void Help_Click()
+    {
+        Popup pop = popupHelp.GetComponent<Popup>();
+        pop.PopUp4();
+    }
+
     public void BossTalk()
     {
         if (i == 0)
         {
+            bossPanel.SetActive(true);
+            boss.SetActive(true);
             m_text = "이번에는 외운 메뉴 중 '큐브 케이크' 메뉴를 골라주세요~";
             StartMethod();
             i++;
@@ -151,39 +175,28 @@ public class OrderCube1 : MonoBehaviour
         audioSrc.PlayOneShot(click, 0.5f);
         if (_list.Count == 0)
         {
-            popupWrong.SetActive(true);
+            Popup pop = popupWrong0.GetComponent<Popup>();
+            pop.PopUp();
             audioSrc.PlayOneShot(wrong, 0.5f);
         }
 
-        if (GameManager1.cubeCount == 1)
+        if (_list.Count == (sumCount + 1) && _list.Contains(orderMenu2))
         {
-            if (_list.Count == (sumCount + 1) && _list.Contains(GameManager1.OrderMenu2))
+            Popup pop = popupCorrect.GetComponent<Popup>();
+            pop.PopUp();
+            audioSrc.PlayOneShot(correct, 0.5f);
+        
+        }
+        else if (_list.Contains(orderMenu2))
+        {
+            int idx = _list.FindIndex(cube => cube.Contains(orderMenu2));
+            for (int i = sumCount; i < _list.Count; i++)
             {
-                popupCorrect.SetActive(true);
-                audioSrc.PlayOneShot(correct, 0.5f);
-
-            }
-            else if (_list.Contains(GameManager1.OrderMenu2))
-            {
-                int idx = _list.FindIndex(cube => cube.Contains(GameManager1.OrderMenu2));
-                for (int i = sumCount; i < _list.Count; i++)
+                if (i != idx)
                 {
-                    if (i != idx)
-                    {
-                        //오답이 있다면
-                        popupWrong.SetActive(true);
-                        audioSrc.PlayOneShot(wrong, 0.5f);
-                        Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
-                        //깜빡깜빡 추가 필요
-                    }
-                }
-            }
-            else
-            {
-                for (int i = sumCount; i < _list.Count; i++)
-                {
-                    popupWrong.SetActive(true);
+                    //오답이 있다면
+                    Popup pop = popupWrong.GetComponent<Popup>();
+                    pop.PopUp();
                     audioSrc.PlayOneShot(wrong, 0.5f);
                     Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
                     _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
@@ -191,7 +204,18 @@ public class OrderCube1 : MonoBehaviour
                 }
             }
         }
-
+        else
+        {
+            for (int i = sumCount; i < _list.Count; i++)
+            {
+                Popup pop = popupWrong.GetComponent<Popup>();
+                pop.PopUp();
+                audioSrc.PlayOneShot(wrong, 0.5f);
+                Slot[i].GetComponentInChildren<Text>().text = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                _list[i] = "<color=#ff0000>" + Slot[i].GetComponentInChildren<Text>().text + "</color>";
+                //깜빡깜빡 추가 필요
+            }
+        }
 
     }
     public void NextBtn()
