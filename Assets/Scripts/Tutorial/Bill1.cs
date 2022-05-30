@@ -18,11 +18,13 @@ public class Bill1 : MonoBehaviour
     [SerializeField] Text sum_1000;
     [SerializeField] Text sum_10000;
 
-
+    public GameObject popupStart;
     //맞았을 시 팝업
     public GameObject sign_yes;
     //한번 틀렸을 시/ 두번 틀렸을 시 / 3, 4번 틀렸을 시 / 5번 이상 틀렸을 시 팝업
-    public GameObject[] sign_no_;
+    //public GameObject[] sign_no_;
+    public GameObject popupWrong1;
+    public GameObject popupWrong2;
     //Calculator 가져오기
     private Calculator cal;
     //menu1~4 계산 값(정답)
@@ -51,7 +53,8 @@ public class Bill1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("BossTalk", 1f);
+        Invoke("StartPopup", 0.5f);
+        //Invoke("BossTalk", 1f);
 
         cal = GameObject.Find("Calculator").GetComponent<Calculator>();
 
@@ -60,10 +63,10 @@ public class Bill1 : MonoBehaviour
 
         //문자열 길이로 메뉴개수 판단해서 메뉴 이름 및 가격 변수에 넣는 과정
         menu_price_[0].text = "2000";
-        menu_[0].text = GameManager1.OrderMenu1; //아아
+        menu_[0].text = "아이스 아메리카노"; //아아
 
         menu_price_[1].text = "5000";
-        menu_[1].text = GameManager1.OrderMenu2;//3구
+        menu_[1].text = "3구 큐브케이크"; //3구
 
 
         sum_doing = (int.Parse(menu_price_[0].text) + int.Parse(menu_price_[1].text) + int.Parse(menu_price_[2].text) + int.Parse(menu_price_[3].text)).ToString();
@@ -82,10 +85,21 @@ public class Bill1 : MonoBehaviour
             }
         }
     }
+    void StartPopup()
+    {
+        Popup pop = popupStart.GetComponent<Popup>();
+        pop.PopUp();
+    }
+    public void Interval()
+    {
+        Invoke("BossTalk", 0.8f);
+    }
     public void BossTalk()
     {
         if (i == 0)
         {
+            boss.SetActive(true);
+            bossPanel.SetActive(true);
             m_text = "이제 주문 받은 메뉴들의 총 가격을 계산해 볼 거예요!";
             StartMethod();
             i++;
@@ -145,11 +159,13 @@ public class Bill1 : MonoBehaviour
             }
 
             //sum_Result.text = sum_doing;
-            sign_yes.SetActive(true);
+            //sign_yes.SetActive(true);
+            Popup pop = sign_yes.GetComponent<Popup>();
+            pop.PopUp();
             //StartCoroutine(WaitForYes());
 
             audioSrc.PlayOneShot(correct, 0.5f);
-            black_screen.SetActive(true);
+            //black_screen.SetActive(true);
         }
         else//틀렸다면
         {
@@ -157,31 +173,41 @@ public class Bill1 : MonoBehaviour
             wrong_count++;//틀린 수 세기
             if (wrong_count == 1)//한번 틀리면 그냥 다시하라고 함
             {
-                sign_no_[0].SetActive(true);//한번 틀린 팝업
-                MoveLevel.wrongCount += 1;
+                //sign_no_[0].SetActive(true);//한번 틀린 팝업
+                Popup pop = popupWrong1.GetComponent<Popup>();
+                pop.PopUp();
+                //MoveLevel.wrongCount += 1;
                 //StartCoroutine(WaitForNo(0));
             }
             else if (wrong_count == 2)//두번 틀리면 1000의 자리수 알려줌
             {
-                sign_no_[1].SetActive(true);//두번 틀린 팝업
+                //sign_no_[1].SetActive(true);//두번 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(1));
                 sum_1000.text = ((int.Parse(sum_doing) % 10000) / 1000).ToString();
             }
             else if (wrong_count == 3)//세번 틀리면 100의자리 수 알려줌
             {
-                sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                //sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(2));
                 sum_100.text = ((int.Parse(sum_doing) % 1000) / 100).ToString();
             }
             else if (wrong_count == 4)//네번 틀리면 10의자리 수 알려줌
             {
-                sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                //sign_no_[2].SetActive(true);//3, 4번 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(2));
                 sum_10.text = ((int.Parse(sum_doing) % 100) / 10).ToString();
             }
             else if (wrong_count == 5)//다섯번 틀리면 1의자리 수, 10000보다 클 시 10000의자리 수 까지 알려줌
             {
-                sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                //sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(3));
                 sum_1.text = (int.Parse(sum_doing) % 10).ToString();
                 if (int.Parse(sum_doing) >= 10000)
@@ -192,7 +218,9 @@ public class Bill1 : MonoBehaviour
             }
             else//다섯번 넘게 틀리면 답을 빨간색으로 적어줌
             {
-                sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                //sign_no_[3].SetActive(true);//다섯번 이상 틀린 팝업
+                Popup pop = popupWrong2.GetComponent<Popup>();
+                pop.PopUp();
                 //StartCoroutine(WaitForNo(3));
                 sum_1.text = "<color=#D85B00>" + sum_1.text + "</color>";
                 sum_10.text = "<color=#D85B00>" + sum_10.text + "</color>";
@@ -202,17 +230,17 @@ public class Bill1 : MonoBehaviour
             }
 
             audioSrc.PlayOneShot(wrong, 0.5f);
-            black_screen.SetActive(true);
+            //black_screen.SetActive(true);
         }
 
     }
 
     //닫기 버튼 누를 때
-    public void Close_No(int num)
+    public void Close_No()
     {
-        sign_no_[num].SetActive(false);
+        //sign_no_[num].SetActive(false);
         audioSrc.PlayOneShot(click, 0.5f);
-        black_screen.SetActive(false);
+        //black_screen.SetActive(false);
     }
 
     public void NextScene()
