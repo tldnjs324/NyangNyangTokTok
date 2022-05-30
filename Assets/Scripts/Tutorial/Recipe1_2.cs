@@ -18,16 +18,27 @@ public class Recipe1_2 : MonoBehaviour
     public int time = 20;
 
     public Image img;
+    public GameObject cup;
     public Sprite[] sprites = new Sprite[4];
+    public GameObject btnMachine;
+    public Sprite sprite1; //커피 내리는중
+    public Sprite sprite2; //원상태로
 
     public GameObject[] hintArrows = new GameObject[5];
     public GameObject popupCorrect;
     public GameObject popupWrong;
     public GameObject popupHelp;
     public GameObject popupBoss;
-    public GameObject popupRecipe;
-    public GameObject popupName;
+    public GameObject popupStart;
     public GameObject coffeeShot;
+
+    //private IEnumerator coroutine;
+    public GameObject hint;
+
+    public GameObject recipeSlider;
+    public ParticleSystem particle; //컵용
+    public ParticleSystem particleBasic; //항상
+    public ParticleSystem particleHeart; //하트
 
     public Text bossText;
     public GameObject bossPanel;
@@ -38,15 +49,31 @@ public class Recipe1_2 : MonoBehaviour
     int t_i = 0;
     //int t_cnt = 0;
 
+    //효과음
+    public AudioClip[] click;
+    AudioSource audioSrc;
+    //효과음 나오게 하기
+    public void ClickSound(int x)
+    {
+        audioSrc.PlayOneShot(click[x]);
+    }
+
     void Start()
     {
         ClickedRecipe = "";
-        Invoke("BossTalk", 1f);
+        Invoke("StartPopup", 0.5f);
+        //Invoke("BossTalk", 1f);
+    }
+    public void Interval()
+    {
+        Invoke("BossTalk", 0.8f);
     }
     public void BossTalk()
     {
         if (t_i == 0)
         {
+            boss.SetActive(true);
+            bossPanel.SetActive(true);
             m_text = "지금부턴 주문받은 메뉴를 만들어 볼 차례예요. 먼저 '아이스 아메리카노'부터 만들어 주세요!";
             StartMethod();
             t_i++;
@@ -149,8 +176,21 @@ public class Recipe1_2 : MonoBehaviour
     {
         if (i != 0 && i == cnt)
         {
-            Invoke("Correct", 1.5f);         
+            Invoke("Correct", 1.0f);
+            recipeSlider.GetComponent<Image>().fillAmount = 1f;
         }
+    }
+    IEnumerator HintActive()
+    {
+        while (true)
+        {
+            hint.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            yield return new WaitForSeconds(0.7f);
+
+            hint.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(0.7f);
+        }
+
     }
     void PanelStart()
     {
@@ -165,11 +205,31 @@ public class Recipe1_2 : MonoBehaviour
     void TimeEnd()
     {
         CancelInvoke("TimeCount");
-        popupRecipe.SetActive(false);
+        //popupRecipe.SetActive(false);
+        popupStart.GetComponent<Animator>().SetTrigger("sclose");
         BossTalk();
         t_i++;
     }
-
+    void BtnReScale()
+    {
+        GameObject clickObject = EventSystem.current.currentSelectedGameObject;
+        clickObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1); //원래대로
+    }
+    void CupReScale()
+    {
+        RectTransform rectTran = cup.GetComponent<RectTransform>();
+        rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 310);
+        rectTran.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 310); //원래대로
+    }
+    void BtnImgChange()
+    {
+        btnMachine.GetComponent<Image>().sprite = sprite2; //샷 추출완료
+        coffeeShot.SetActive(true); //샷 생성
+    }
+    void BtnShot()
+    {
+        coffeeShot.SetActive(false);
+    }
     public void RecipeClickedBtn()
     {
         GameObject clickObject = EventSystem.current.currentSelectedGameObject;
@@ -227,12 +287,12 @@ public class Recipe1_2 : MonoBehaviour
     }
     public void Show_Name()
     {
-        popupName.SetActive(true);
+        //popupName.SetActive(true);
     }
     public void Show_Recipe()
     {
-        popupName.SetActive(false);
-        popupRecipe.SetActive(true);
+        //popupName.SetActive(false);
+        //popupRecipe.SetActive(true);
         bossPanel.SetActive(true);
         m_text = "아이스 아메리카노를 만드는 레시피예요! 레시피를 순서대로 20초 동안 외워주세요~";
         StartMethod();
