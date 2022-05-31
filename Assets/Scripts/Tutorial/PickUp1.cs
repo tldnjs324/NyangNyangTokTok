@@ -30,8 +30,8 @@ public class PickUp1 : MonoBehaviour
     void Start()
     {
 
-        //Invoke("BossShowUp", 1f);
-        BossTalk();
+        Invoke("BossTalk", 1f);
+        //BossTalk();
     }
     void BossShowUp()
     {
