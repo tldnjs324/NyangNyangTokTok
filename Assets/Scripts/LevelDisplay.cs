@@ -22,6 +22,11 @@ public class LevelDisplay : MonoBehaviour
         Display();
     }
 
+    public void ChangeLevel()
+    {
+        Invoke("Display", 0.5f);
+    }
+
     public void Display()
     {
         //현재 하트 가져와서 상단바에 표시
