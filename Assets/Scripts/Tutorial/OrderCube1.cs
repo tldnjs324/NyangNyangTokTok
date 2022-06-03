@@ -36,6 +36,8 @@ public class OrderCube1 : MonoBehaviour
     string orderMenu1 = "아이스 아메리카노";
     string orderMenu2 = "3구 큐브케이크";
 
+    public AudioClip[] bossVoice;
+
     void Start()
     {
         Invoke("StartPopup", 0.5f);
@@ -71,14 +73,18 @@ public class OrderCube1 : MonoBehaviour
         {
             bossPanel.SetActive(true);
             boss.SetActive(true);
+            audioSrc.Stop();
             m_text = "이번에는 외운 메뉴 중 '큐브 케이크' 메뉴를 골라주세요~";
+            audioSrc.PlayOneShot(bossVoice[0]);
             StartMethod();
             i++;
         }
         else if (i == 1)
         {
             StopMethod();
-            m_text = "헷갈린다면 우측 상단의 도움말 버튼 잊지말아요!";
+            audioSrc.Stop();
+            m_text = "헷갈린다면 우측 상단의 물음표 버튼 잊지말아요!";
+            audioSrc.PlayOneShot(bossVoice[1]);
             StartMethod();
             i++;
         }

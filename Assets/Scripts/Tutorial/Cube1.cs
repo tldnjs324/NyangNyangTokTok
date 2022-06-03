@@ -17,9 +17,9 @@ public class Cube1 : MonoBehaviour
     public AudioClip[] bossVoice;
     AudioSource audioSrc;
 
-    public void BossTalk(int a)
+    public void BossVoice()
     {
-        audioSrc.PlayOneShot(bossVoice[a]);
+        audioSrc.PlayOneShot(bossVoice[1]);
     }
 
     void Start()
@@ -44,14 +44,19 @@ public class Cube1 : MonoBehaviour
             boss.SetActive(true);
             bossPanel.SetActive(true);
 
+            audioSrc.PlayOneShot(bossVoice[0]);
             m_text = "아이스 아메리카노를 완성했어요! 이제 다음 메뉴인 3구 큐브케이크를 골라야해요~";
+            audioSrc.PlayOneShot(bossVoice[0]);
+            Invoke("BossVoice", 2.5f);
             StartMethod();
             i++;
         }
         else if (i == 1)
         {
             StopMethod();
+            audioSrc.Stop();
             m_text = "안내문구를 잘 보고 진열대의 큐브케이크를 해당 방향에서 본 모양을 골라주세요!";
+            audioSrc.PlayOneShot(bossVoice[2]);
             StartMethod();
             i++;
         }

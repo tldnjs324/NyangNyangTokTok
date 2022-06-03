@@ -50,6 +50,8 @@ public class Bill1 : MonoBehaviour
     public GameObject focus2;
     int i = 0;
 
+    public AudioClip[] bossVoice;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,7 +102,9 @@ public class Bill1 : MonoBehaviour
         {
             boss.SetActive(true);
             bossPanel.SetActive(true);
+            audioSrc.Stop();
             m_text = "이제 주문 받은 메뉴들의 총 가격을 계산해 볼 거예요!";
+            audioSrc.PlayOneShot(bossVoice[0]);
             StartMethod();
             i++;
         }
@@ -109,7 +113,9 @@ public class Bill1 : MonoBehaviour
             StopMethod();
             boss.SetActive(false);
             focus1.SetActive(true); //계산서
+            audioSrc.Stop();
             m_text = "계산서에 나온 메뉴의 가격을 모두 더해서 숫자를 입력해주세요~";
+            audioSrc.PlayOneShot(bossVoice[1]);
             StartMethod();
             i++;
         }

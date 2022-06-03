@@ -88,7 +88,7 @@ public class OrderCoffee1 : MonoBehaviour
             boss.SetActive(false);
             focus_hint.SetActive(true);
             audioSrc.Stop();
-            m_text = "기억이 잘 나지 않는다면 '도움말' 버튼을 눌러 초성 힌트를 확인할 수 있어요";
+            m_text = "기억이 잘 나지 않는다면 '물음표' 버튼을 눌러 초성 힌트를 확인할 수 있어요";
             audioSrc.PlayOneShot(bossVoice[2]);
             StartMethod();
             i++;

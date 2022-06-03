@@ -49,6 +49,8 @@ public class Recipe1_2 : MonoBehaviour
     int t_i = 0;
     //int t_cnt = 0;
 
+    public AudioClip[] bossVoice;
+
     //효과음
     public AudioClip[] click;
     AudioSource audioSrc;
@@ -74,6 +76,10 @@ public class Recipe1_2 : MonoBehaviour
     {
         Invoke("BossTalk", 0.8f);
     }
+    public void BossVoice()
+    {
+        audioSrc.PlayOneShot(bossVoice[1]);
+    }
     public void BossTalk()
     {
         if (t_i == 0)
@@ -83,27 +89,35 @@ public class Recipe1_2 : MonoBehaviour
             boss.SetActive(true);
             bossPanel.SetActive(true);
             m_text = "지금부턴 주문받은 메뉴를 만들어 볼 차례예요. 먼저 '아이스 아메리카노'부터 만들어 주세요!";
+            audioSrc.PlayOneShot(bossVoice[0]);
+            Invoke("BossVoice", 2.5f);
             StartMethod();
             t_i++;
         }
         else if (t_i == 1)
         {
             StopMethod();
+            audioSrc.Stop();
             m_text = "이제 외운 레시피 순서대로 재료를 선택해야 돼요!";
+            audioSrc.PlayOneShot(bossVoice[2]);
             StartMethod();
             t_i++;
         }
         else if (t_i == 2)
         {
             StopMethod();
+            audioSrc.Stop();
             m_text = "기억이 잘 나지 않을 땐 언제든 도움말 버튼을 눌러 레시피를 다시 볼 수 있답니다~";
+            audioSrc.PlayOneShot(bossVoice[3]);
             StartMethod();
             t_i++;
         }
         else if (t_i == 3)
         {
             StopMethod();
+            audioSrc.Stop();
             m_text = "우선 첫 번째 재료인 '얼음'부터 클릭해 컵에 담아주세요~";
+            audioSrc.PlayOneShot(bossVoice[4]);
             StartMethod();
             t_i++;
         }
@@ -120,7 +134,9 @@ public class Recipe1_2 : MonoBehaviour
         {
             t_i++;
             StopMethod();
+            audioSrc.Stop();
             m_text = "이제 남은 재료들도 순서대로 클릭해주세요!";
+            audioSrc.PlayOneShot(bossVoice[5]);
             StartMethod();
             bossPanel.SetActive(true);
             boss.SetActive(true);
