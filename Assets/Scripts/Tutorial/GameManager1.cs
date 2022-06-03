@@ -82,12 +82,14 @@ public class GameManager1 : MonoBehaviour
         {
             StopMethod();
             m_text = "주문을 받고 메뉴를 만드는 과정까지 내가 도와줄테니 잘 보고 따라해주세요~";
+            audioSrc.Stop();
             audioSrc.PlayOneShot(bossVoice[1]);
             StartMethod();
             i++;
         }
         else if (i == 2)
         {
+            audioSrc.Stop();
             audioSrc.PlayOneShot(click, 0.5f);
             StopMethod();
             boss.SetActive(false);

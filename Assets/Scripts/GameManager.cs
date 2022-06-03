@@ -349,6 +349,7 @@ public class GameManager : MonoBehaviour
     }
     public void ShowCat()
     {
+        audioSrc.Stop();
         audioSrc.PlayOneShot(click, 0.5f); 
 
         boss.SetActive(false);
