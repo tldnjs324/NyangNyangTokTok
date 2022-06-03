@@ -66,6 +66,7 @@ public class PickUpManager : MonoBehaviour
     }
     public void P_NextBtn()
     {
+        audioSrc.Stop();
         playerPanel.SetActive(false);
         big_background.SetActive(false);
         counter.SetActive(true);
@@ -75,6 +76,7 @@ public class PickUpManager : MonoBehaviour
     }
     void CatShowUp()
     {
+        audioSrc.Stop();
         cat[GameManager.random].SetActive(true);
         if(GameManager.random == 0)
         {
@@ -211,6 +213,7 @@ public class PickUpManager : MonoBehaviour
 
     public void NextTalk()
     {
+        audioSrc.Stop();
         StopMethod();
         StartMethod(1);
         //나비, 냐옹, 체리 두번째 패널 대사
@@ -247,26 +250,30 @@ public class PickUpManager : MonoBehaviour
     IEnumerator catsTalking2()
     {
         yield return new WaitForSeconds(0f);
-        //첫번째 대사
+        //
         //나비
         if (GameManager.random == 0)
         {
             audioSrc.PlayOneShot(naviThank[1]);
             yield return new WaitForSeconds(1.5f);
+            audioSrc.PlayOneShot(naviThank[2]);
         }
         //냐옹
         if (GameManager.random == 1)
         {
             audioSrc.PlayOneShot(nyaongThank[1]);
             yield return new WaitForSeconds(1.8f);
+            audioSrc.PlayOneShot(nyaongThank[2]);
         }
         //체리
         if (GameManager.random == 2)
         {
             audioSrc.PlayOneShot(cherryThank[1]);
             yield return new WaitForSeconds(1.8f);
+            audioSrc.PlayOneShot(cherryThank[2]);
         }
         //두번째 대사
+        /*
         //나비
         if (GameManager.random == 0)
         {
@@ -282,6 +289,7 @@ public class PickUpManager : MonoBehaviour
         {
             audioSrc.PlayOneShot(cherryThank[2]);
         }
+        */
     }
     IEnumerator _typing(int x)
     {

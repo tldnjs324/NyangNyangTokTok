@@ -30,6 +30,12 @@ public class MemorizeMenu1 : MonoBehaviour
     private string m_text;
     int i = 0;
 
+    public AudioClip[] bossVoice;
+
+    public void BossVoice()
+    {
+        audioSrc.PlayOneShot(bossVoice[1]);
+    }
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
@@ -41,6 +47,7 @@ public class MemorizeMenu1 : MonoBehaviour
         
         
     }
+
     void StartPopup()
     {
         Popup pop = popupStart.GetComponent<Popup>();
@@ -58,13 +65,17 @@ public class MemorizeMenu1 : MonoBehaviour
             bossPanel.SetActive(true);
 
             m_text = "주문이 들어왔네요! 이제 주문 받은 메뉴들을 20초 동안 외워주세요~";
+            audioSrc.PlayOneShot(bossVoice[0]);
+            Invoke("BossVoice", 1.3f);
             StartMethod();
             i++;
         }
         else if (i == 1)
         {
             StopMethod();
+            audioSrc.Stop();
             m_text = "20초가 지나더라도 다시 메뉴를 확인할 수 있으니 부담은 가지지 말아요~";
+            audioSrc.PlayOneShot(bossVoice[2]);
             StartMethod();
             i++;
         }

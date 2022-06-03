@@ -34,6 +34,9 @@ public class OrderCoffee1 : MonoBehaviour
     int cnt = 0;
     string orderMenu1 = "아이스 아메리카노";
 
+    public AudioClip[] bossVoice;
+
+
     void Start()
     {
         ClickedMenu = "";
@@ -64,14 +67,18 @@ public class OrderCoffee1 : MonoBehaviour
         {
             boss.SetActive(true);
             bossPanel.SetActive(true);
+            audioSrc.Stop();
             m_text = "이제 방금 외운 메뉴들을 포스기에 찍어 맞는지 확인해 볼 거예요~";
+            audioSrc.PlayOneShot(bossVoice[0]);
             StartMethod();
             i++;
         }
         else if (i == 1)
         {
             StopMethod();
+            audioSrc.Stop();
             m_text = "방금 외운 메뉴 중 '커피' 메뉴를 먼저 골라주세요!";
+            audioSrc.PlayOneShot(bossVoice[1]);
             StartMethod();
             i++;
         }
@@ -80,7 +87,9 @@ public class OrderCoffee1 : MonoBehaviour
             StopMethod();
             boss.SetActive(false);
             focus_hint.SetActive(true);
+            audioSrc.Stop();
             m_text = "기억이 잘 나지 않는다면 '도움말' 버튼을 눌러 초성 힌트를 확인할 수 있어요";
+            audioSrc.PlayOneShot(bossVoice[2]);
             StartMethod();
             i++;
         }
