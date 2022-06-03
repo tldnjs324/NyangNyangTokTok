@@ -14,11 +14,19 @@ public class Cube1 : MonoBehaviour
     private string m_text;
     int i = 0;
 
+    public AudioClip[] bossVoice;
+    AudioSource audioSrc;
+
+    public void BossTalk(int a)
+    {
+        audioSrc.PlayOneShot(bossVoice[a]);
+    }
+
     void Start()
     {
         Invoke("StartPopup", 0.5f);
         //Invoke("BossTalk", 1f);
-        //audioSrc = GetComponent<AudioSource>();
+        audioSrc = GetComponent<AudioSource>();
     }
     void StartPopup()
     {

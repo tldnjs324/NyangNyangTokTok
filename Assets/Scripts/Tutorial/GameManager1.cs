@@ -30,6 +30,27 @@ public class GameManager1 : MonoBehaviour
 
     int i = 0;
 
+    public AudioClip[] bossVoice;
+    //나비 목소리
+    public AudioClip[] NaviVoice;
+
+    public void BossTalk(int a)
+    {
+        audioSrc.PlayOneShot(bossVoice[a]);
+    }
+    public void NaviTalk1()
+    {
+        audioSrc.PlayOneShot(NaviVoice[0]);
+    }
+    public void NaviTalk2()
+    {
+        audioSrc.PlayOneShot(NaviVoice[1]);
+    }
+    public void NaviTalk3()
+    {
+        audioSrc.PlayOneShot(NaviVoice[2]);
+    }
+
     void Start()
     {
 
@@ -53,6 +74,7 @@ public class GameManager1 : MonoBehaviour
         if (i == 0)
         {
             m_text = "반가워요~ 오늘부터 당신은 우리 카페의 '수습 알바생'이에요!";
+            audioSrc.PlayOneShot(bossVoice[0]);
             StartMethod();
             i++;
         }
@@ -60,6 +82,7 @@ public class GameManager1 : MonoBehaviour
         {
             StopMethod();
             m_text = "주문을 받고 메뉴를 만드는 과정까지 내가 도와줄테니 잘 보고 따라해주세요~";
+            audioSrc.PlayOneShot(bossVoice[1]);
             StartMethod();
             i++;
         }
@@ -80,14 +103,18 @@ public class GameManager1 : MonoBehaviour
         talkPanel.SetActive(true);
         cat1.SetActive(true);
         Invoke("CatTalk", 1f); //추후 음성에 맞게 초 수정
+        Invoke("NaviTalk1", 1);
+        Invoke("NaviTalk2", 2.2f);
+        Invoke("NaviTalk3", 3.4f);
         i = 0;
     }
     void CatTalk()
     {
-        m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + "랑 ";
+        m[0] = "<color=#d85b00>" + OrderMenu1 + "</color>" + ", " ;
         m[1] = "<color=#d85b00>" + OrderMenu2 + "</color>";
         StartCoroutine(_typing2());
     }
+
 
     IEnumerator _typing()
     {
