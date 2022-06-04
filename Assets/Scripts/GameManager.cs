@@ -304,9 +304,9 @@ public class GameManager : MonoBehaviour
         OrderCube.cube_wrong = 0;
         AnswerCtrl.cube_wrong = 0;
         //원래 코드!!!!!!!! 얘가 맞음!!!!
-        //random = Random.Range(0, 3);//고양이를 매번 랜덤 값으로 초기화
+        random = Random.Range(0, 3);//고양이를 매번 랜덤 값으로 초기화
         //시연을 위한 체리 생성 코드
-        random = 2;
+        //random = 2;
         TalkCtrl.num = new List<int>() { 0, 1, 2, 3 };
     }
 
