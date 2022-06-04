@@ -20,8 +20,8 @@ public class CameraResolution1 : MonoBehaviour
             }
             else
             {
-                rect.width = scalewidth;
-                rect.x = (1f - scalewidth) / 2f;
+                //rect.width = scalewidth;
+                rect.x = 0.1f;
             }
             camera.rect = rect;
         }
