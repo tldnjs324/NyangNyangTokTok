@@ -185,7 +185,7 @@ public class Recipe : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                 }
                 if (i == 3)
                 {
@@ -266,7 +266,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                 }
                 if (i == 4)
                 {
@@ -342,7 +342,7 @@ public class Recipe : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                 }
                 if (i == 3)
                 {
@@ -422,7 +422,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                 }
                 if (i == 4)
                 {
@@ -502,7 +502,7 @@ public class Recipe : MonoBehaviour
                 if (i == 2)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                 }
                 if (i == 3)
                 {
@@ -589,7 +589,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                 }
                 if (i == 4)
                 {
@@ -684,7 +684,7 @@ public class Recipe : MonoBehaviour
                 if (i == 4)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                     choco_img.SetActive(false);
                 }
                 if (i == 5)
@@ -780,7 +780,7 @@ public class Recipe : MonoBehaviour
                 if (i == 3)
                 {
                     btnMachine.GetComponent<Image>().sprite = sprite1; //커피잔 머신위에
-                    Invoke("BtnImgChange", 0.8f);
+                    Invoke("BtnImgChange", 0.5f);
                     choco_img.SetActive(false);
                 }
                 if (i == 4)

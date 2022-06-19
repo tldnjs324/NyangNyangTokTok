@@ -30,6 +30,7 @@ public class AnswerCtrl : MonoBehaviour
 
     //맞았을 시 팝업
     public GameObject sign_yes;
+    public GameObject sign_yes2;
     //틀렸을 시 팝업
     public GameObject[] sign_no;
     //정답 팝업 뜰 때 검은 배경 화면
@@ -144,8 +145,17 @@ public class AnswerCtrl : MonoBehaviour
                     {
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if(GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        
                         audioSrc.PlayOneShot(click[0]);
                         //하트 올리는 코드
                         GameManager.IncreaseHeart(cube_wrong);
@@ -174,8 +184,16 @@ public class AnswerCtrl : MonoBehaviour
                     {
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //하트 올리는 코드
                         GameManager.IncreaseHeart(cube_wrong);
@@ -204,8 +222,16 @@ public class AnswerCtrl : MonoBehaviour
                     {
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //하트 올리는 코드
                         GameManager.IncreaseHeart(cube_wrong);
@@ -237,8 +263,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -267,8 +301,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -297,8 +339,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -332,8 +382,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -362,8 +420,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -392,8 +458,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -428,8 +502,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -458,8 +540,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
@@ -488,8 +578,16 @@ public class AnswerCtrl : MonoBehaviour
                 {
                     if (i == random)
                     {
-                        Popup pop = sign_yes.GetComponent<Popup>();
-                        pop.PopUp();
+                        if (GameManager.cubeCount == 2)
+                        {
+                            Popup pop = sign_yes2.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
+                        else if (GameManager.cubeCount == 1)
+                        {
+                            Popup pop = sign_yes.GetComponent<Popup>();
+                            pop.PopUp();
+                        }
                         audioSrc.PlayOneShot(click[0]);
                         //sign_yes.SetActive(true);
                         //black_screen.SetActive(true);
