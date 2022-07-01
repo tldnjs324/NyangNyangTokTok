@@ -17,8 +17,8 @@ public class DBManager : MonoBehaviour
         if (!IsSave)
         {
             Debug.Log("저장된 데이터 없음");
-            GameManager.currentLevel = 2;
-            GameManager.currentCount = 0;
+            GameManager.currentLevel = 4;
+            GameManager.currentCount = 2;
             GameManager.currentHeart = 0;
             MapManager.firstT = 0;
             MapManager.secondT = 0;
@@ -42,6 +42,8 @@ public class DBManager : MonoBehaviour
             Debug.Log("레벨: " + GameManager.currentLevel);
             Debug.Log("카운트: " + GameManager.currentCount);
             Debug.Log("하트: " + GameManager.currentHeart);
+            Debug.Log("튜토리얼1: " + MapManager.firstT);
+            Debug.Log("튜토리얼2: " + MapManager.secondT);
         }
         //GameManager.currentLevel = int.Parse(PlayerPrefs.GetInt("tmpLevel", 3).ToString());
         
@@ -56,11 +58,11 @@ public class DBManager : MonoBehaviour
     //데이터 저장
     public void SaveData()
     {
-        PlayerPrefs.GetInt("tmpLevel", GameManager.currentLevel);
-        PlayerPrefs.GetInt("tmpCount", GameManager.currentCount);
-        PlayerPrefs.GetInt("tmpHeart", GameManager.currentHeart);
-        PlayerPrefs.GetInt("tmpFirstT", MapManager.firstT);
-        PlayerPrefs.GetInt("tmpSecondT", MapManager.secondT);
+        PlayerPrefs.SetInt("tmpLevel", GameManager.currentLevel);
+        PlayerPrefs.SetInt("tmpCount", GameManager.currentCount);
+        PlayerPrefs.SetInt("tmpHeart", GameManager.currentHeart);
+        PlayerPrefs.SetInt("tmpFirstT", MapManager.firstT);
+        PlayerPrefs.SetInt("tmpSecondT", MapManager.secondT);
         PlayerPrefs.Save();//PlayerPrefs를 저장
     }
 

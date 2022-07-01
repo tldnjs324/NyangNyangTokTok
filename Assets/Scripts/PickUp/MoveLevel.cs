@@ -152,6 +152,8 @@ public class MoveLevel : MonoBehaviour
         PlayerPrefs.SetInt("tmpLevel", GameManager.currentLevel);
         PlayerPrefs.SetInt("tmpCount", GameManager.currentCount);
         PlayerPrefs.SetInt("tmpHeart", GameManager.currentHeart);
+        PlayerPrefs.SetInt("tmpFirstT", MapManager.firstT);
+        PlayerPrefs.SetInt("tmpSecondT", MapManager.secondT);
         PlayerPrefs.Save();//PlayerPrefs¸¦ ÀúÀå
     }
 

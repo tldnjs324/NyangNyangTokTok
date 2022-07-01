@@ -256,6 +256,12 @@ public class Recipe2_2 : MonoBehaviour
                 particle.Play(); //그릇에 완성파티클
                 particleHeart.Play();
                 MapManager.secondT = 1;
+                PlayerPrefs.SetInt("tmpLevel", GameManager.currentLevel);
+                PlayerPrefs.SetInt("tmpCount", GameManager.currentCount);
+                PlayerPrefs.SetInt("tmpHeart", GameManager.currentHeart);
+                PlayerPrefs.SetInt("tmpFirstT", 1);
+                PlayerPrefs.SetInt("tmpSecondT", 1);
+                PlayerPrefs.Save();//PlayerPrefs를 저장
                 Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
             }
         }
@@ -305,6 +311,12 @@ public class Recipe2_2 : MonoBehaviour
         Popup pop = popupCorrect.GetComponent<Popup>();
         pop.PopUp();
         MapManager.secondT = 1;
+        PlayerPrefs.GetInt("tmpLevel", GameManager.currentLevel);
+        PlayerPrefs.GetInt("tmpCount", GameManager.currentCount);
+        PlayerPrefs.GetInt("tmpHeart", GameManager.currentHeart);
+        PlayerPrefs.GetInt("tmpFirstT", MapManager.firstT);
+        PlayerPrefs.GetInt("tmpSecondT", 1);
+        PlayerPrefs.Save();//PlayerPrefs를 저장
     }
     public void CorrectSound()
     {
