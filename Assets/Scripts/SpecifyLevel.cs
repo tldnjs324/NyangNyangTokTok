@@ -7,7 +7,7 @@ public class SpecifyLevel : MonoBehaviour
 
     public void Level2()
     {
-        GameManager.currentLevel = 2;
+        GameManager.currentLevel = 1;
         GameManager.currentCount = 2;
         GameManager.currentHeart = 107;
     }
