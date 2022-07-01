@@ -3075,7 +3075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481051899}
-  - component: {fileID: 481051898}
+  - component: {fileID: 481051900}
   - component: {fileID: 481051901}
   - component: {fileID: 481051903}
   - component: {fileID: 481051904}
@@ -3086,7 +3086,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &481051898
+--- !u!4 &481051899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481051897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481051900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3095,7 +3109,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 481051897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ab460108b318474e880463019b47862, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0b7ba7c529f954ab928a16dc5bfdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   QuestionList:
@@ -3177,7 +3191,6 @@ MonoBehaviour:
     width: 0.23
     height: 0.363
   sign_yes: {fileID: 1832138445}
-  sign_yes2: {fileID: 1832138445}
   sign_no:
   - {fileID: 1994390216}
   - {fileID: 1250876229}
@@ -3185,27 +3198,13 @@ MonoBehaviour:
   - {fileID: 875019137}
   position:
   - "\uC6B0\uCE21"
-  - " \uC55E "
-  - " \uC704 "
+  - "\uC55E"
+  - "\uC704"
   - "\uC88C\uCE21"
   position_text: {fileID: 1131723596}
   click:
   - {fileID: 8300000, guid: 20786c26fbec25945b55566ee94dcea7, type: 3}
   - {fileID: 8300000, guid: cb5813f4a63d58f49b67ccea32a2fae2, type: 3}
---- !u!4 &481051899
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481051897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &481051901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3435,8 +3434,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 481051898}
-        m_TargetAssemblyTypeName: AnswerCtrl, Assembly-CSharp
+      - m_Target: {fileID: 481051900}
+        m_TargetAssemblyTypeName: AnswerCtrl1, Assembly-CSharp
         m_MethodName: Btn2Clicked
         m_Mode: 1
         m_Arguments:
@@ -4855,8 +4854,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 481051898}
-        m_TargetAssemblyTypeName: AnswerCtrl, Assembly-CSharp
+      - m_Target: {fileID: 481051900}
+        m_TargetAssemblyTypeName: AnswerCtrl1, Assembly-CSharp
         m_MethodName: Btn3Clicked
         m_Mode: 1
         m_Arguments:
@@ -6578,8 +6577,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 481051898}
-        m_TargetAssemblyTypeName: AnswerCtrl, Assembly-CSharp
+      - m_Target: {fileID: 481051900}
+        m_TargetAssemblyTypeName: AnswerCtrl1, Assembly-CSharp
         m_MethodName: Btn0Clicked
         m_Mode: 1
         m_Arguments:
@@ -11096,8 +11095,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 481051898}
-        m_TargetAssemblyTypeName: AnswerCtrl, Assembly-CSharp
+      - m_Target: {fileID: 481051900}
+        m_TargetAssemblyTypeName: AnswerCtrl1, Assembly-CSharp
         m_MethodName: Btn1Clicked
         m_Mode: 1
         m_Arguments:
