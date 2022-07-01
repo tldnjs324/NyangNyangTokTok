@@ -255,6 +255,7 @@ public class Recipe2_2 : MonoBehaviour
                 btnMachine.GetComponent<Image>().sprite = sprite2;
                 particle.Play(); //그릇에 완성파티클
                 particleHeart.Play();
+                MapManager.secondT = 1;
                 Invoke("CorrectSound", 1f);//1초 뒤 정답 효과음
             }
         }
@@ -303,6 +304,7 @@ public class Recipe2_2 : MonoBehaviour
     {
         Popup pop = popupCorrect.GetComponent<Popup>();
         pop.PopUp();
+        MapManager.secondT = 1;
     }
     public void CorrectSound()
     {
@@ -312,6 +314,8 @@ public class Recipe2_2 : MonoBehaviour
     public void NextBtn()
     {
         //audioSrc.PlayOneShot(click, 0.5f);
-        //SceneManager.LoadScene(""); //2단계 정식 시작! (메인으로)
+        GameManager.ResetMenu();
+        
+        SceneManager.LoadScene("Main"); //2단계 정식 시작! (메인으로)
     }
 }

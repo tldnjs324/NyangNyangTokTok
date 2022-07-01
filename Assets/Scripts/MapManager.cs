@@ -14,8 +14,8 @@ public class MapManager : MonoBehaviour
     public GameObject[] Step2;//발자국이 2개일 때
 
 
-    public static bool firstT = false;//첫번째 튜토리얼
-    public static bool secondT = false;//두번재 튜토리얼
+    public static int firstT;//첫번째 튜토리얼(했음1, 안했음0)
+    public static int secondT;//두번째 튜토리얼(했음1, 안했음0)
 
 
     // Start is called before the first frame update
@@ -63,10 +63,10 @@ public class MapManager : MonoBehaviour
     public void GameStart()
     {
         GameManager.ResetMenu();
-        if (GameManager.currentLevel == 1 && GameManager.currentCount == 0)
+        if (GameManager.currentLevel == 1 && GameManager.currentCount == 0 && firstT == 0)
         {
             SceneManager.LoadScene("T_Main");
-        }else if (GameManager.currentLevel == 2 && GameManager.currentCount == 0)
+        }else if (GameManager.currentLevel == 2 && GameManager.currentCount == 0 && secondT == 0)
         {
             SceneManager.LoadScene("T_BasicToast");
         }
