@@ -17,8 +17,8 @@ public class DBManager : MonoBehaviour
         if (!IsSave)
         {
             Debug.Log("저장된 데이터 없음");
-            GameManager.currentLevel = 4;
-            GameManager.currentCount = 2;
+            GameManager.currentLevel = 1;
+            GameManager.currentCount = 0;
             GameManager.currentHeart = 0;
             MapManager.firstT = 0;
             MapManager.secondT = 0;
