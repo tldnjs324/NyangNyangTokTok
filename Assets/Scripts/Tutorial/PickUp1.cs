@@ -161,7 +161,7 @@ public class PickUp1 : MonoBehaviour
 
     public void SceneMove()
     {
-        audioSrc.PlayOneShot(click, 0.5f);
-        //SceneManager.LoadScene(""); //출근하기 씬으로 이동
+        //audioSrc.PlayOneShot(click, 0.5f);
+        SceneManager.LoadScene("Main"); //출근하기 씬으로 이동
     }
 }
