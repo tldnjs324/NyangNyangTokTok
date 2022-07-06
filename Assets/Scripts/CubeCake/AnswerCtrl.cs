@@ -26,6 +26,8 @@ public class AnswerCtrl : MonoBehaviour
         new Rect(0.475f, 0.434f, 0.2f, 0.363f), new Rect(0.475f, 0.052f, 0.2f, 0.363f), new Rect(0.68f, 0.052f, 0.2f, 0.363f), new Rect(0.68f, 0.434f, 0.2f, 0.363f)}; //가로 긺
     public List<Rect> RectList3 = new List<Rect>() {
         new Rect(0.475f, 0.434f, 0.23f, 0.363f), new Rect(0.475f, 0.11f, 0.23f, 0.363f), new Rect(0.71f, 0.11f, 0.23f, 0.363f), new Rect(0.71f, 0.434f, 0.23f, 0.363f)}; //세로 긺
+    public List<Rect> RectList4 = new List<Rect>() {
+        new Rect(0.48f, 0.434f, 0.23f, 0.363f), new Rect(0.48f, 0.052f, 0.23f, 0.363f), new Rect(0.7f, 0.052f, 0.23f, 0.363f), new Rect(0.7f, 0.434f, 0.23f, 0.363f)}; //가로 긺2 (3088x1440)
 
 
     //맞았을 시 팝업
@@ -56,8 +58,7 @@ public class AnswerCtrl : MonoBehaviour
         audioSrc.PlayOneShot(click[x]);
     }
 
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
@@ -84,23 +85,47 @@ public class AnswerCtrl : MonoBehaviour
         }
         else if (scaleheight > 1)//가로 길쭉
         {
-            //카메라 위치 랜덤 설정
-            for (int i = 0; i < 4; i++)
+            if(scaleheight < 1.15f)
             {
-                int rand = Random.Range(0, RectList2.Count);
-                CameraList[i].rect = RectList2[rand];
-                RectList2.RemoveAt(rand);
-            }
-            random = Random.Range(0, 4);
-            //정답 지정
-            for (int i = 0; i < 4; i++)
-            {
-                if (random == i)
+                //카메라 위치 랜덤 설정
+                for (int i = 0; i < 4; i++)
                 {
-                    QuestionList[i].SetActive(true);
-                    position_text.text = position[i];
+                    int rand = Random.Range(0, RectList4.Count);
+                    CameraList[i].rect = RectList4[rand];
+                    RectList4.RemoveAt(rand);
+                }
+                random = Random.Range(0, 4);
+                //정답 지정
+                for (int i = 0; i < 4; i++)
+                {
+                    if (random == i)
+                    {
+                        QuestionList[i].SetActive(true);
+                        position_text.text = position[i];
+                    }
                 }
             }
+            else
+            {
+                //카메라 위치 랜덤 설정
+                for (int i = 0; i < 4; i++)
+                {
+                    int rand = Random.Range(0, RectList2.Count);
+                    CameraList[i].rect = RectList2[rand];
+                    RectList2.RemoveAt(rand);
+                }
+                random = Random.Range(0, 4);
+                //정답 지정
+                for (int i = 0; i < 4; i++)
+                {
+                    if (random == i)
+                    {
+                        QuestionList[i].SetActive(true);
+                        position_text.text = position[i];
+                    }
+                }
+            }
+            
         }
         else if (scaleheight == 1)//원래
         {
@@ -125,13 +150,6 @@ public class AnswerCtrl : MonoBehaviour
 
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void Btn0Clicked()
     {
@@ -176,41 +194,83 @@ public class AnswerCtrl : MonoBehaviour
         }
         else if(scaleheight > 1) //가로 길쭉
         {
-            for (int i = 0; i < 4; i++)
+            if(scaleheight < 1.15f)
             {
-                if (CameraList[i].rect == new Rect(0.475f, 0.434f, 0.2f, 0.363f))
+                for (int i = 0; i < 4; i++)
                 {
-                    if (i == random)
+                    if (CameraList[i].rect == new Rect(0.48f, 0.434f, 0.23f, 0.363f))
                     {
-                        //sign_yes.SetActive(true);
-                        //black_screen.SetActive(true);
-                        if (GameManager.cubeCount == 2)
+                        if (i == random)
                         {
-                            Popup pop = sign_yes2.GetComponent<Popup>();
-                            pop.PopUp();
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
                         }
-                        else if (GameManager.cubeCount == 1)
+                        else
                         {
-                            Popup pop = sign_yes.GetComponent<Popup>();
+                            Popup pop = sign_no[i].GetComponent<Popup>();
                             pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[0].interactable = false;
+                            cube_wrong += 1;
                         }
-                        audioSrc.PlayOneShot(click[0]);
-                        //하트 올리는 코드
-                        GameManager.IncreaseHeart(cube_wrong);
-                    }
-                    else
-                    {
-                        Popup pop = sign_no[i].GetComponent<Popup>();
-                        pop.PopUp();
-                        audioSrc.PlayOneShot(click[1]);
-                        //sign_no[i].SetActive(true);
-                        MoveLevel.wrongCount += 1;
-                        //black_screen_no.SetActive(true);
-                        ButtonList[0].interactable = false;
-                        cube_wrong += 1;
                     }
                 }
             }
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (CameraList[i].rect == new Rect(0.475f, 0.434f, 0.2f, 0.363f))
+                    {
+                        if (i == random)
+                        {
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
+                        }
+                        else
+                        {
+                            Popup pop = sign_no[i].GetComponent<Popup>();
+                            pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[0].interactable = false;
+                            cube_wrong += 1;
+                        }
+                    }
+                }
+            }
+            
         }
         else if(scaleheight == 1) //원본
         {
@@ -295,41 +355,83 @@ public class AnswerCtrl : MonoBehaviour
         }
         else if (scaleheight > 1) //가로 길쭉
         {
-            for (int i = 0; i < 4; i++)
+            if (scaleheight < 1.15f)
             {
-                if (CameraList[i].rect == new Rect(0.68f, 0.434f, 0.2f, 0.363f))
+                for (int i = 0; i < 4; i++)
                 {
-                    if (i == random)
+                    if (CameraList[i].rect == new Rect(0.7f, 0.434f, 0.23f, 0.363f))
                     {
-                        if (GameManager.cubeCount == 2)
+                        if (i == random)
                         {
-                            Popup pop = sign_yes2.GetComponent<Popup>();
-                            pop.PopUp();
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
                         }
-                        else if (GameManager.cubeCount == 1)
+                        else
                         {
-                            Popup pop = sign_yes.GetComponent<Popup>();
+                            Popup pop = sign_no[i].GetComponent<Popup>();
                             pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[1].interactable = false;
+                            cube_wrong += 1;
                         }
-                        audioSrc.PlayOneShot(click[0]);
-                        //sign_yes.SetActive(true);
-                        //black_screen.SetActive(true);
-                        //하트 올리는 코드
-                        GameManager.IncreaseHeart(cube_wrong);
-                    }
-                    else
-                    {
-                        Popup pop = sign_no[i].GetComponent<Popup>();
-                        pop.PopUp();
-                        audioSrc.PlayOneShot(click[1]);
-                        //sign_no[i].SetActive(true);
-                        MoveLevel.wrongCount += 1;
-                        //black_screen_no.SetActive(true);
-                        ButtonList[1].interactable = false;
-                        cube_wrong += 1;
                     }
                 }
             }
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (CameraList[i].rect == new Rect(0.68f, 0.434f, 0.2f, 0.363f))
+                    {
+                        if (i == random)
+                        {
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
+                        }
+                        else
+                        {
+                            Popup pop = sign_no[i].GetComponent<Popup>();
+                            pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[1].interactable = false;
+                            cube_wrong += 1;
+                        }
+                    }
+                }
+            }
+            
         }
         else if (scaleheight == 1) //원본
         {
@@ -414,41 +516,83 @@ public class AnswerCtrl : MonoBehaviour
         }
         else if (scaleheight > 1) //가로 길쭉
         {
-            for (int i = 0; i < 4; i++)
+            if (scaleheight < 1.15f)
             {
-                if (CameraList[i].rect == new Rect(0.475f, 0.052f, 0.2f, 0.363f))
+                for (int i = 0; i < 4; i++)
                 {
-                    if (i == random)
+                    if (CameraList[i].rect == new Rect(0.48f, 0.052f, 0.23f, 0.363f))
                     {
-                        if (GameManager.cubeCount == 2)
+                        if (i == random)
                         {
-                            Popup pop = sign_yes2.GetComponent<Popup>();
-                            pop.PopUp();
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
                         }
-                        else if (GameManager.cubeCount == 1)
+                        else
                         {
-                            Popup pop = sign_yes.GetComponent<Popup>();
+                            Popup pop = sign_no[i].GetComponent<Popup>();
                             pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[2].interactable = false;
+                            cube_wrong += 1;
                         }
-                        audioSrc.PlayOneShot(click[0]);
-                        //sign_yes.SetActive(true);
-                        //black_screen.SetActive(true);
-                        //하트 올리는 코드
-                        GameManager.IncreaseHeart(cube_wrong);
-                    }
-                    else
-                    {
-                        Popup pop = sign_no[i].GetComponent<Popup>();
-                        pop.PopUp();
-                        audioSrc.PlayOneShot(click[1]);
-                        //sign_no[i].SetActive(true);
-                        MoveLevel.wrongCount += 1;
-                        //black_screen_no.SetActive(true);
-                        ButtonList[2].interactable = false;
-                        cube_wrong += 1;
                     }
                 }
             }
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (CameraList[i].rect == new Rect(0.475f, 0.052f, 0.2f, 0.363f))
+                    {
+                        if (i == random)
+                        {
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
+                        }
+                        else
+                        {
+                            Popup pop = sign_no[i].GetComponent<Popup>();
+                            pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[2].interactable = false;
+                            cube_wrong += 1;
+                        }
+                    }
+                }
+            }
+            
         }
         else if (scaleheight == 1) //원본
         {
@@ -534,41 +678,83 @@ public class AnswerCtrl : MonoBehaviour
         }
         else if (scaleheight > 1) //가로 길쭉
         {
-            for (int i = 0; i < 4; i++)
+            if (scaleheight < 1.15f)
             {
-                if (CameraList[i].rect == new Rect(0.68f, 0.052f, 0.2f, 0.363f))
+                for (int i = 0; i < 4; i++)
                 {
-                    if (i == random)
+                    if (CameraList[i].rect == new Rect(0.7f, 0.052f, 0.23f, 0.363f))
                     {
-                        if (GameManager.cubeCount == 2)
+                        if (i == random)
                         {
-                            Popup pop = sign_yes2.GetComponent<Popup>();
-                            pop.PopUp();
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
                         }
-                        else if (GameManager.cubeCount == 1)
+                        else
                         {
-                            Popup pop = sign_yes.GetComponent<Popup>();
+                            Popup pop = sign_no[i].GetComponent<Popup>();
                             pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[3].interactable = false;
+                            cube_wrong += 1;
                         }
-                        audioSrc.PlayOneShot(click[0]);
-                        //sign_yes.SetActive(true);
-                        //black_screen.SetActive(true);
-                        //하트 올리는 코드
-                        GameManager.IncreaseHeart(cube_wrong);
-                    }
-                    else
-                    {
-                        Popup pop = sign_no[i].GetComponent<Popup>();
-                        pop.PopUp();
-                        audioSrc.PlayOneShot(click[1]);
-                        //sign_no[i].SetActive(true);
-                        MoveLevel.wrongCount += 1;
-                        //black_screen_no.SetActive(true);
-                        ButtonList[3].interactable = false;
-                        cube_wrong += 1;
                     }
                 }
             }
+            else
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    if (CameraList[i].rect == new Rect(0.68f, 0.052f, 0.2f, 0.363f))
+                    {
+                        if (i == random)
+                        {
+                            if (GameManager.cubeCount == 2)
+                            {
+                                Popup pop = sign_yes2.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            else if (GameManager.cubeCount == 1)
+                            {
+                                Popup pop = sign_yes.GetComponent<Popup>();
+                                pop.PopUp();
+                            }
+                            audioSrc.PlayOneShot(click[0]);
+                            //sign_yes.SetActive(true);
+                            //black_screen.SetActive(true);
+                            //하트 올리는 코드
+                            GameManager.IncreaseHeart(cube_wrong);
+                        }
+                        else
+                        {
+                            Popup pop = sign_no[i].GetComponent<Popup>();
+                            pop.PopUp();
+                            audioSrc.PlayOneShot(click[1]);
+                            //sign_no[i].SetActive(true);
+                            MoveLevel.wrongCount += 1;
+                            //black_screen_no.SetActive(true);
+                            ButtonList[3].interactable = false;
+                            cube_wrong += 1;
+                        }
+                    }
+                }
+            }
+            
         }
         else if (scaleheight == 1) //원본
         {
