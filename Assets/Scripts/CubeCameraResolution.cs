@@ -21,7 +21,11 @@ public class CubeCameraResolution : MonoBehaviour
             else
             {
                 //rect.width = scalewidth;
-                rect.x = 0.08f;
+                if(scaleheight > 1.15f)
+                {
+                    rect.x = 0.08f;
+                }
+                
             }
             camera.rect = rect;
         }
