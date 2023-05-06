@@ -18,7 +18,6 @@ https://user-images.githubusercontent.com/73284904/169698841-2dcb50ad-1b41-42f2-
   - 수습기간 알바생 > 알바생 > 우수 알바생 > 부 매니저 > 매니저
   
 + 구글 플레이 스토어 출시 완료
-![image](https://user-images.githubusercontent.com/78526611/236615850-45a28039-bd9c-475e-84c9-f3aa63e683de.png)
 https://play.google.com/store/apps/details?id=com.company.nyangnyang
-
+![image](https://user-images.githubusercontent.com/78526611/236615850-45a28039-bd9c-475e-84c9-f3aa63e683de.png)
 
